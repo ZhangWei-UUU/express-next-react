@@ -13,7 +13,7 @@
     "nodemon": "1.18.3"
   },
   "scripts": {
-    "dev": "export NODE_ENV=development && nodemon --inspect app.js",
+    "dev": "export NODE_ENV=development && nodemon app.js",
     "test": "export NODE_ENV=test && node app.js",
     "start": "next build && export NODE_ENV=production && node app.js"
   }

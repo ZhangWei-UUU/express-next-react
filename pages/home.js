@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import Head from "next/head";
-
+import { withRouter } from "next/router";
 class Home extends Component{
     render(){
         return(
@@ -16,4 +16,4 @@ class Home extends Component{
     }
 }
 
-export default Home;
+export default  withRouter(Home);
