@@ -1,18 +1,18 @@
 import React,{Component} from "react";
 import { Row,Col } from "antd";
-
+import Link from "next/link";
 const array = [
     {title:"友情链接",items:[
-        {name:"语雀",link:"/author"},
-        {name:"Github",link:"/author"}
+        {name:"语雀",link:"https://www.yuque.com/"},
+        {name:"Github",link:"https://www.yuque.com/"}
     ]},
     {title:"关于GL",items:[
         {name:"作者简介",link:"/author"},
-        {name:"产品简介",link:"/author"}
+        {name:"产品简介",link:"/about"}
     ]},
     {title:"更多产品",items:[]},
     {title:"联系我们",items:[
-        {name:"email",link:"/author"},
+        {name:"Email: kanseefoil@gmail.com",link:"/author"},
     ]}
 ];
 class FooterNav extends Component{
@@ -27,7 +27,12 @@ class FooterNav extends Component{
                                     <p><strong>{obj.title}</strong></p>
                                     {obj.items.map(item=>{
                                         return(
-                                            <p key={item.name}>{item.name}</p>
+                                            <Link prefetch href={item.link} key={item.name}>
+                                                <a>
+                                                    <p>{item.name}</p>
+                                                </a>
+                                            </Link>
+                                            
                                         );
                                     })}
                                 </Col>

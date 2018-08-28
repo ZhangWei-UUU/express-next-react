@@ -20,6 +20,18 @@ app.prepare().then(()=>{
     server.get("/",(req,res)=>{
         return app.render(req, res, "/home", req.query);
     });
+
+    server.get("/author",(req,res)=>{
+        return app.render(req, res, "/author", req.query);
+    });
+
+    server.get("/web",(req,res)=>{
+        return app.render(req, res, "/web", req.query);
+    });
+
+    server.get("/wechat",(req,res)=>{
+        return app.render(req, res, "/wechat", req.query);
+    });
      
     server.get("*",(req,res)=>{
         return app.render(req, res, "/nonfound", req.query);
