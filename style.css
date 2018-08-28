@@ -1,3 +1,77 @@
-.example{
-    border:1px solid red;
+.first-component {
+    background: linear-gradient(135deg,#35aef8,#7681ff 76%,#7681ff 0);
+    height: 900px;
+    width: 100%;
+    color:#fff;  
+    font-weight: 100;
+    padding-top: 200px;
+}
+
+.first-component-wrapper {
+    width: 80%;
+    padding:100px; 
+    margin: auto;
+}
+.first-component h1 {
+    color:#fff; 
+    font-size: 3rem;
+    font-weight: 100;
+}
+.service-component {
+    padding-top: 150px;
+    height: 800px;
+}
+
+.ant-menu-transparent {
+    background: none;
+    color: #fff;
+    position: absolute;
+    border:none;
+}
+
+.ant-menu-transparent .ant-menu-item-selected{
+    color:#e8e8e8;
+    border-bottom:none;
+}
+
+.ant-menu-transparent .ant-menu-item:hover.ant-menu-item-active{
+    color:#e8e8e8;
+    border-bottom:none;
+}
+
+.ant-menu-horizontal > .ant-menu-item, .ant-menu-horizontal > .ant-menu-submenu{
+    border-bottom: none;
+}
+
+.logo {
+    font-size: 1.3rem;
+    width: 230px;
+    margin: 0 100px;
+}
+
+.logo p {
+    font-weight: 300;
+    float: left;
+    margin-top: 13px;
+}
+.logo img{
+    margin-right: 20px;
+    width: 60px;
+    float: left;
+}
+
+.footer{
+    color: #fff;
+    min-height: 300px;
+    background: #000;
+    padding-top: 50px;
+}
+
+.footer-content {
+    width: 60%;
+    margin: auto;
+}
+
+.footer-content strong {
+    font-size: 1.1rem
 }
