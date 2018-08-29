@@ -30,12 +30,16 @@
     border:none;
 }
 
-.ant-menu-transparent .ant-menu-item-selected{
+.ant-menu-item:hover {
+    border-bottom:none!important;
+}
+
+.ant-menu-transparent .ant-menu-item:hover.ant-menu-item-active{
     color:#e8e8e8;
     border-bottom:none;
 }
 
-.ant-menu-transparent .ant-menu-item:hover.ant-menu-item-active{
+.ant-menu-transparent .ant-menu-item:hover a {
     color:#e8e8e8;
     border-bottom:none;
 }
@@ -128,6 +132,13 @@
     right: 20%;
 }
 
+.ipad {
+    width: 700px;
+    position: absolute;
+    bottom: 0%;
+    left: 8%;
+}
+
 .tech-component {
     background-color: #fff;
     min-height: 50rem;
@@ -175,4 +186,104 @@
     box-shadow:0 8px 40px rgba(0, 0, 0, 0.15);
     margin:20px;
     background-color: #fff
+}
+
+.non-found {
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width:100%;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    background-color: #e8e8e8;
+    padding-top: 5rem;
+}
+
+.non-found h1 {
+    font-size: 6rem;
+    color: #4ca498;
+}
+
+.non-found h2 {
+    font-size: 2rem;
+}
+
+.login {
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width:100%;
+    height: 100%;
+    position: absolute;
+    background:linear-gradient(135deg,#35aef8,#7681ff 76%,#7681ff 0);
+}
+
+.login-form {
+    text-align: center;
+    position: relative;
+    margin:100px auto;
+    width: 500px;
+    height: 500px;
+    color:#fff;
+}
+
+.login-form h1 {
+    color:#fff;
+    font-weight: 200;
+}
+.login-icon {
+    width: 160px;
+    display: block;
+    margin:10px auto;
+}
+
+.login-input input {
+    color:#484848;
+    width: 260px;
+    height: 36px;
+}
+
+.login-keep {
+    margin:30px 0
+}
+
+.first-component button {
+    outline: none;
+    margin:30px 10px;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    background: none;
+    color:#fff;
+    height: 40px;
+    cursor: pointer;
+    padding:5px 20px;
+}
+
+.house {
+    margin: 20px auto;
+    width: 1200px;
+    height: 700px;
+    overflow: hidden;
+    background: url("/static/house.jpg") no-repeat center center;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+}
+
+.first-component img {
+    width: 600px;
+    display: block;
+    float: right;
+}
+
+.artical-header {
+    background:linear-gradient(135deg,#35aef8,#7681ff 76%,#7681ff 0);
+    height: 16rem;
+    width:100%;
+    text-align: center;
+    color:#fff;
 }

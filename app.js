@@ -6,6 +6,7 @@ var dev = process.env.NODE_ENV !== "production";
 var configure = require("./configure/index.js");
 var app = next({dev});
 var admin = require("./routes/admin.js");
+var api = require("./api/index.js");
 
 var server = express();
 server.set("port",configure.port);
@@ -15,7 +16,7 @@ server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json());
 
 server.use("/admin",admin);
-
+server.use("/api",api);
 app.prepare().then(()=>{
     server.get("/",(req,res)=>{
         return app.render(req, res, "/home", req.query);
@@ -25,12 +26,24 @@ app.prepare().then(()=>{
         return app.render(req, res, "/author", req.query);
     });
 
+    server.get("/library",(req,res)=>{
+        return app.render(req, res, "/library", req.query);
+    });
+
+    server.get("/artical/:id",(req,res)=>{
+        return app.render(req, res, "/artical", req.query);
+    });
+
     server.get("/web",(req,res)=>{
         return app.render(req, res, "/web", req.query);
     });
 
     server.get("/wechat",(req,res)=>{
         return app.render(req, res, "/wechat", req.query);
+    });
+
+    server.get("/login",(req,res)=>{
+        return app.render(req, res, "/login", req.query);
     });
      
     server.get("*",(req,res)=>{

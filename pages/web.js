@@ -12,8 +12,7 @@ class Web extends Component{
             <Layout>
                 <HeadNav themeStyle="transparent"/> 
                 <Layout>
-                    <Content >
-                       
+                    <Content>
                         <div className="web-component">
                             <center>
                                 <h1>Web开发</h1>
@@ -26,8 +25,7 @@ class Web extends Component{
                                     </Col>
                                 </Row>
                             </div>
-                        </div>
-                        
+                        </div>  
                     </Content>
                 </Layout>
                 <FooterNav /> 

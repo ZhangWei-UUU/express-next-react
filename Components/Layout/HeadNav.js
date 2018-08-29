@@ -18,7 +18,7 @@ class HeadNav extends Component{
                     <Menu.Item key="0">
                         <div className="logo">
                             <img src="/static/logo.png" />
-                            <p>Gazella Library</p>
+                            <p>Gazella Villa</p>
                         </div>
                     </Menu.Item>
                     <Menu.Item key="1">
@@ -31,8 +31,7 @@ class HeadNav extends Component{
                             <a> Web端</a>
                         </Link>
                     </Menu.Item>
-                    <Menu.Item key="3">移动端</Menu.Item>
-                    <Menu.Item key="4">桌面端</Menu.Item>
+                  
                     <Menu.Item key="5">
                         <Link prefetch href="/wechat">
                             <a>微信小程序</a>

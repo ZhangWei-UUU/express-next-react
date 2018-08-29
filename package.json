@@ -23,11 +23,12 @@
     "babel-preset-react": "6.24.1",
     "eslint": "5.4.0",
     "eslint-plugin-react": "7.11.1",
+    "jest": "23.5.0",
     "nodemon": "1.18.3"
   },
   "scripts": {
     "dev": "export NODE_ENV=development && nodemon app.js",
-    "test": "export NODE_ENV=test && node app.js",
+    "test": "jest",
     "start": "next build && export NODE_ENV=production && node app.js"
   }
 }
