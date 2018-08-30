@@ -2,13 +2,13 @@ import React,{Component} from "react";
 import { Menu} from "antd";
 import PropTypes from "prop-types";
 import Link from "next/link";
-
 class HeadNav extends Component{
     
     render(){
         let { themeStyle } = this.props;
         return(
             <div>
+               
                 <Menu
                     theme={themeStyle?themeStyle:"dark"}
                     mode="horizontal"

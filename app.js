@@ -30,6 +30,10 @@ app.prepare().then(()=>{
         return app.render(req, res, "/library", req.query);
     });
 
+    server.get("/svg",(req,res)=>{
+        return app.render(req, res, "/svg", req.query);
+    });
+
     server.get("/artical/:id",(req,res)=>{
         return app.render(req, res, "/artical", req.query);
     });

@@ -7,14 +7,30 @@ import { OverPack } from "rc-scroll-anim";
 import Link from "next/link";
 import HeadNav from "../Components/Layout/HeadNav";
 import FooterNav from "../Components/Layout/FooterNav";
+import Head from "next/head";
+import ReactEcharts from "echarts-for-react";
 import "../style.css";
-import { CARDS } from "../Constant/homepage";
-
+import { getOption } from "../Constant/barOption";
 const { Content } = Layout;
+
 class Home extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            dataView:getOption([1,2,3,4,5,6],"历史现金流",[1000,2000,8000,3500,3310,2120],"#108ee9")
+        };
+    }
+
+    componentDidMount(){
+
+    }
+
     render(){
         return(
             <Layout>
+                <Head>
+                
+                </Head>
                 <HeadNav themeStyle="transparent"/> 
                 <Layout>
                     <Content >
@@ -60,35 +76,26 @@ class Home extends Component{
                         </div>
                         <div className="service-component">
                             <center>
-                                <OverPack style={{ overflow: "hidden", height: 130 }} >
+                                <OverPack style={{ overflow: "hidden", height: 800 }} >
                                     <TweenOne key="0" animation={{ opacity: 1 }}
                                         className="code-box-shape"
                                         style={{ opacity: 0, marginBottom: 10 }}
                                     />
                                     <QueueAnim delay={300} className="queue-simple">
-                                        <h1 key="a">一站式学习资源</h1>
-                                        <p key="b">基于强大的腾讯云资源</p>
+                                        <h1 key="a">数据可视化</h1>
+                                        <p key="b">基于强大的蚂蚁金服Antd + 百度Echarts</p>
+                                        <Link prefetch href="/canvas" key="c"><a>了解更多 <Icon type="arrow-right"/> </a></Link>  
+                                        <ReactEcharts
+                                            key="d"
+                                            className="charts-frame"
+                                          
+                                            option={this.state.dataView}      
+                                        />
                                     </QueueAnim>
                                 </OverPack>
                             </center>   
                             
-                            <Row className="first-component-wrapper">
-                                <OverPack style={{ overflow: "hidden", height: 400 }} >
-                                    <TweenOne key="0" animation={{ opacity: 1 }}
-                                        className="code-box-shape"
-                                        style={{ opacity: 0, marginBottom: 10 }}
-                                    />
-                                    <QueueAnim delay={600} className="queue-simple">
-                                        {CARDS.map(card=>{
-                                            return(
-                                                <Col lg={6} key={card.key}>
-                                                    <div className="home-card">{card.name}</div>
-                                                </Col> 
-                                            );
-                                        })}
-                                    </QueueAnim>
-                                </OverPack>
-                            </Row>
+            
                         </div>
                         <div className="iot-component">
                             <h1>溯源追踪</h1>
