@@ -41,6 +41,9 @@ class FooterNav extends Component{
                    
                    
                     </Row>
+                    <center style={{marginTop:"50px"}}>
+                     艾泽拉·虚拟别墅版权所有© 2018 备案号：沪ICP备18022274号-1
+                    </center>
                 </div>
             </div>
         );

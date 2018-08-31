@@ -1,11 +1,23 @@
+const getCategory = (nodes) =>{
+    const visitedKey = {};
+    const uniqueClassNodes = [];
+    const categories = [];
+    nodes.forEach((node) => {
+        if (!visitedKey[node.attributes.modularity_class]) {
+            uniqueClassNodes.push(node);
+        }
+        visitedKey[node.attributes.modularity_class] = true;
+    });
+    uniqueClassNodes.forEach(node=>{
+        categories.push({name:`组织：${node.attributes.modularity_class}`});
+    });
+    return categories;
+};
+
 export  const getOption  = (data) =>{
-    var categories = [];
     var graph = data;
-    for (var i = 0; i < 9; i++) {
-        categories[i] = {
-            name: "类目" + i
-        };
-    }
+    var categories = getCategory(data.nodes);
+    console.log(categories);
     graph.nodes.forEach(function (node) {
         node.itemStyle = null;
         node.symbolSize = 10;
