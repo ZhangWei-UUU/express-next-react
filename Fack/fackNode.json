@@ -1,0 +1,17 @@
+{
+    "title":"区块链测试数据",
+    "nodes":[
+        {"name":"一级公司-A","childNode":[
+            {"name":"二级公司-A-1"}
+        ]},
+        {"name":"一级公司-B","childNode":[
+            {"name":"二级公司-B-1"}
+        ]},
+        {"name":"一级公司-C","childNode":[
+            {"name":"二级公司-C-1"}
+        ]},
+        {"name":"一级公司-D","childNode":[
+            {"name":"二级公司-D-1"}
+        ]}
+    ]
+}

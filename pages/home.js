@@ -84,11 +84,10 @@ class Home extends Component{
                                     <QueueAnim delay={300} className="queue-simple">
                                         <h1 key="a">数据可视化</h1>
                                         <p key="b">基于强大的蚂蚁金服Antd + 百度Echarts</p>
-                                        <Link prefetch href="/canvas" key="c"><a>了解更多 <Icon type="arrow-right"/> </a></Link>  
+                                        <Link prefetch href="/echarts" key="c"><a>了解更多 <Icon type="arrow-right"/> </a></Link>  
                                         <ReactEcharts
                                             key="d"
                                             className="charts-frame"
-                                          
                                             option={this.state.dataView}      
                                         />
                                     </QueueAnim>

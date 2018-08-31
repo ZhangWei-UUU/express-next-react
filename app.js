@@ -46,6 +46,10 @@ app.prepare().then(()=>{
         return app.render(req, res, "/wechat", req.query);
     });
 
+    server.get("/echarts",(req,res)=>{
+        return app.render(req, res, "/echarts", req.query);
+    });
+
     server.get("/login",(req,res)=>{
         return app.render(req, res, "/login", req.query);
     });

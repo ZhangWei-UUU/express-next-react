@@ -1,0 +1,20 @@
+{
+    "nodes":[
+        {
+            "category":0,"draggable":true,"id":0,"itemStyle":null,"name":"王宇",
+            "symbolSize":10,"value":10,"x":null,"y":null,"attributes":{"modularity_class": 0}
+        },
+        {
+            "category":0,"draggable":true,"id":1,"itemStyle":null,"name":"张伟",
+            "symbolSize":10,"value":10,"x":null,"y":null,"attributes":{"modularity_class": 1}
+        },
+        {
+            "category":0,"draggable":true,"id":2,"itemStyle":null,"name":"赵超毅",
+            "symbolSize":10,"value":10,"x":null,"y":null,"attributes":{"modularity_class": 2}
+        }
+    ],
+    "links":[
+       {"id":0,"lineStyle":{"normal":{}},"name":null,"source":0,"target":1},
+       {"id":1,"lineStyle":{"normal":{}},"name":null,"source":2,"target":1}
+    ]
+}
