@@ -318,3 +318,13 @@
     box-shadow:0 8px 40px rgba(0, 0, 0, 0.15);
     background: #fff;
 }
+
+.pixel {
+    width: 280px;
+    margin-top: 200px;
+}
+
+.rn-txt {
+    text-align: center;
+    margin-top: 420px;
+}

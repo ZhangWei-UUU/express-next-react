@@ -16,12 +16,21 @@ class HeadNav extends Component{
                     style={{ lineHeight: "64px" }}
                 >
                     <Menu.Item key="0">
-                        <div className="logo">
-                            <img src="/static/logo.png" />
-                            <p>Gazella Villa</p>
-                        </div>
+                        <Link prefetch href="/">
+                            <a>
+                                <div className="logo">
+                                    {themeStyle === "light"?
+                                        <img src="/static/logo-blue.png" />:
+                                        <img src="/static/logo.png" />
+                                    }
+                                    <p style={themeStyle === "light"?
+                                        {color:"#1890ff"}:null
+                                    }>Gazella Villa</p>
+                                </div>
+                            </a>
+                        </Link>
                     </Menu.Item>
-                    <Menu.Item key="1">
+                    {/* <Menu.Item key="1">
                         <Link prefetch href="/">
                             <a>首页</a>
                         </Link>
@@ -36,7 +45,7 @@ class HeadNav extends Component{
                         <Link prefetch href="/wechat">
                             <a>微信小程序</a>
                         </Link>
-                    </Menu.Item>
+                    </Menu.Item> */}
                 </Menu>
             </div>
         );

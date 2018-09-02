@@ -50,6 +50,10 @@ app.prepare().then(()=>{
         return app.render(req, res, "/echarts", req.query);
     });
 
+    server.get("/reactnative",(req,res)=>{
+        return app.render(req, res, "/reactnative", req.query);
+    });
+
     server.get("/login",(req,res)=>{
         return app.render(req, res, "/login", req.query);
     });
