@@ -10,7 +10,12 @@ const array = [
         {name:"作者简介",link:"/author"},
         {name:"产品简介",link:"/about"}
     ]},
-    {title:"更多产品",items:[]},
+    {title:"更多技术",items:[
+        {name:"Code Mirror",link:"/tech/codemirror"},
+        {name:"Jinkins",link:"/tech/jinkins"},
+        {name:"Git IC",link:"/tech/gitic"},
+        {name:"Swagger",link:"/tech/swagger"},
+    ]},
     {title:"联系我们",items:[
         {name:"Email: kanseefoil@gmail.com",link:"/author"},
     ]}

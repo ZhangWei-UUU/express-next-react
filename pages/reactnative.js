@@ -6,6 +6,7 @@ import FooterNav from "../Components/Layout/FooterNav";
 import "../style.css";
 const { SubMenu } = Menu;
 const { Content,Sider } = Layout;
+
 class ReactNative extends Component{
     render(){
         return(

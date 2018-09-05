@@ -5,6 +5,7 @@
     "@zeit/next-css": "0.2.0",
     "@zeit/next-less": "0.3.0",
     "antd": "3.8.3",
+    "codemirror": "^5.40.0",
     "css": "2.2.3",
     "echarts": "4.1.0",
     "echarts-for-react": "2.0.14",
@@ -15,6 +16,7 @@
     "rc-scroll-anim": "2.5.5",
     "rc-tween-one": "2.2.3",
     "react": "16.4.2",
+    "react-codemirror2": "5.1.0",
     "react-dom": "16.4.2"
   },
   "devDependencies": {

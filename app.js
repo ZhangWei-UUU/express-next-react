@@ -6,6 +6,8 @@ var dev = process.env.NODE_ENV !== "production";
 var configure = require("./configure/index.js");
 var app = next({dev});
 var admin = require("./routes/admin.js");
+var tech = require("./routes/tech.js");
+
 var api = require("./api/index.js");
 
 var server = express();
@@ -15,7 +17,9 @@ server.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 server.use(bodyParser.json());
 
+
 server.use("/admin",admin);
+server.use("/tech",tech);
 server.use("/api",api);
 app.prepare().then(()=>{
     server.get("/",(req,res)=>{
