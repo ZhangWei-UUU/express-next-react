@@ -14,14 +14,8 @@ class GitCi extends Component{
                 <HeadNav themeStyle="light"/> 
                 <Layout>
                     <Content style={{ background: "#fff", padding: 24, margin: 0, minHeight: 280 }}>
-                        <Row>
-                            <Col lg={16}>
-                              
-                            </Col>
-                            <Col lg={8}>
-                                sss
-                            </Col>
-                        </Row>  
+                        <h1>Github CI管理之Travis CI</h1>
+                        <p></p>  
                     </Content>
                 </Layout>
                 <FooterNav /> 
