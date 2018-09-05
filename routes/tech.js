@@ -7,6 +7,10 @@ app.prepare().then(()=>{
     router.get("/codemirror",(req,res)=>{
         return app.render(req, res, "/codemirror", req.query);
     });
+
+    router.get("/gitci",(req,res)=>{
+        return app.render(req, res, "/gitci", req.query);
+    });
 });
 
 

@@ -13,8 +13,9 @@ const array = [
     {title:"更多技术",items:[
         {name:"Code Mirror",link:"/tech/codemirror"},
         {name:"Jinkins",link:"/tech/jinkins"},
-        {name:"Git IC",link:"/tech/gitic"},
+        {name:"Git CI",link:"/tech/gitci"},
         {name:"Swagger",link:"/tech/swagger"},
+        {name:"Docker",link:"/tech/docker"},
     ]},
     {title:"联系我们",items:[
         {name:"Email: kanseefoil@gmail.com",link:"/author"},
