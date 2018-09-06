@@ -37,7 +37,6 @@
   },
   "scripts": {
     "dev": "export NODE_ENV=development && nodemon app.js",
-    "test": "jest",
     "start": "next build && export NODE_ENV=production && node app.js"
   }
 }
