@@ -6,6 +6,8 @@ import HeadNav from "../Components/Layout/HeadNav";
 import FooterNav from "../Components/Layout/FooterNav";
 import overview from "../Files/CircleCI/overview.md";
 import firstCI from "../Files/CircleCI/firstCI.md";
+import helloworld from "../Files/CircleCI/helloworld.md";
+
 import "../style.css";
 
 const { Content } = Layout;
@@ -76,7 +78,7 @@ class GitCi extends Component{
                             <h1 id="firstCI">构建第一个Green Build</h1>
                             <ReactMarkdown source={firstCI} />
                             <h1 id="helloworld">Hello World</h1>
-                            <ReactMarkdown source={firstCI} />
+                            <ReactMarkdown source={helloworld} />
                         </div>
                     </Content>
                 </Layout>
