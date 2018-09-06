@@ -353,7 +353,7 @@
 .wiki img {
     display: block;
     width: 60%;
-    margin:50px auto;   
+    margin:30px auto;   
 }
 
 .wiki li{
@@ -362,11 +362,11 @@
 }
 
 .wiki ol{
-    margin:50px 0;
+    margin:30px 0;
 }
 
 .wiki ul{
-    margin:50px 0;
+    margin:30px 0;
 }
 
 .wiki blockquote{
@@ -377,4 +377,9 @@
 
 .wiki code {
     color: #469b73;
+}
+
+.wiki h3{
+    margin-top:50px;
+    margin-bottom: 20px;
 }

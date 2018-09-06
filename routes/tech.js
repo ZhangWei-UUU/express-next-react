@@ -11,6 +11,10 @@ app.prepare().then(()=>{
     router.get("/gitci",(req,res)=>{
         return app.render(req, res, "/gitci", req.query);
     });
+
+    router.get("/jenkins",(req,res)=>{
+        return app.render(req, res, "/jenkins", req.query);
+    });
 });
 
 

@@ -12,7 +12,7 @@ const array = [
     ]},
     {title:"更多技术",items:[
         {name:"Code Mirror",link:"/tech/codemirror"},
-        {name:"Jinkins",link:"/tech/jinkins"},
+        {name:"Jenkins",link:"/tech/jenkins"},
         {name:"Git CI",link:"/tech/gitci"},
         {name:"Swagger",link:"/tech/swagger"},
         {name:"Docker",link:"/tech/docker"},

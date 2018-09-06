@@ -41,7 +41,7 @@
     "nodemon": "1.18.3"
   },
   "scripts": {
-    "dev": "export NODE_ENV=development && nodemon app.js",
+    "dev": "export NODE_ENV=development && node app.js",
     "test": "mocha",
     "start": "next build && export NODE_ENV=production && node app.js"
   }
