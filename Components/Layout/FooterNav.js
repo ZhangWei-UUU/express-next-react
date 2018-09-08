@@ -8,7 +8,8 @@ const array = [
     ]},
     {title:"关于GL",items:[
         {name:"作者简介",link:"/author"},
-        {name:"产品简介",link:"/about"}
+        {name:"产品简介",link:"/about"},
+        {name:"后台展示",link:"/monitor"},
     ]},
     {title:"更多技术",items:[
         {name:"Code Mirror",link:"/tech/codemirror"},

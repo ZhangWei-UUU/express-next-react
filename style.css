@@ -243,7 +243,7 @@
 }
 
 .login-form form {
-    margin-top: 20px;
+    margin:20px auto;
     color:#484848;
     width: 280px;
     height: 36px;
@@ -391,4 +391,21 @@
 .wiki h3{
     margin-top:50px;
     margin-bottom: 20px;
+}
+
+.monitor i{
+    font-size: 2rem;
+    color: rgb(24, 144, 255);
+    opacity: 0.8;
+}
+
+.monitor h4 {
+    margin-top: 10px;
+    color: rgb(24, 144, 255);
+    opacity: 0.8;
+}
+
+.monitor {
+    text-align: center;
+    margin:1px;
 }

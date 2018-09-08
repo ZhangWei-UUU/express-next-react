@@ -15,12 +15,8 @@ var api = require("./api/index.js");
 var server = express();
 
 server.set("port",configure.port);
-// parse application/x-www-form-urlencoded
 server.use(bodyParser.urlencoded({ extended: false }));
-// parse application/json
 server.use(bodyParser.json());
-
-
 server.use("/admin",admin);
 server.use("/tech",tech);
 server.use("/api",api);
@@ -68,7 +64,11 @@ app.prepare().then(()=>{
     server.get("/register",(req,res)=>{
         return app.render(req, res, "/register", req.query);
     });
-     
+    
+    server.get("/monitor",(req,res)=>{
+        return app.render(req, res, "/monitor", req.query);
+    });
+
     server.get("*",(req,res)=>{
         return app.render(req, res, "/nonfound", req.query);
     });  

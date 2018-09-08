@@ -1,6 +1,8 @@
 import React,{Component} from "react";
 import Link from "next/link";
-import { Input,Icon, Button,Form } from "antd";
+import Router from 'next/router';
+
+import { Input,Icon, Button,Form ,message} from "antd";
 import "../style.css";
 
 const FormItem = Form.Item;
@@ -11,7 +13,22 @@ class Register extends Component{
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
           if (!err) {
-            console.log('Received values of form: ', values);
+              fetch('/api/register',
+            {
+               method:'POST',
+               credentials:"include",
+               headers: { 'Content-Type': 'application/json' },
+               body:JSON.stringify(values) 
+            }).then(res=>res.json()).then(data=>{
+              if(data.err){
+                  message.error(data.err)
+              }else{
+                message.success(data.success);
+                setTimeout(()=>{
+                    Router.push('/login');
+                },1200)
+              }
+            })
           }
         });
     }
