@@ -6,6 +6,7 @@ import HeadNav from "../Components/Layout/HeadNav";
 import FooterNav from "../Components/Layout/FooterNav";
 import start from "../Files/Jenkins/start.md";
 import pipeline from "../Files/Jenkins/pipeline.md";
+import node from "../Files/Jenkins/node.md";
 
 import "../style.css";
 
@@ -19,7 +20,7 @@ const LISTS = [
     ] },
     {name:"教程",subs:[
         {name:"Overview",url:"#overview"},
-        {name:"Node with npm",url:"#nodejs"},
+        {name:"Node with npm",url:"#node"},
         {name:"Branches Build",url:"#branches"}
     ] },
     {name:"用户手册",subs:[
@@ -71,6 +72,8 @@ class Jinkins extends Component{
                             <ReactMarkdown source={start} />
                             <h1 id="pipeline">Pipeline</h1>
                             <ReactMarkdown source={pipeline} />
+                            <h1 id="node">Node with NPM</h1>
+                            <ReactMarkdown source={node} />
                         </div>
                     </Content>
                 </Layout>

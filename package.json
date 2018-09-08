@@ -13,6 +13,7 @@
     "echarts-for-react": "2.0.14",
     "express": "4.16.3",
     "less": "3.8.1",
+    "mongodb": "3.1.4",
     "next": "6.1.1",
     "node-sass": "4.9.3",
     "raw-loader": "0.5.1",
@@ -41,8 +42,8 @@
     "nodemon": "1.18.3"
   },
   "scripts": {
-    "dev": "export NODE_ENV=development && node app.js",
+    "dev": "export NODE_ENV=development && export DB_PORT=27017 && node app.js",
     "test": "mocha",
-    "start": "next build && export NODE_ENV=production && node app.js"
+    "start": "next build && export NODE_ENV=production && export DB_PORT=27017 && node app.js"
   }
 }
