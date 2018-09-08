@@ -17,6 +17,7 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
+        "transform-object-rest-spread",
         "react"
     ],
     "rules": {
