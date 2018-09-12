@@ -1,6 +1,8 @@
 import React,{Component} from "react";
 import { Layout, Row,Col,Card } from "antd";
 import Link from "next/link";
+import Head from "next/head";
+import { BaiduMap } from 'react-baidu-map';
 import ReactMarkdown from "react-markdown";
 import HeadNav from "../Components/Layout/HeadNav";
 import FooterNav from "../Components/Layout/FooterNav";
@@ -31,16 +33,22 @@ const LISTS = [
 ];
 
 
-class ReactNative extends Component{
+class BaiduMapPage extends Component{
+   
     render(){
+       
         return(
             <Layout>  
+                 <Head>
+                 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=V4K1Be80betFmDcgtokl96sdKINQ0ecO">
+                 </script>  
+                </Head>
                 <HeadNav themeStyle="light"/> 
                 <Layout>
                     <Content style={{ background: "#fff", padding: 24, margin: 0, minHeight: 280 }}>
-                        <h1>持续化集成 Jenkins</h1>
-                        <p></p>  
-                
+                        <h1>Baidu地图Web版开发</h1>
+                  
+                        <BaiduMap id="location" ref="location" style={{height: 300}}/>
                         <Row>
                             {LISTS.map(list=>{
                                 return(
@@ -80,5 +88,5 @@ class ReactNative extends Component{
     }
 }
 
-export default ReactNative;
+export default BaiduMapPage;
 

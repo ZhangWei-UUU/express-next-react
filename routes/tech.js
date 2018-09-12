@@ -15,6 +15,10 @@ app.prepare().then(()=>{
     router.get("/jenkins",(req,res)=>{
         return app.render(req, res, "/jenkins", req.query);
     });
+
+    router.get("/baidumap",(req,res)=>{
+        return app.render(req, res, "/BaiduMap", req.query);
+    });
 });
 
 

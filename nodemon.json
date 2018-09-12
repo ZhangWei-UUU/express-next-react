@@ -2,6 +2,7 @@
 {
     "watch": [
         "app.js",
-        "api/"
+        "api/",
+        "pages/"
     ]
   }

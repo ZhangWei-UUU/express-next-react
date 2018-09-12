@@ -99,7 +99,7 @@ class Home extends Component{
                         <div className="iot-component">
                             <h1>溯源追踪</h1>
                             <p>基于百度地图进行二次开发</p>
-                            <Link prefetch href="/artical/baidumap"><a>了解更多 <Icon type="arrow-right"/> </a></Link>
+                            <Link prefetch href="/tech/baidumap"><a>了解更多 <Icon type="arrow-right"/> </a></Link>
                             <img src="/static/ipad.png" className="ipad"/>
                             <img src="/static/truck.png" className="truck"/>
                         </div>
@@ -114,6 +114,24 @@ class Home extends Component{
                                 </Col>
                                 <Col lg={10}>
                                     <img src="/static/pixel.png" className="pixel"/>
+                                </Col>
+                            </Row>
+                        </div>
+                        <div className="iot-component">
+                            <Row>
+                                <Col lg={12}>
+                                    <div style={{paddingTop:"100px"}}>
+                                        <h1>Tesseract.js</h1>
+                                        <p>纯JS图像文字识别库</p>
+                                        <Link prefetch href="/reactnative"><a>点击进入<Icon type="arrow-right"/> </a></Link>
+                                    </div>
+                                </Col>
+                                <Col lg={12}>
+                                <div style={{paddingTop:"100px"}}>
+                                        <h1>TensorFlow.js</h1>
+                                        <p>Google推出纯JS深度学习库</p>
+                                        <Link prefetch href="/reactnative"><a>点击进入<Icon type="arrow-right"/> </a></Link>
+                                    </div>
                                 </Col>
                             </Row>
                         </div>
