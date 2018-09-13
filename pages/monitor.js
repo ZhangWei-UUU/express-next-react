@@ -28,11 +28,12 @@ class Monitor extends Component{
             CARDS = [
                 {key:0, title:"当前环境",icon:"laptop",value:data.environment},
                 {key:6, title:"进程ID",icon:"fork",value:data.pid},
-                {key:1, title:"IP地址",icon:"compass",value:data.environment},
+                {key:1, title:"IP地址",icon:"compass",value:`公网：${data.ip}`},
                 {key:2, title:"CPU",icon:"global",value:`${data.cpu.length}核 | ${data.cpu[0].model}`},
                 {key:3, title:"内存",icon:"save",value:data.freeMem/1024/1024+ "MB"},
                 {key:4, title:"磁盘",icon:"hdd",value:data.environment},
                 {key:5, title:"数据库",icon:"database",value:"端口："+data.dbPort},
+                {key:6, title:"Node版本",icon:"edit",value:"端口："+data.dbPort},
             ]
         }
 
