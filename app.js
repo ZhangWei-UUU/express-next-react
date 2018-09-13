@@ -3,6 +3,7 @@ var express = require("express");
 var next = require("next");
 var bodyParser = require("body-parser");
 
+var session = require('express-session')
 
 var dev = process.env.NODE_ENV !== "production";
 var configure = require("./configure/index.js");
@@ -13,6 +14,14 @@ var tech = require("./routes/tech.js");
 var api = require("./api/index.js");
 
 var server = express();
+
+server.set('trust proxy', 1) // trust first proxy
+server.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true,maxAge: 60000 }
+}))
 
 server.set("port",configure.port);
 server.use(bodyParser.urlencoded({ extended: false }));

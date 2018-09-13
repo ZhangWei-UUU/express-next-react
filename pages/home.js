@@ -50,7 +50,7 @@ class Home extends Component{
                                                 </p>
                                              
                                                 <div key="3">
-                                                    <Link prefetch href="/library">
+                                                    <Link prefetch href="/admin/usercenter">
                                                         <a>
                                                             <button>点击进入</button>
                                                         </a>

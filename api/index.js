@@ -1,5 +1,6 @@
 var express = require("express");
 var router = express.Router();
+
 const MongoClient = require("mongodb").MongoClient;
 const os = require("os");
 const DB_CONFIG = require("../db");
@@ -53,6 +54,8 @@ router.post("/login",(req,res)=>{
             const db = client.db(DB_CONFIG.dbname);
             findDocument(db,req.body,(back)=>{
                 if(back.length>0){
+                    console.log(req.session)
+                    req.session.views = 1;
                     res.send({success:"登录成功"});
                 }else{
                     res.send({err:"用户名或密码错误"});
