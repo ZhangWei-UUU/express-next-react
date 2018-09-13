@@ -2,18 +2,37 @@ import React,{Component} from "react";
 import { Menu} from "antd";
 import PropTypes from "prop-types";
 import Link from "next/link";
+
 class HeadNav extends Component{
-    
+    constructor(props){
+        super(props)
+        this.state = {
+            login:false
+        }
+    }
+    componentDidMount(){
+        const user = localStorage.getItem("userSession");
+        console.log(user);
+        if(user){
+          this.setState({
+              login:true
+          })
+        }else{
+            this.setState({
+                login:false
+            })
+        }
+    }
     render(){
         let { themeStyle } = this.props;
+        let { login } = this.state;
         return(
             <div>
-               
                 <Menu
                     theme={themeStyle?themeStyle:"dark"}
                     mode="horizontal"
                     defaultSelectedKeys={["2"]}
-                    style={{ lineHeight: "64px" }}
+                    style={{ lineHeight: "64px",width:"100%" }}
                 >
                     <Menu.Item key="0">
                         <Link prefetch href="/">
@@ -30,22 +49,17 @@ class HeadNav extends Component{
                             </a>
                         </Link>
                     </Menu.Item>
-                    {/* <Menu.Item key="1">
-                        <Link prefetch href="/">
-                            <a>首页</a>
-                        </Link>
+                    <Menu.Item key="right" style={{float:"right"}}>
+                      {login?
+                       <Link prefetch href="/api/logout">
+                      <a>退出</a>
+                      </Link>
+                      :
+                      <Link prefetch href="/login">
+                      <a>未登录</a>
+                      </Link>
+                      }
                     </Menu.Item>
-                    <Menu.Item key="2">
-                        <Link prefetch href="/web">
-                            <a> Web端</a>
-                        </Link>
-                    </Menu.Item>
-                  
-                    <Menu.Item key="5">
-                        <Link prefetch href="/wechat">
-                            <a>微信小程序</a>
-                        </Link>
-                    </Menu.Item> */}
                 </Menu>
             </div>
         );

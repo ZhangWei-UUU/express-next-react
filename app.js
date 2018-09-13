@@ -2,9 +2,9 @@
 var express = require("express");
 var next = require("next");
 var bodyParser = require("body-parser");
-
+var cookieParser = require('cookie-parser')
 var session = require('express-session')
-
+var mgStore = require('connect-mongo')(session);
 var dev = process.env.NODE_ENV !== "production";
 var configure = require("./configure/index.js");
 var app = next({dev});
@@ -16,21 +16,26 @@ var api = require("./api/index.js");
 var server = express();
 
 server.set('trust proxy', 1) // trust first proxy
-server.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true,maxAge: 60000 }
-}))
+
 
 server.set("port",configure.port);
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json());
+server.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true,maxAge: 60000 },
+    store: new mgStore({url: 'mongodb://localhost/test-app'})
+  }))
+server.use(cookieParser());
+
 server.use("/admin",admin);
 server.use("/tech",tech);
 server.use("/api",api);
 app.prepare().then(()=>{
     server.get("/",(req,res)=>{
+        console.log("ceshi:",req.session.loginUser)
         return app.render(req, res, "/home", req.query);
     });
 

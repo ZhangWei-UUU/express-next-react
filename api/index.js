@@ -46,6 +46,12 @@ router.post("/register",(req,res)=>{
     });
 });
 
+router.get("/logout",(req,res)=>{
+    req.session.destroy((err)=>{
+        res.redirect("/")
+    })
+});
+
 router.post("/login",(req,res)=>{
     MongoClient.connect(DB_CONFIG.url, function(err, client) {
         if(err){
@@ -54,9 +60,15 @@ router.post("/login",(req,res)=>{
             const db = client.db(DB_CONFIG.dbname);
             findDocument(db,req.body,(back)=>{
                 if(back.length>0){
-                    console.log(req.session)
-                    req.session.views = 1;
-                    res.send({success:"登录成功"});
+                    req.session.regenerate(err=>{
+                        if(err){
+                            res.send({err:"登录失败"});
+                           
+                        }else{
+                            req.session.loginUser = req.body.userName;
+                            res.send({success:"登录成功"});
+                        }
+                    })
                 }else{
                     res.send({err:"用户名或密码错误"});
                 }
