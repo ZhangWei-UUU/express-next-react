@@ -2,7 +2,6 @@ import React,{Component} from "react";
 import { Layout, Row,Col,Card } from "antd";
 import Link from "next/link";
 import Head from "next/head";
-import { BaiduMap } from 'react-baidu-map';
 import ReactMarkdown from "react-markdown";
 import HeadNav from "../Components/Layout/HeadNav";
 import FooterNav from "../Components/Layout/FooterNav";
@@ -48,7 +47,6 @@ class BaiduMapPage extends Component{
                     <Content style={{ background: "#fff", padding: 24, margin: 0, minHeight: 280 }}>
                         <h1>Baidu地图Web版开发</h1>
                   
-                        <BaiduMap id="location" ref="location" style={{height: 300}}/>
                         <Row>
                             {LISTS.map(list=>{
                                 return(

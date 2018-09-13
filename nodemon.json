@@ -3,6 +3,6 @@
     "watch": [
         "app.js",
         "api/",
-        "pages/"
+        "routes/"
     ]
   }
