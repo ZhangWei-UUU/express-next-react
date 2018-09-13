@@ -4,7 +4,8 @@ var next = require("next");
 var bodyParser = require("body-parser");
 var cookieParser = require('cookie-parser')
 var session = require('express-session')
-var mgStore = require('connect-mongo')(session);
+var MongoDBStore = require('connect-mongodb-session')(session);
+
 var dev = process.env.NODE_ENV !== "production";
 var configure = require("./configure/index.js");
 var app = next({dev});
@@ -22,21 +23,28 @@ server.set("port",configure.port);
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json());
 
-server.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true,maxAge: 60000 },
-    store: new mgStore({url: 'mongodb://localhost/session'})
-  }));
-
+var store = new MongoDBStore({
+    uri: 'mongodb://localhost:27017/session',
+    collection: 'sessions'
+  });
+server.use(require('express-session')({
+    secret: 'This is a secret',
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
+    },
+    store: store,
+    resave: true,
+    saveUninitialized: true
+  }))
 server.use(cookieParser());
 
 server.use("/admin",admin);
 server.use("/tech",tech);
 server.use("/api",api);
+
 app.prepare().then(()=>{
     server.get("/",(req,res)=>{
+        console.log(req.session)
         return app.render(req, res, "/home", req.query);
     });
 

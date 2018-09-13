@@ -61,15 +61,10 @@ router.post("/login",(req,res)=>{
             const db = client.db(DB_CONFIG.dbname);
             findDocument(db,req.body,(back)=>{
                 if(back.length>0){
-                    req.session.regenerate(err=>{
-                        if(err){
-                            res.send({err:"登录失败"});
-                           
-                        }else{
-                            req.session.loginUser = req.body.userName;
-                            res.send({success:"登录成功"});
-                        }
-                    })
+                   
+                        req.session.loginUser = req.body.userName;
+                        res.send({success:"登录成功"});
+                
                 }else{
                     res.send({err:"用户名或密码错误"});
                 }

@@ -9,6 +9,7 @@
     "antd": "3.8.3",
     "codemirror": "^5.40.0",
     "connect-mongo": "2.0.1",
+    "connect-mongodb-session": "2.0.3",
     "cookie-parser": "1.4.3",
     "css": "2.2.3",
     "echarts": "4.1.0",
