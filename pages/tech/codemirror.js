@@ -1,9 +1,9 @@
 import React,{Component} from "react";
 import { Layout, Row,Col } from "antd";
 import { Controlled as CodeMirror} from "react-codemirror2";
-import HeadNav from "../Components/Layout/HeadNav";
-import FooterNav from "../Components/Layout/FooterNav";
-import "../style.css";
+import HeadNav from "../../Components/Layout/HeadNav";
+import FooterNav from "../../Components/Layout/FooterNav";
+import "../../style.css";
 const { Content } = Layout;
 
 class CodeMirrorPage extends Component{

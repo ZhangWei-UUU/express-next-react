@@ -44,8 +44,7 @@ server.use("/api",api);
 
 app.prepare().then(()=>{
     server.get("/",(req,res)=>{
-        console.log(req.session)
-        return app.render(req, res, "/home", req.query);
+        return app.render(req, res, "/index", req.query);
     });
 
     server.get("/author",(req,res)=>{
@@ -99,7 +98,7 @@ app.prepare().then(()=>{
 
 server.use((err,req,res,next)=>{
     if(req.xhr){
-        return res.send("浏览器挂l");
+        return res.send("浏览器挂");
     }else{
         next(err);
     }

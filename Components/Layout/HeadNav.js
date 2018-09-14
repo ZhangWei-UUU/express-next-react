@@ -1,31 +1,61 @@
 import React,{Component} from "react";
-import { Menu} from "antd";
+import { Menu } from "antd";
 import PropTypes from "prop-types";
 import Link from "next/link";
+import Router from 'next/router';
 
 class HeadNav extends Component{
     constructor(props){
         super(props)
         this.state = {
-            login:false
+            login:false,
+            loginUser:null
         }
     }
+    static getInitialProps(){
+        
+    }
     componentDidMount(){
-        const user = localStorage.getItem("userSession");
-        console.log(user);
-        if(user){
+        const loginUser = sessionStorage.getItem("loginUser");
+        if(loginUser){
           this.setState({
-              login:true
+              login:true,
+              loginUser
           })
         }else{
-            this.setState({
-                login:false
+            fetch("/api/checkSession").then(res=>res.json()).then(data=>{
+                if(data.loginUser){
+                    sessionStorage.setItem('loginUser', data.loginUser);
+                this.setState({
+                    login:true,
+                    loginUser:data.loginUser
+                })
+                }else{
+                    this.setState({
+                        login:false,
+                        loginUser:null
+                    })
+                   
+                }
             })
         }
     }
+
+    logout = () =>{
+        fetch("/api/logout").then(res=>res.json()).then(data=>{
+            if(data.success){
+                this.setState({
+                    login:false,
+                    loginUser:null
+                });
+                sessionStorage.removeItem("loginUser");
+                Router.push('/login')
+            }
+        })
+    }
     render(){
         let { themeStyle } = this.props;
-        let { login } = this.state;
+        let { login ,loginUser } = this.state;
         return(
             <div>
                 <Menu
@@ -51,9 +81,9 @@ class HeadNav extends Component{
                     </Menu.Item>
                     <Menu.Item key="right" style={{float:"right"}}>
                       {login?
-                       <Link prefetch href="/api/logout">
-                      <a>退出</a>
-                      </Link>
+                      
+                      <a onClick={this.logout}>{loginUser} | 退出</a>
+                    
                       :
                       <Link prefetch href="/login">
                       <a>未登录</a>

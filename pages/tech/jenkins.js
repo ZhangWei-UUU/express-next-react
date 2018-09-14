@@ -2,13 +2,13 @@ import React,{Component} from "react";
 import { Layout, Row,Col,Card } from "antd";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-import HeadNav from "../Components/Layout/HeadNav";
-import FooterNav from "../Components/Layout/FooterNav";
-import start from "../Files/Jenkins/start.md";
-import pipeline from "../Files/Jenkins/pipeline.md";
-import node from "../Files/Jenkins/node.md";
+import HeadNav from "../../Components/Layout/HeadNav";
+import FooterNav from "../../Components/Layout/FooterNav";
+import start from "../../Files/Jenkins/start.md";
+import pipeline from "../../Files/Jenkins/pipeline.md";
+import node from "../../Files/Jenkins/node.md";
 
-import "../style.css";
+import "../../style.css";
 
 const { Content } = Layout;
 

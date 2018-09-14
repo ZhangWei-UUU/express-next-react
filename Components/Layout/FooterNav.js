@@ -8,15 +8,12 @@ const array = [
     ]},
     {title:"关于GL",items:[
         {name:"作者简介",link:"/author"},
-        {name:"产品简介",link:"/about"},
         {name:"后台展示",link:"/monitor"},
     ]},
     {title:"更多技术",items:[
         {name:"Code Mirror",link:"/tech/codemirror"},
         {name:"Jenkins",link:"/tech/jenkins"},
         {name:"Git CI",link:"/tech/gitci"},
-        {name:"Swagger",link:"/tech/swagger"},
-        {name:"Docker",link:"/tech/docker"},
     ]},
     {title:"联系我们",items:[
         {name:"Email: kanseefoil@gmail.com",link:"/author"},

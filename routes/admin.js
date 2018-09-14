@@ -7,7 +7,7 @@ var app = next({dev});
 app.prepare().then(()=>{
     router.get("/usercenter",(req,res)=>{
         console.log(req.session)
-        return app.render(req, res, "/usercenter", req.query);
+        return app.render(req, res, "/admin/usercenter", req.query);
     });
 });
 

@@ -47,9 +47,18 @@ router.post("/register",(req,res)=>{
     });
 });
 
+router.get("/checkSession",(req,res)=>{
+    const loginUser = req.session.loginUser;
+    if(loginUser){
+        res.send({loginUser});
+    }else{
+        res.send({success:false})
+    }
+});
+
 router.get("/logout",(req,res)=>{
     req.session.destroy((err)=>{
-        res.redirect("/")
+        res.send({success:true})
     })
 });
 

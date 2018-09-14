@@ -3,13 +3,13 @@ import React,{Component} from "react";
 import { Layout, Row,Col,Card } from "antd";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-import HeadNav from "../Components/Layout/HeadNav";
-import FooterNav from "../Components/Layout/FooterNav";
-import overview from "../Files/CircleCI/overview.md";
-import firstCI from "../Files/CircleCI/firstCI.md";
-import helloworld from "../Files/CircleCI/helloworld.md";
+import HeadNav from "../../Components/Layout/HeadNav";
+import FooterNav from "../../Components/Layout/FooterNav";
+import overview from "../../Files/CircleCI/overview.md";
+import firstCI from "../../Files/CircleCI/firstCI.md";
+import helloworld from "../../Files/CircleCI/helloworld.md";
 
-import "../style.css";
+import "../../style.css";
 
 const { Content } = Layout;
 
