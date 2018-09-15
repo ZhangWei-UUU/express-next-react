@@ -2,13 +2,10 @@ module.exports = {
     "env": {
         "browser": true,
         "commonjs": true,
-        "es6": true,
-        "node": true
+        "es6": true
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended"
-    ],
+    "extends": ["airbnb",                                                                                                              
+    "plugin:react/recommended"    ],
     "parserOptions": {
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
@@ -17,14 +14,12 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-        "transform-object-rest-spread",
         "react"
     ],
     "rules": {
-        "no-console":"off",
         "indent": [
             "error",
-            4
+            "tab"
         ],
         "linebreak-style": [
             "error",
