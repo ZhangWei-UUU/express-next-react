@@ -1,0 +1,18 @@
+{
+    "menu":[
+        {"name":"Fundamentals","children":[
+            {"name":"Getting-started"},
+            {"name":"Hello React Navigation"},
+            {"name":"Moving between screens"},
+            {"name":"Passing parameters to routes"},
+            {"name":"Configuring the header bar"}
+        ]},
+        {"name":"Assorted Guides","children":[
+            {"name":"Tab navigation"},
+            {"name":"Drawer navigation"},
+            {"name":"Authentication flows"},
+            {"name":"iPhone X support"},
+            {"name":"Different status bar configuration based on route"}
+        ]}
+    ]
+}

@@ -17,7 +17,7 @@ What follows within the Fundamentals section of this documentation is a tour of 
 
 ## Installation
 
-```
+```bash
 yarn add react-navigation
 ```
 

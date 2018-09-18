@@ -1,6 +1,5 @@
 import React,{Component} from "react";
 import { Layout, Row, Col, Icon } from "antd";
-import { withRouter } from "next/router";
 import TweenOne from "rc-tween-one";
 import QueueAnim from "rc-queue-anim";
 import { OverPack } from "rc-scroll-anim";
@@ -76,22 +75,18 @@ class Home extends Component{
                         </div>
                         <div className="service-component">
                             <center>
-                                <OverPack style={{ overflow: "hidden", height: 800 }} >
-                                    <TweenOne key="0" animation={{ opacity: 1 }}
-                                        className="code-box-shape"
-                                        style={{ opacity: 0, marginBottom: 10 }}
-                                    />
-                                    <QueueAnim delay={300} className="queue-simple">
+                               
                                         <h1 key="a">数据可视化</h1>
                                         <p key="b">基于强大的蚂蚁金服Antd + 百度Echarts</p>
-                                        <Link prefetch href="/echarts" key="c"><a>了解更多 <Icon type="arrow-right"/> </a></Link>  
+                                        <Link prefetch href="/echarts" key="c-1">
+                                          <a>了解更多 <Icon type="arrow-right"/> </a>
+                                        </Link>  
                                         <ReactEcharts
                                             key="d"
                                             className="charts-frame"
                                             option={this.state.dataView}      
                                         />
-                                    </QueueAnim>
-                                </OverPack>
+                                   
                             </center>   
                             
             
@@ -145,4 +140,4 @@ class Home extends Component{
     }
 }
 
-export default  withRouter(Home);
+export default  Home;

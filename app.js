@@ -11,9 +11,9 @@ var configure = require("./configure/index.js");
 var app = next({dev});
 var admin = require("./routes/admin.js");
 var tech = require("./routes/tech.js");
-
+var doc = require("./routes/doc.js");
 var api = require("./api/index.js");
-
+var docapi = require("./api/doc.js");
 var server = express();
 
 server.set('trust proxy', 1) // trust first proxy
@@ -40,7 +40,10 @@ server.use(cookieParser());
 
 server.use("/admin",admin);
 server.use("/tech",tech);
+server.use("/doc",doc);
+server.use("/api/doc",docapi);
 server.use("/api",api);
+
 
 app.prepare().then(()=>{
     server.get("/",(req,res)=>{

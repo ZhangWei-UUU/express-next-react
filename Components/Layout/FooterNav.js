@@ -14,6 +14,7 @@ const array = [
         {name:"Code Mirror",link:"/tech/codemirror"},
         {name:"Jenkins",link:"/tech/jenkins"},
         {name:"Git CI",link:"/tech/gitci"},
+        {name:"React Native Navigator",link:"/doc/react-native-navigator"},
     ]},
     {title:"联系我们",items:[
         {name:"Email: kanseefoil@gmail.com",link:"/author"},
