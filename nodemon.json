@@ -1,8 +1,7 @@
-
 {
     "watch": [
         "app.js",
-        "/api",
+        "/api/doc.js",
         "/routes"
     ]
   }

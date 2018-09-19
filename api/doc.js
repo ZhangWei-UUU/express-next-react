@@ -1,8 +1,9 @@
 var express = require("express");
 var router = express.Router();
 
-router.get("/",(req,res)=>{
-        res.send({loginUser});
+router.get("/:theme/:charpt",(req,res)=>{
+    console.log(req.params);
+    res.send({loginUser:"xx"});
 });
 
 module.exports = router;
