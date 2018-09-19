@@ -9,21 +9,27 @@ import request from '../../Components/Fetch/request';
 import "../../style.css";
 
 class Doc extends Component{
+    constructor(props){
+       super(props);
+       this.state ={
+           menu:[]
+       }
+    }
     static getInitialProps ({req}){
-        var resoucePath = req.path.split("/");
-        var item = resoucePath[1];
-        var menuList = require(`../../Files/${item}/list.json`);
-        return {menuList,item}
+       var pathArray = req.path.split("/");
+       var theme = pathArray[1];
+       var charpt = pathArray[2];
+       return {theme,charpt}
     }
     
-    componentDidMount(){
-        let item = this.props;
-        const URL = `/api/doc/${item}/${null}`;
-        const data = request("GET",URL);
-        console.log(data)
-    }
+    async componentDidMount(){
+       let  { theme,charpt }= this.props;
+       var data = await request("GET",`/api/doc/${theme}/${charpt}`);
+           console.log(data)
+       }
+       
 	render(){
-        let {menu} = this.props.menuList;
+        let {menu} = this.state;
 		return(
 			<Layout>  
 				<HeadNav themeStyle="light"/> 
@@ -50,7 +56,7 @@ class Doc extends Component{
                           })}
                         </Col>
                         <Col lg={18} offset={1}>
-                         ds
+                        
                         </Col>
                     </Row>
 					{/* <ReactMarkdown source={overview} />			 */}

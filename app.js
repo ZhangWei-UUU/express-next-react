@@ -14,38 +14,42 @@ var tech = require("./routes/tech.js");
 var doc = require("./routes/doc.js");
 var api = require("./api/index.js");
 var docapi = require("./api/doc.js");
-var server = express();
 
-server.set('trust proxy', 1) // trust first proxy
+const handle = app.getRequestHandler();
 
 
-server.set("port",configure.port);
-server.use(bodyParser.urlencoded({ extended: false }));
-server.use(bodyParser.json());
 
 var store = new MongoDBStore({
     uri: 'mongodb://localhost:27017/session',
     collection: 'sessions'
   });
-server.use(require('express-session')({
-    secret: 'This is a secret',
-    cookie: {
-      maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
-    },
-    store: store,
-    resave: true,
-    saveUninitialized: true
-  }))
-server.use(cookieParser());
 
-server.use("/admin",admin);
-server.use("/tech",tech);
-server.use("/doc",doc);
-server.use("/api/doc",docapi);
-server.use("/api",api);
 
 
 app.prepare().then(()=>{
+    var server = express();
+    server.set('trust proxy', 1) // trust first proxy
+
+
+server.set("port",configure.port);
+server.use(bodyParser.urlencoded({ extended: false }));
+server.use(bodyParser.json());
+    server.use(require('express-session')({
+        secret: 'This is a secret',
+        cookie: {
+          maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
+        },
+        store: store,
+        resave: true,
+        saveUninitialized: true
+      }))
+    server.use(cookieParser());
+    
+    server.use("/admin",admin);
+    server.use("/tech",tech);
+    server.use("/doc",doc);
+    server.use("/api/doc",docapi);
+    server.use("/api",api);
     server.get("/",(req,res)=>{
         return app.render(req, res, "/index", req.query);
     });
@@ -94,22 +98,24 @@ app.prepare().then(()=>{
         return app.render(req, res, "/monitor", req.query);
     });
 
-    server.get("*",(req,res)=>{
-        return app.render(req, res, "/nonfound", req.query);
-    });  
-});
-
-server.use((err,req,res,next)=>{
-    if(req.xhr){
-        return res.send("浏览器挂");
-    }else{
-        next(err);
-    }
-});
-
-server.listen(configure.port,()=>{
+    server.get('*', (req, res) => {
+        return handle(req, res)
+    })
+   
+server.listen(configure.port,(err)=>{
+    if (err) throw err;
     console.log("启动Express-next-react App,端口号："+configure.port);
 });
+});
+
+// server.use((err,req,res,next)=>{
+//     if(req.xhr){
+//         return res.send("浏览器挂");
+//     }else{
+//         next(err);
+//     }
+// });
+
 process.on("uncaughtException",(err)=>{
     console.log(err);
 });

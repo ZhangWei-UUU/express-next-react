@@ -1,18 +1,19 @@
 {
     "menu":[
         {"name":"Fundamentals","children":[
-            {"name":"Getting-started"},
-            {"name":"Hello React Navigation"},
-            {"name":"Moving between screens"},
-            {"name":"Passing parameters to routes"},
-            {"name":"Configuring the header bar"}
+            {"name":"Getting-started","url":"Getting-started"},
+            {"name":"Hello React Navigation","url":"Hello-React-Navigation"},
+            {"name":"Moving between screens","url":"Moving-between-screens"},
+            {"name":"Passing parameters to routes","url":"Passing-parameters-to-routes"},
+            {"name":"Configuring the header bar","url":"Configuring-the-header-bar"}
         ]},
         {"name":"Assorted Guides","children":[
-            {"name":"Tab navigation"},
-            {"name":"Drawer navigation"},
-            {"name":"Authentication flows"},
-            {"name":"iPhone X support"},
-            {"name":"Different status bar configuration based on route"}
+            {"name":"Tab navigation","url":"Tab-navigation"},
+            {"name":"Drawer navigation","url":"Drawer-navigation"},
+            {"name":"Authentication flows","url":"Authentication-flows"},
+            {"name":"iPhone X support","url":"iPhone-X-support"},
+            {"name":"Different status bar configuration based on route",
+                "url":"Different-status-bar-configuration-based-on-route"}
         ]}
     ]
 }

@@ -1,6 +1,8 @@
 {
   "name": "express-next-react",
-  "version": "0.0.1",
+  "author": "Zhang Wei Wu Shu",
+  "license": "GPL-3.0",
+  "version": "0.0.2",
   "dependencies": {
     "@zeit/next-css": "0.2.0",
     "@zeit/next-less": "0.3.0",
@@ -21,7 +23,7 @@
     "ip": "1.1.5",
     "less": "3.8.1",
     "mongodb": "3.1.4",
-    "next": "6.1.1",
+    "next": "6.1.2",
     "node-sass": "4.9.3",
     "raw-loader": "0.5.1",
     "rc-queue-anim": "1.6.5",
@@ -50,7 +52,7 @@
     "nodemon": "1.18.3"
   },
   "scripts": {
-    "dev": "export NODE_ENV=development && export DB_PORT=27017 && nodemon app.js  -w app.js -w next.config.js  -w package.json",
+    "dev": "export NODE_ENV=development && export DB_PORT=27017 && nodemon app.js -w app.js -w next.config.js  -w package.json  -w yarn.lock",
     "test": "mocha",
     "start": "next build && export NODE_ENV=production && export DB_PORT=27017 && node app.js"
   }
