@@ -50,7 +50,7 @@
     "nodemon": "1.18.3"
   },
   "scripts": {
-    "dev": "export NODE_ENV=development && export DB_PORT=27017 && nodemon -w app.js app.js",
+    "dev": "export NODE_ENV=development && export DB_PORT=27017 && nodemon app.js  -w app.js -w next.config.js  -w package.json",
     "test": "mocha",
     "start": "next build && export NODE_ENV=production && export DB_PORT=27017 && node app.js"
   }
