@@ -4,8 +4,7 @@ module.exports = {
         "commonjs": true,
         "es6": true
     },
-    "extends": ["airbnb",                                                                                                              
-    "plugin:react/recommended"    ],
+    "extends": "eslint:recommended",
     "parserOptions": {
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
