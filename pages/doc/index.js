@@ -25,7 +25,7 @@ class Doc extends Component {
     async componentDidMount() {
         const { theme, charpt } = this.props;
         const data = await request("GET", `/api/doc/${theme}/${charpt}`);
-        console.log("页",data);
+        console.log("页mian",data);
     }
 
     render() {
