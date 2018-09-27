@@ -10,6 +10,7 @@ import "../style.css";
 const { Content } = Layout;
 class EchartsPage extends Component{
     render(){
+        console.log("xx");
         return(
             <Layout>
                 <HeadNav themeStyle="light"/> 
@@ -39,7 +40,6 @@ class EchartsPage extends Component{
                                 </div>
                             </Col>
                         </Row>
-                       
                     </Content>
                 </Layout>
                 <FooterNav /> 

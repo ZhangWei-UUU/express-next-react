@@ -1,9 +1,10 @@
 
 import React, { Component } from "react";
 import {
-    Layout, Row, Col, Card,
+    Layout, Row, Col,message
 } from "antd";
 import ReactMarkdown from "react-markdown";
+import PropTypes from "prop-types";
 import HeadNav from "../../Components/Layout/HeadNav";
 import FooterNav from "../../Components/Layout/FooterNav";
 import request from "../../Components/Fetch/request";
@@ -15,6 +16,7 @@ class Doc extends Component {
         super(props);
         this.state = {
             menu: [],
+            content:""
         };
     }
 
@@ -25,11 +27,24 @@ class Doc extends Component {
     async componentDidMount() {
         const { theme, charpt } = this.props;
         const data = await request("GET", `/api/doc/${theme}/${charpt}`);
-        console.log("页mian",data);
+        if(data.error){
+            message.error(data.error);
+            this.setState({
+                menu:[],
+                content:""
+            });
+        }else{
+            this.setState({
+                menu:JSON.parse(data.menu).menu,
+                content:data.content
+            });
+        }
+       
     }
 
     render() {
-        const { menu } = this.state;
+        let { theme } = this.props;
+        const { menu,content } = this.state;
         return (
             <Layout>
                 <HeadNav themeStyle="light" />
@@ -44,22 +59,26 @@ class Doc extends Component {
                                     <ul className="menu-main-children">
                                         {mainTab.children.map(child => (
                                             <li key={child.name}>
-                                                <a href={`?${child.name}`}>{child.name}</a>
+                                                <a href={`/doc/${theme}/${child.url}`}>{child.name}</a>
                                             </li>
                                         ))}
                                     </ul>
                                 </div>
                             ))}
                         </Col>
-                        <Col lg={18} offset={1} />
-                    </Row>
-              
-                    {/* <ReactMarkdown source={overview} />			 */}
+                        <Col lg={18} offset={1} >
+                            <ReactMarkdown source={content} />			
+                        </Col>
+                    </Row> 
                 </Layout>
                 <FooterNav />
             </Layout>
         );
     }
 }
+
+Doc.propTypes = {
+    theme: PropTypes.string
+};
 
 export default Doc;

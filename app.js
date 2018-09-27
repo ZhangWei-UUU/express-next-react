@@ -9,28 +9,19 @@ var MongoDBStore = require("connect-mongodb-session")(session);
 var dev = process.env.NODE_ENV !== "production";
 var configure = require("./configure/index.js");
 var app = next({dev});
-var admin = require("./routes/admin.js");
-var tech = require("./routes/tech.js");
-var doc = require("./routes/doc.js");
+
 var api = require("./api/index.js");
 var docapi = require("./api/doc.js");
 
 const handle = app.getRequestHandler();
-
-
-
 var store = new MongoDBStore({
     uri: "mongodb://localhost:27017/session",
     collection: "sessions"
 });
 
-
-
 app.prepare().then(()=>{
     var server = express();
     server.set("trust proxy", 1); // trust first proxy
-
-
     server.set("port",configure.port);
     server.use(bodyParser.urlencoded({ extended: false }));
     server.use(bodyParser.json());
@@ -44,48 +35,48 @@ app.prepare().then(()=>{
         saveUninitialized: true
     }));
     server.use(cookieParser());
-    
-    server.use("/admin",admin);
-    server.use("/tech",tech);
-    server.use("/doc",doc);
-    server.use("/api/doc",docapi);
     server.use("/api",api);
+    server.use("/api/doc",docapi);
     server.get("/",(req,res)=>{
-        return app.render(req, res, "/index");
+        return app.render(req, res, "/index",req.query);
+    });
+     
+    server.get("/doc/:theme/:charpt",(req,res)=>{
+        return app.render(req, res, "/doc",{theme:req.params.theme,charpt:req.params.charpt});
     });
 
     server.get("/author",(req,res)=>{
-        return app.render(req, res, "/author");
+        return app.render(req, res, "/author",req.query);
     });
 
     server.get("/library",(req,res)=>{
         setTimeout(()=>{
-            return app.render(req, res, "/library");
+            return app.render(req, res, "/library",req.query);
         },4000);
     });
 
     server.get("/svg",(req,res)=>{
-        return app.render(req, res, "/svg");
+        return app.render(req, res, "/svg",req.query);
     });
 
     server.get("/artical/:id",(req,res)=>{
-        return app.render(req, res, "/artical");
+        return app.render(req, res, "/artical",req.query);
     });
 
     server.get("/web",(req,res)=>{
-        return app.render(req, res, "/web");
+        return app.render(req, res, "/web",req.query);
     });
 
     server.get("/wechat",(req,res)=>{
-        return app.render(req, res, "/wechat");
+        return app.render(req, res, "/wechat",req.query);
     });
 
     server.get("/echarts",(req,res)=>{ 
-        return app.render(req, res, "/echarts");
+        return app.render(req, res, "/echarts",req.query);
     });
 
     server.get("/reactnative",(req,res)=>{
-        return app.render(req, res, "/reactnative");
+        return app.render(req, res, "/reactnative",req.query);
     });
 
     server.get("/login",(req,res)=>{
@@ -108,5 +99,9 @@ app.prepare().then(()=>{
         if (err) throw err;
         console.log("启动Express-next-react App,端口号："+configure.port);
     });
+});
+
+process.on("uncaughtException",(err)=>{
+    console.log(err);
 });
 

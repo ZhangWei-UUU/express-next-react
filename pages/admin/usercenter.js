@@ -6,21 +6,21 @@ import FooterNav from "../../Components/Layout/FooterNav";
 import "../../style.css";
 const { Content } = Layout;
 class UserCenter extends Component{
-	render(){
-		return(
-			<Layout>
-				<HeadNav themeStyle="light"/> 
-				<Layout>
-					<Content >
-						<div className="house">
+    render(){
+        return(
+            <Layout>
+                <HeadNav themeStyle="light"/> 
+                <Layout>
+                    <Content >
+                        <div className="house">
              user center
-						</div>
-					</Content>
-				</Layout>
-				<FooterNav /> 
-			</Layout>
-		);
-	}
+                        </div>
+                    </Content>
+                </Layout>
+                <FooterNav /> 
+            </Layout>
+        );
+    }
 }
 
 export default  UserCenter;
