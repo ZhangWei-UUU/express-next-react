@@ -2,43 +2,18 @@ import React,{Component} from "react";
 import { Menu } from "antd";
 import PropTypes from "prop-types";
 import Link from "next/link";
-import Router from 'next/router';
+import Router from "next/router";
 
 class HeadNav extends Component{
     constructor(props){
-        super(props)
+        super(props);
         this.state = {
             login:false,
             loginUser:null
-        }
+        };
     }
     static getInitialProps(){
         
-    }
-    componentDidMount(){
-        const loginUser = sessionStorage.getItem("loginUser");
-        if(loginUser){
-          this.setState({
-              login:true,
-              loginUser
-          })
-        }else{
-            fetch("/api/checkSession").then(res=>res.json()).then(data=>{
-                if(data.loginUser){
-                    sessionStorage.setItem('loginUser', data.loginUser);
-                this.setState({
-                    login:true,
-                    loginUser:data.loginUser
-                })
-                }else{
-                    this.setState({
-                        login:false,
-                        loginUser:null
-                    })
-                   
-                }
-            })
-        }
     }
 
     logout = () =>{
@@ -49,10 +24,38 @@ class HeadNav extends Component{
                     loginUser:null
                 });
                 sessionStorage.removeItem("loginUser");
-                Router.push('/login')
+                Router.push("/login");
             }
-        })
+        });
     }
+    
+    componentDidMount(){
+        const loginUser = sessionStorage.getItem("loginUser");
+        if(loginUser){
+            this.setState({
+                login:true,
+                loginUser
+            });
+        }else{
+            fetch("/api/checkSession").then(res=>res.json()).then(data=>{
+                if(data.loginUser){
+                    sessionStorage.setItem("loginUser", data.loginUser);
+                    this.setState({
+                        login:true,
+                        loginUser:data.loginUser
+                    });
+                }else{
+                    this.setState({
+                        login:false,
+                        loginUser:null
+                    });
+                   
+                }
+            });
+        }
+    }
+
+   
     render(){
         let { themeStyle } = this.props;
         let { login ,loginUser } = this.state;
@@ -80,15 +83,15 @@ class HeadNav extends Component{
                         </Link>
                     </Menu.Item>
                     <Menu.Item key="right" style={{float:"right"}}>
-                      {login?
+                        {login?
                       
-                      <a onClick={this.logout}>{loginUser} | 退出</a>
+                            <a onClick={this.logout}>{loginUser} | 退出</a>
                     
-                      :
-                      <Link prefetch href="/login">
-                      <a>未登录</a>
-                      </Link>
-                      }
+                            :
+                            <Link prefetch href="/login">
+                                <a>未登录</a>
+                            </Link>
+                        }
                     </Menu.Item>
                 </Menu>
             </div>
