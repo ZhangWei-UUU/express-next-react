@@ -6,8 +6,9 @@ const array = [
         {name:"语雀",link:"https://www.yuque.com/"},
         {name:"Github",link:"https://www.yuque.com/"}
     ]},
-    {title:"关于GL",items:[
+    {title:"关于竹·纸",items:[
         {name:"作者简介",link:"/author"},
+        {name:"设计文档",link:"/doc/architecture/index"},
         {name:"后台展示",link:"/monitor"},
     ]},
     {title:"更多技术",items:[

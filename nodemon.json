@@ -3,6 +3,7 @@
     "ignore": [".next/*"],
     "watch": [
         "app.js",
-        "./api/*"
+        "./api/*",
+        "./Files/*"
          ]
   }

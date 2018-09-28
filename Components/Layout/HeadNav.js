@@ -77,7 +77,7 @@ class HeadNav extends Component{
                                     }
                                     <p style={themeStyle === "light"?
                                         {color:"#1890ff"}:null
-                                    }>Gazella Villa</p>
+                                    }>竹·纸</p>
                                 </div>
                             </a>
                         </Link>

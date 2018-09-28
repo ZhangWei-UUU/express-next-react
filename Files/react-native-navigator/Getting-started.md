@@ -9,12 +9,6 @@ Before you commit to using React Navigation for your project, you might want to 
 
 > 语法分析：`Before...` 是一个时间状语从句，`commit to doing` 表示确定做某事。`...the tradeoffs that we have chosen along with the areas where...`。在这里`that...`是`tradeoffs`这个名词的定语从句。`the tradeoffs that we have chosen`也就是我们所选择的利弊权衡。`to understand `在这里作定语（对you进行说明）。
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned |  |
-| col 2 is      | centered      |    |
-| zebra stripes | are neat      |     |
-
 
 ## What to expect
 

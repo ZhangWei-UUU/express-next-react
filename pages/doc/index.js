@@ -68,8 +68,10 @@ class Doc extends Component {
                             ))}
                         </Col>
                         <Col lg={18} offset={1}>
-                          <Highlight languages={["javascript"]}>
+                          <Highlight className='language-name-of-snippet'>
+                          
                            <ReactMarkdown source={content} className="markdown-body" />
+                         
                          </Highlight>
                         </Col>
                     </Row> 
