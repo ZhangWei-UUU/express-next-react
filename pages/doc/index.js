@@ -4,6 +4,7 @@ import {
     Layout, Row, Col,message
 } from "antd";
 import ReactMarkdown from "react-markdown";
+import Highlight from 'react-highlight'
 import PropTypes from "prop-types";
 import HeadNav from "../../Components/Layout/HeadNav";
 import FooterNav from "../../Components/Layout/FooterNav";
@@ -66,8 +67,10 @@ class Doc extends Component {
                                 </div>
                             ))}
                         </Col>
-                        <Col lg={18} offset={1} >
-                            <ReactMarkdown source={content} className="markdown-body" />			
+                        <Col lg={18} offset={1}>
+                          <Highlight languages={["javascript"]}>
+                           <ReactMarkdown source={content} className="markdown-body" />
+                         </Highlight>
                         </Col>
                     </Row> 
                 </Layout>

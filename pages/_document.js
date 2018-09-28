@@ -11,6 +11,7 @@ class MyDocument extends Document {
                     <meta name="description" content="张伟JS个人网站"/>
                     <link rel="shortcut icon" href="/static/favicon.ico"></link>
                     <link rel="stylesheet" href="/_next/static/style.css" />
+                    <link rel="stylesheet" href="/static/highlight/styles/github-gist.css"></link>
                 </Head>
                 <body>
                     <Main />

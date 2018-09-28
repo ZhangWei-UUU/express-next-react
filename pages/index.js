@@ -76,16 +76,16 @@ class Home extends Component{
                         <div className="service-component">
                             <center>
                                
-                                        <h1 key="a">数据可视化</h1>
-                                        <p key="b">基于强大的蚂蚁金服Antd + 百度Echarts</p>
-                                        <Link prefetch href="/echarts" key="c-1">
-                                          <a>了解更多 <Icon type="arrow-right"/> </a>
-                                        </Link>  
-                                        <ReactEcharts
-                                            key="d"
-                                            className="charts-frame"
-                                            option={this.state.dataView}      
-                                        />
+                                <h1 key="a">数据可视化</h1>
+                                <p key="b">基于强大的蚂蚁金服Antd + 百度Echarts</p>
+                                <Link prefetch href="/echarts" key="c-1">
+                                    <a>了解更多 <Icon type="arrow-right"/> </a>
+                                </Link>  
+                                <ReactEcharts
+                                    key="d"
+                                    className="charts-frame"
+                                    option={this.state.dataView}      
+                                />
                                    
                             </center>   
                             
@@ -122,7 +122,7 @@ class Home extends Component{
                                     </div>
                                 </Col>
                                 <Col lg={12}>
-                                <div style={{paddingTop:"100px"}}>
+                                    <div style={{paddingTop:"100px"}}>
                                         <h1>TensorFlow.js</h1>
                                         <p>Google推出纯JS深度学习库</p>
                                         <Link prefetch href="/reactnative"><a>点击进入<Icon type="arrow-right"/> </a></Link>
