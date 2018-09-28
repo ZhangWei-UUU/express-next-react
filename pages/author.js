@@ -1,5 +1,5 @@
 import React,{Component} from "react";
-import { Layout, Row, Col } from "antd";
+import { Layout } from "antd";
 import { withRouter } from "next/router";
 import TweenOne from "rc-tween-one";
 import QueueAnim from "rc-queue-anim";

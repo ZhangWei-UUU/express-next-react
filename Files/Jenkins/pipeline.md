@@ -4,7 +4,7 @@ Pipeline是持续化继承项目到Jenkins的一系列插件。它能够像管�
 
 第一步将样本代码放置到`Jenkinsfile`文件中：
 
-```js
+```javascript
 pipeline {
     agent { docker { image 'node:6.3' } }
     stages {

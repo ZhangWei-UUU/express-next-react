@@ -1,11 +1,11 @@
 @import 'node_modules/codemirror/lib/codemirror.css';
-
+@import 'node_modules/github-markdown-css/github-markdown.css';
 .first-component {
     background: linear-gradient(135deg,#35aef8,#7681ff 76%,#7681ff 0);
     height: 900px;
     width: 100%;
     color:#fff;  
-    font-weight: 100;
+    font-weight: 350;
     padding-top: 200px;
 }
 

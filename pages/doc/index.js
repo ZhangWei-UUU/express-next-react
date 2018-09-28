@@ -67,7 +67,7 @@ class Doc extends Component {
                             ))}
                         </Col>
                         <Col lg={18} offset={1} >
-                            <ReactMarkdown source={content} />			
+                            <ReactMarkdown source={content} className="markdown-body" />			
                         </Col>
                     </Row> 
                 </Layout>

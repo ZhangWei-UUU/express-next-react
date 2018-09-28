@@ -56,7 +56,7 @@ Pipeline由Jenkinsfile所创建，它会被committed到你本机的Git仓库。
 
 第二步，在Git 仓库的根目录中创建Jenkinsfile,导入以下样式代码：
 
-```js
+```javascript
 pipeline {
     agent {
         docker {
@@ -82,7 +82,7 @@ pipeline {
 
 打开Jenkinsfile,在Test步骤后面,添加如下代码：
 
-```js
+```javascript
 stage('Deliver') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
@@ -94,7 +94,7 @@ stage('Deliver') {
 
 所以最终的`Jenkinsfile`就成了这样：
 
-```js
+```javascript
 pipeline {
     agent {
         docker {

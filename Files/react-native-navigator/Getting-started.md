@@ -9,6 +9,13 @@ Before you commit to using React Navigation for your project, you might want to 
 
 > 语法分析：`Before...` 是一个时间状语从句，`commit to doing` 表示确定做某事。`...the tradeoffs that we have chosen along with the areas where...`。在这里`that...`是`tradeoffs`这个名词的定语从句。`the tradeoffs that we have chosen`也就是我们所选择的利弊权衡。`to understand `在这里作定语（对you进行说明）。
 
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned |  |
+| col 2 is      | centered      |    |
+| zebra stripes | are neat      |     |
+
+
 ## What to expect
 
 If you're already familiar with React Native then you'll be able to get moving with React Navigation quickly! If not, you may want to read sections 1 to 4 (inclusive) of React Native Express first, then come back here when you're done.
@@ -35,7 +42,7 @@ All we need to get started using React Navigation is a function called createSta
 
 createStackNavigator is a function that returns a React component. It takes a route configuration object and, optionally, an options object (we omit this below, for now). Because the createStackNavigator function returns a React component, we can export it directly from App.js to be used as our App's root component.
 
-```js
+```javascript
 import React from 'react';
 import { View, Text } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
@@ -65,7 +72,7 @@ The only required configuration for a route is the screen component. You can rea
 
 In React Native, the component exported from App.js is the entry point (or root component) for your app -- it is the component from which every other component descends. It's often useful to have more control over the component at the root of your app than you would get from exporting the result of createStackNavigator, so let's export a component that just renders our RootStack stack navigator.
 
-```js
+```javascript
 const RootStack = createStackNavigator({
   Home: {
     screen: HomeScreen
@@ -83,7 +90,7 @@ export default class App extends React.Component {
 
 Given that the only route configuration we have for Home is the screen component, we don't need to use the { screen: HomeScreen } configuration format, we can use the screen component directly.
 
-```js
+```javascript
 const RootStack = createStackNavigator({
   Home: HomeScreen
 });
@@ -92,7 +99,7 @@ const RootStack = createStackNavigator({
 ### Adding a second route
 The <RootStack /> component doesn't accept any props -- all configuration is specified in the options parameter to the createStackNavigator function. We left the options blank, so it just uses the default configuration. To see an example of using the options object, we will add a second screen to the stack navigator.
 
-```js
+```javascript
 class DetailsScreen extends React.Component {
   render() {
     return (
@@ -128,7 +135,7 @@ If this was a web browser, we'd be able to write something like this:
 
 Another way to write this would be:
 
-```js
+```javascript
 <a onClick={() => { document.location.href = "details.html"; }}>Go to Details</a>
 ```
 
@@ -136,7 +143,7 @@ We'll do something similar to the latter, but rather than use a document global 
 
 ### Navigating to a new screen
 
-```js
+```javascript
 import React from 'react';
 import { Button, View, Text } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
@@ -167,7 +174,7 @@ So we now have a stack with two routes: 1) the Home route 2) the Details route. 
 
 ### Navigate to a route multiple times
 
-```js
+```javascript
 class DetailsScreen extends React.Component {
   render() {
     return (
@@ -187,7 +194,7 @@ If you run this code, you'll notice that when you tap "Go to Details... again" t
 
 Let's suppose that we actually want to add another details screen. This is pretty common in cases where you pass in some unique data to each route (more on that later when we talk about params!). To do this, we can change navigate to push. This allows us to express the intent to add another route regardless of the existing navigation history.
 
-```js
+```javascript
 <Button
   title="Go to Details... again"
   onPress={() => this.props.navigation.push('Details')}
@@ -202,7 +209,7 @@ The header provided by stack navigator will automatically include a back button 
 
 Sometimes you'll want to be able to programmatically trigger this behavior, and for that you can use this.props.navigation.goBack();
 
-```js
+```javascript
 class DetailsScreen extends React.Component {
   render() {
     return (
@@ -252,7 +259,8 @@ There are two pieces to this:
 
 2. Read the params in your screen component: this.props.navigation.getParam(paramName, defaultValue).
 
-```js
+
+```javascript
 class HomeScreen extends React.Component {
   render() {
     return (

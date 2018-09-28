@@ -12,7 +12,7 @@
 
 ### Flex Direction
 
-```js
+```javascript
  <View style={{flex: 1, flexDirection: 'row'}}>
         <View style={{width: 50}}></View>
   </View>      

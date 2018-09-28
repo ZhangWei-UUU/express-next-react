@@ -15,6 +15,6 @@
 如果当前项目已有自定义服务器，这时就不需要使用webpack-dev-server, 这样Hot reloading就是项目开发中所需要解决的一个问题。 而webpack hot middleware则是解决这个问题的一个绝佳方案之一。
 
 
-```js
+```javascript
 var zhangwe = 1
 ```
