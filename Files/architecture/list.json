@@ -3,7 +3,7 @@
         {"name":"基础架构","children":[
             {"name":"开始","url":"index"},
             {"name":"数据管理","url":"data-managing"},
-            {"name":"容器管理","url":"docker-container"},
+            {"name":"容器管理[应用Docker化]","url":"docker-container"},
             {"name":"持续化集成","url":"jenkins"},
             {"name":"单元测试","url":"unit-test"}
         ]},

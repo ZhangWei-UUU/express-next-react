@@ -8,13 +8,13 @@
 
 在敏捷开发和持续化集成方面通过Circle CI、Jenkins、Github进行代码管理。确保开发环境、测试环境、生产环境的持续化集成。
 
-| 前端架构           | 服务端技术 | 持续集成    | 应用容器化 | 数据库   | 代码兼容与管理 | 单元测试  | 
-| :-------------:   |:--------:| :--------: | :-------:|:-------:|:------------:|:-------:|
-| Next.js           | Express  | circle CI  | Docker   | MongoDB | Babel7       | Jest    |
-| React             | nodemon  | Jenkins    |          |         | Eslint       |         |
-| Antd              |   ip     |   Github   |          |         |              |         |
-| Less              |          |            |          |         |              |         |
-| raw-loader        |          |            |          |         |              |         |
-| react-codemirror2 |          |            |          |         |              |         |
+| 前端架构           | 服务端技术 | 持续集成    | 应用容器化 | 数据库   | 代码兼容与管理 | 单元测试  | 打包压缩 | 
+| :-------------:   |:--------:| :--------: | :-------:|:-------:|:------------:|:-------:|:-------:|
+| Next.js           | Express  | circle CI  | Docker   | MongoDB | Babel7       | Jest    | Webpack|
+| React             | nodemon  | Jenkins    |          |         | Eslint       |         |        |
+| Antd              |   ip     |   Github   |          |         |              |         |        |
+| Less              |          |            |          |         |              |         |        |
+| raw-loader        |          |            |          |         |              |         |        |
+| react-codemirror2 |          |            |          |         |              |         |        |
 
 云服务器公网IP:118.25.214.169;

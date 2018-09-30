@@ -100,7 +100,7 @@ app.prepare().then(()=>{
         console.log("启动Express-next-react App,端口号："+configure.port);
     });
 });
-
+// app.get('*', (req, res) => nextApp.render(req, res, '/noFound', req.query));
 process.on("uncaughtException",(err)=>{
     console.log(err);
 });
