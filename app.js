@@ -9,13 +9,14 @@ var MongoDBStore = require("connect-mongodb-session")(session);
 var dev = process.env.NODE_ENV !== "production";
 var configure = require("./configure/index.js");
 var app = next({dev});
-
+const DB_CONFIG = require("./db");
 var api = require("./api/index.js");
 var docapi = require("./api/doc.js");
 
 const handle = app.getRequestHandler();
+
 var store = new MongoDBStore({
-    uri: "mongodb://localhost:27017/session",
+    uri: `${DB_CONFIG.url}/session`,
     collection: "sessions"
 });
 

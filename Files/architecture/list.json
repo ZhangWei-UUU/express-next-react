@@ -8,7 +8,10 @@
             {"name":"单元测试","url":"unit-test"}
         ]},
         {"name":"高级技术","children":[
-            {"name":"CSS样式的优化","url":"css-optimize"}
+            {"name":"CSS样式的优化","url":"css-optimize"},
+            {"name":"限制container资源","url":"limit-container-resources"},
+            {"name":"Docker 日志","url":"docker-logs"},
+            {"name":"Docker 网络管理","url":"docker-logs"}
         ]}
     ]
 }

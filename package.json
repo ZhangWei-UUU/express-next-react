@@ -60,6 +60,6 @@
   "scripts": {
     "dev": "export NODE_ENV=development && export DB_PORT=27017 && nodemon app.js",
     "test": "mocha",
-    "start": "next build && export NODE_ENV=production &&  export DB_HOST=production && export DB_PORT=27017 && node app.js"
+    "start": "next build && export NODE_ENV=production &&  export DB_HOST=172.17.0.2 && export DB_PORT=27017 && node app.js"
   }
 }

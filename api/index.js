@@ -4,6 +4,7 @@ const getIP = require("external-ip")();
 const MongoClient = require("mongodb").MongoClient;
 const os = require("os");
 var ip = require("ip");
+var fs = require("fs");
 const DB_CONFIG = require("../db");
 
 const insertDocument = (db,obj,callback) =>{
@@ -81,6 +82,16 @@ router.post("/login",(req,res)=>{
             });
         }
     }); 
+});
+
+router.get("/author",(req,res)=>{
+    const exist = fs.existsSync("./Files/author.md");
+    if(exist){
+        const content = fs.readFileSync("./Files/author.md","utf8");
+        res.send({content});
+    }else{
+        res.send({error:"无此文件"});
+    }
 });
 
 router.get("/environment",(req,res)=>{
