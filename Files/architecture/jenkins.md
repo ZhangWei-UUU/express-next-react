@@ -47,6 +47,19 @@ pipeline {
 }
 ```
 
+## Jenkins账户管理
+
+
 ## 在Github上配置Jenkins
+
+**第一步**： 在Github右上角选择`Settings`,进入个人设置页面，在左侧导航栏中选择`Developer settings`=>`Personal access tokens`=>`Generate new token`.
+
+**第二步**： 编写token discription和勾选scope,生成密钥：
+
+```
+17ce0406ad16e6bf41b638b4267872a67657e1c7
+```
+
+**第三步**： 进入Jenkins，将Github与之关联。
 
 进入代码库，在tab页面上选择`Settings`,点击左侧导航栏中`Webhooks`.点击`Add webhook`. 填写Payload URL.

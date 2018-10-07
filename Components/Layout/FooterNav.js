@@ -2,9 +2,9 @@ import React,{Component} from "react";
 import { Row,Col } from "antd";
 import Link from "next/link";
 const array = [
-    {title:"友情链接",items:[
-        {name:"语雀",link:"https://www.yuque.com/"},
-        {name:"Github",link:"https://www.yuque.com/"}
+    {title:"IT基础",items:[
+        {name:"网络通信",link:"/doc/internet/index"},
+        {name:"JavaScript",link:"/doc/javascript/index"}
     ]},
     {title:"关于竹·纸",items:[
         {name:"作者简介",link:"/author"},
