@@ -49,3 +49,11 @@ git push production master
 ```
 
 这个时候代码就可以Push到生产环境了。
+
+### 远程分支的处理
+
+查询远程分支的各个版本
+
+```
+git remove -v
+```
