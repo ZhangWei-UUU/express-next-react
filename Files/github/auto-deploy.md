@@ -39,6 +39,7 @@ done
 进入本地开发文件夹
 
 ```bash
+#新增远程仓库
 git remote add production ubuntu@serverIP:project.git
 ```
 
@@ -54,6 +55,37 @@ git push production master
 
 查询远程分支的各个版本
 
+```bash
+git remote -v
 ```
-git remove -v
+
+显示所有的origin 的远程分支
+
+```bash
+git remote show origin 
+```
+
+显示本地分支
+```bash
+git branch
+```
+
+显示本地分支+ 远程分支
+
+```bash
+git branch -a
+```
+
+删除本地分支
+```bash
+git branch -d <name>
+```
+
+删除远程仓库
+
+```bash
+# 查看远程各个仓库和各个分支
+git remote -v
+# 删除
+ git remote rm <仓库名>
 ```
