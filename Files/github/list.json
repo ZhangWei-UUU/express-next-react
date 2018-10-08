@@ -1,0 +1,11 @@
+{
+    "menu":[
+        {"name":"基础知识","children":[
+            {"name":"Getting started","url":"index"},
+            {"name":"TCP/IP","url":"tcp"},
+            {"name":"Auto Deploy","url":"auto-deploy"},
+            {"name":"HTTP","url":"http"},
+            {"name":"HTTPS","url":"https"}
+        ]}
+    ]
+}

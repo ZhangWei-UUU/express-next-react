@@ -4,7 +4,8 @@ import Link from "next/link";
 const array = [
     {title:"IT基础",items:[
         {name:"网络通信",link:"/doc/internet/index"},
-        {name:"JavaScript",link:"/doc/javascript/index"}
+        {name:"JavaScript",link:"/doc/javascript/index"},
+        {name:"Github",link:"/doc/github/index"}
     ]},
     {title:"关于竹·纸",items:[
         {name:"作者简介",link:"/author"},
