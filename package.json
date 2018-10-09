@@ -4,10 +4,7 @@
   "license": "GPL-3.0",
   "version": "0.0.2",
   "dependencies": {
-    "@zeit/next-css": "0.2.0",
-    "@zeit/next-less": "0.3.0",
-    "@zeit/next-sass": "0.2.0",
-    "@zeit/next-typescript": "1.1.0",
+ 
     "antd": "3.8.3",
     "codemirror": "^5.40.0",
     "connect-mongo": "2.0.1",
@@ -26,7 +23,6 @@
     "mongodb": "3.1.4",
     "next": "6.1.2",
     "node-sass": "4.9.3",
-    "raw-loader": "0.5.1",
     "rc-queue-anim": "1.6.5",
     "rc-scroll-anim": "2.5.5",
     "rc-tween-one": "2.2.3",
@@ -38,6 +34,12 @@
     "react-test-renderer": "16.4.2"
   },
   "devDependencies": {
+    "@zeit/next-css": "0.2.0",
+    "@zeit/next-less": "0.3.0",
+    "@zeit/next-sass": "0.2.0",
+    "@zeit/next-typescript": "1.1.0",
+    "raw-loader": "0.5.1",
+    "file-loader": "2.0.0",
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
     "@babel/plugin-transform-runtime": "7.0.0",
@@ -59,7 +61,7 @@
   },
   "scripts": {
     "dev": "export NODE_ENV=development && export DB_PORT=27017 && nodemon app.js",
-    "build": "next build && NODE_ENV=development && export DB_PORT=27017 && nodemon app.js",
+    "build": "next build && export NODE_ENV=production && export DB_PORT=27017 && node app.js",
     "test": "mocha",
     "start": "next build && export NODE_ENV=production &&  export DB_HOST=172.17.0.2 && export DB_PORT=27017 && node app.js"
   }

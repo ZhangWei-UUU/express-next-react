@@ -1,13 +1,21 @@
 import React,{Component} from "react";
 import { Layout,Row,Col } from "antd";
-import { withRouter } from "next/router";
+import dynamic from "next/dynamic";
 import HeadNav from "../Components/Layout/HeadNav";
 import FooterNav from "../Components/Layout/FooterNav";
 import SimpleNodes from "../Charts/SimpleNodes";
 import LinkNodes from "../Charts/LinkNodes";
-
 import "../style.css";
+
 const { Content } = Layout;
+const DynamicComA = dynamic(() => import("../Charts/SimpleNodes"), {
+    loading: () => <p>...</p>
+});
+
+const DynamicComB = dynamic(() => import("../Charts/LinkNodes"), {
+    loading: () => <p>...</p>
+});
+
 class EchartsPage extends Component{
     render(){
         console.log("xx");
@@ -19,8 +27,7 @@ class EchartsPage extends Component{
                         <Row>
                             <Col lg={16}>
                                 <div className="echarts-card">
-                                    <SimpleNodes/>
-                                   
+                                    <DynamicComA/> 
                                 </div>
                             </Col>
                             <Col lg={8}>
@@ -30,7 +37,7 @@ class EchartsPage extends Component{
                             </Col>
                             <Col lg={16}>
                                 <div className="echarts-card">
-                                    <LinkNodes/>
+                                    <DynamicComB/>
                                    
                                 </div>
                             </Col>
@@ -48,4 +55,4 @@ class EchartsPage extends Component{
     }
 }
 
-export default  withRouter(EchartsPage );
+export default EchartsPage;

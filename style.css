@@ -25,10 +25,10 @@
 }
 
 .ant-menu-transparent {
-    background: none;
-    color: #fff;
-    position: absolute;
-    border:none;
+    background: none!important;
+    color: #fff!important;
+    position: absolute!important;
+    border:none!important;
 }
 
 .ant-menu-item:hover {
@@ -36,17 +36,17 @@
 }
 
 .ant-menu-transparent .ant-menu-item:hover.ant-menu-item-active{
-    color:#e8e8e8;
-    border-bottom:none;
+    color:#e8e8e8!important;
+    border-bottom:none!important;
 }
 
 .ant-menu-transparent .ant-menu-item:hover a {
-    color:#e8e8e8;
-    border-bottom:none;
+    color:#e8e8e8!important;
+    border-bottom:none!important;
 }
 
 .ant-menu-horizontal > .ant-menu-item, .ant-menu-horizontal > .ant-menu-submenu{
-    border-bottom: none;
+    border-bottom: none!important;
 }
 
 .logo {

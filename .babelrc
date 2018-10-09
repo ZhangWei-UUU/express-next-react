@@ -11,13 +11,6 @@
   ],
 
   "plugins": [
-    "transform-decorators-legacy",
-    [
-      "import",
-      {
-        "libraryName": "antd",
-        "style": "css"
-      }
-    ]
+    "transform-decorators-legacy"
   ]
 }

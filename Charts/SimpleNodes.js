@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import ReactEcharts from "echarts-for-react";
-import fackData from "../Fack/fackNode.json";
 
 const data =  [{
     name: "节点1",

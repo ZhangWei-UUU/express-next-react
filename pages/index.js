@@ -8,6 +8,7 @@ import HeadNav from "../Components/Layout/HeadNav";
 import FooterNav from "../Components/Layout/FooterNav";
 import Head from "next/head";
 import ReactEcharts from "echarts-for-react";
+import "../antd.css";
 import "../style.css";
 import { getOption } from "../Constant/barOption";
 const { Content } = Layout;
@@ -108,7 +109,7 @@ class Home extends Component{
                                     </div>
                                 </Col>
                                 <Col lg={10}>
-                                    <img src="/static/pixel.png" className="pixel"/>
+                                    <img src="/static/pixel.jpg" className="pixel"/>
                                 </Col>
                             </Row>
                         </div>
