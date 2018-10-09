@@ -92,4 +92,4 @@ git remote -v
 
 ## 总结
 
-> 需要熟练掌握hooks的机制以及bash脚本的编写，在远程仓库收到代码更新后立即出发部署机制。
+> 需要熟练掌握hooks的机制以及bash脚本的编写，在远程仓库收到代码更新后立即出发部署机制。在ubuntu系统中需要给予`post-receive`文件管理员权限。`chmod +x post-receive `，在本机中`git push prodution master`.

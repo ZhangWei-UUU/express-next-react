@@ -1,5 +1,6 @@
 
 import React, { Component } from "react";
+import Head from "next/head";
 import {
     Layout, Row, Col,message
 } from "antd";
@@ -10,7 +11,7 @@ import HeadNav from "../../Components/Layout/HeadNav";
 import FooterNav from "../../Components/Layout/FooterNav";
 import request from "../../Components/Fetch/request";
 
-import "../../style.css";
+import "../../doc.css";
 
 class Doc extends Component {
     constructor(props) {
@@ -48,6 +49,11 @@ class Doc extends Component {
         const { menu,content } = this.state;
         return (
             <Layout>
+                <Head>
+                    <title>竹·纸 | 文档</title>
+                    <link rel="stylesheet" href="/static/highlight/styles/github-gist.css"></link>
+                    <link rel="stylesheet" href="/_next/static/doc.css" />
+                </Head>
                 <HeadNav themeStyle="light" />
                 <Layout className="doc-container">
                     <Row>
