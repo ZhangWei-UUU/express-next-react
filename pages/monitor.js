@@ -11,19 +11,19 @@ class Monitor extends Component{
         super(props);
         this.state ={
             data:null
-        }
+        };
     }
     componentDidMount(){
-        fetch('/api/environment').then(res=>res.json()).then(data=>{
+        fetch("/api/environment").then(res=>res.json()).then(data=>{
             console.log(data);
             this.setState({
                 data
-            })
-        })
+            });
+        });
     }
     render(){
         let {data} = this.state;
-        var CARDS = []
+        var CARDS = [];
         if(data){
             CARDS = [
                 {key:0, title:"当前环境",icon:"laptop",value:data.environment},
@@ -34,7 +34,7 @@ class Monitor extends Component{
                 {key:4, title:"磁盘",icon:"hdd",value:data.environment},
                 {key:5, title:"数据库",icon:"database",value:"端口："+data.dbPort},
                 {key:6, title:"Node版本",icon:"edit",value:"端口："+data.dbPort},
-            ]
+            ];
         }
 
         return(
@@ -42,26 +42,26 @@ class Monitor extends Component{
                 <HeadNav themeStyle="light"/> 
                 <Layout>
                     <Content >
-                      <Row>
-                       {CARDS.map(card=>{
-                          return(
-                             <Col lg={6} key={card.key}>
-                                <div className="monitor">
-                                   <Card>
-                                       <Row>
-                                         <Col lg={8}>
-                                              <Icon type={card.icon}/>
-                                              <h4>{card.title}</h4>
-                                           </Col>
-                                           <Col lg={16}>
-                                      {card.value}
-                                          </Col>
-                                        </Row>
-                                    </Card>
-                             </div>
-                            </Col>
-                           )
-                          })}
+                        <Row>
+                            {CARDS.map(card=>{
+                                return(
+                                    <Col lg={6} key={card.key}>
+                                        <div className="monitor">
+                                            <Card>
+                                                <Row>
+                                                    <Col lg={8}>
+                                                        <Icon type={card.icon}/>
+                                                        <h4>{card.title}</h4>
+                                                    </Col>
+                                                    <Col lg={16}>
+                                                        {card.value}
+                                                    </Col>
+                                                </Row>
+                                            </Card>
+                                        </div>
+                                    </Col>
+                                );
+                            })}
                         </Row>
                     </Content>
                 </Layout>

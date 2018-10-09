@@ -52,7 +52,6 @@ class Doc extends Component {
                 <Head>
                     <title>竹·纸 | 文档</title>
                     <link rel="stylesheet" href="/static/highlight/styles/github-gist.css"></link>
-                    <link rel="stylesheet" href="/_next/static/doc.css" />
                 </Head>
                 <HeadNav themeStyle="light" />
                 <Layout className="doc-container">

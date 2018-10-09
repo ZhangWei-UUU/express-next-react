@@ -4,3 +4,7 @@
 
 第一步:`ctr+shift+n`开启chrome无痕模式，查看在网络加载中哪些js文件会被加载。
 第二步:`pages/_document.js`文件将全局引入的js文件逐个移到其引用的页面中。 
+
+案例分析：
+
+![img](/static/source-load.png)
