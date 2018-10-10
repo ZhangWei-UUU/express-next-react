@@ -72,8 +72,8 @@ class HeadNav extends Component{
                             <a>
                                 <div className="logo">
                                     {themeStyle === "light"?
-                                        <img src="/static/logo-blue.png" />:
-                                        <img src="/static/logo.png" />
+                                        <img src="/static/images/logo-blue.png" />:
+                                        <img src="/static/images/logo.png" />
                                     }
                                     <p style={themeStyle === "light"?
                                         {color:"#1890ff"}:null

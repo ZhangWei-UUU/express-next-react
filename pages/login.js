@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import Link from "next/link";
-import Router from 'next/router';
+import Router from "next/router";
 
 import { Input,Icon, Button,Form ,message} from "antd";
 import "../style.css";
@@ -12,24 +12,24 @@ class Login extends Component{
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
-          if (!err) {
-              fetch('/api/login',
-            {
-               method:'POST',
-               credentials:"include",
-               headers: { 'Content-Type': 'application/json' },
-               body:JSON.stringify(values) 
-            }).then(res=>res.json()).then(data=>{
-              if(data.err){
-                  message.error(data.err)
-              }else{
-                message.success(data.success);
-                setTimeout(()=>{
-                    Router.push('/');
-                },1200)
-              }
-            })
-          }
+            if (!err) {
+                fetch("/api/login",
+                    {
+                        method:"POST",
+                        credentials:"include",
+                        headers: { "Content-Type": "application/json" },
+                        body:JSON.stringify(values) 
+                    }).then(res=>res.json()).then(data=>{
+                    if(data.err){
+                        message.error(data.err);
+                    }else{
+                        message.success(data.success);
+                        setTimeout(()=>{
+                            Router.push("/");
+                        },1200);
+                    }
+                });
+            }
         });
     }
 
@@ -39,7 +39,7 @@ class Login extends Component{
             <div className="login">
                 <div className="login-form">
                     <div>
-                        <img src="/static/logo.png" className="login-icon"/>
+                        <img src="/static/images/logo.png" className="login-icon"/>
                         <h1>登录艾泽拉</h1>
                     </div>
                     <Form onSubmit={this.handleSubmit} className="login-form">

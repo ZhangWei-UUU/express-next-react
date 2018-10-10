@@ -8,7 +8,6 @@ import HeadNav from "../Components/Layout/HeadNav";
 import FooterNav from "../Components/Layout/FooterNav";
 import Head from "next/head";
 import ReactEcharts from "echarts-for-react";
-import "../antd.css";
 import "../style.css";
 import { getOption } from "../Constant/barOption";
 const { Content } = Layout;
@@ -66,7 +65,7 @@ class Home extends Component{
                                                 style={{ opacity: 0, marginBottom: 10 }}
                                             />
                                             <QueueAnim delay={1000} className="queue-simple">
-                                                <img src="/static/house-arch.png" key="6"/>
+                                                <img src="/static/images/house-arch.png" key="6"/>
                                             </QueueAnim>
                                         </OverPack>
                                     </Col>
@@ -96,8 +95,8 @@ class Home extends Component{
                             <h1>溯源追踪</h1>
                             <p>基于百度地图进行二次开发</p>
                             <Link prefetch href="/tech/baidumap"><a>了解更多 <Icon type="arrow-right"/> </a></Link>
-                            <img src="/static/ipad.png" className="ipad"/>
-                            <img src="/static/truck.png" className="truck"/>
+                            <img src="/static/images/ipad.png" className="ipad"/>
+                            <img src="/static/images/truck.png" className="truck"/>
                         </div>
                         <div className="tech-component">
                             <Row>
@@ -109,7 +108,7 @@ class Home extends Component{
                                     </div>
                                 </Col>
                                 <Col lg={10}>
-                                    <img src="/static/pixel.jpg" className="pixel"/>
+                                    <img src="/static/images/pixel.jpg" className="pixel"/>
                                 </Col>
                             </Row>
                         </div>

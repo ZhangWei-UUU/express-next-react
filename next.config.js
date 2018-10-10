@@ -13,10 +13,10 @@ module.exports = withTypescript(withCss({
       config.module.rules.push({
         test: /\.md$/,
         use: 'raw-loader'
-      });
-      config.module.rules.push({
-          test: /\.(eot|woff|ttf)$/, use: "file-loader" 
       })
+      config.module.rules.push({
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/,use: 'url-loader?limit=100000' 
+       })
       return config
     }
   }))

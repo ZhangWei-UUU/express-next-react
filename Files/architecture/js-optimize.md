@@ -9,7 +9,7 @@
 
 案例分析：
 
-![img](/static/source-load.png)
+![img](/static/images/source-load.png)
 
 在上图中可以发现阻碍带宽问题的首要祸首就alicdn文字的加载，这是一种很常见的在引用第三方包的时候，如icon等。由于第三方CDN的问题导致的网速问题。解决这个问题首先就需要将引用的第三方包文字进行本地化。
 

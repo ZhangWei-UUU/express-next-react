@@ -277,7 +277,7 @@
     width: 1200px;
     height: 700px;
     overflow: hidden;
-    background: url("/static/house.jpg") no-repeat center center;
+    background: url("/static/images/house.jpg") no-repeat center center;
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;
