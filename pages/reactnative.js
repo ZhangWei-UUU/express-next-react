@@ -51,7 +51,7 @@ class ReactNative extends Component{
                                                 {list.subs.map(sub=>{
                                                     return(
                                                         <li key={sub.name}>
-                                                            <Link prefetch href={sub.url}> 
+                                                            <Link href={sub.url}> 
                                                                 <a> {sub.name}</a>
                                                             </Link>
                                                         </li>

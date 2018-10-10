@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import { Row,Col } from "antd";
-
+import Link from "next/link";
 const array = [
     {title:"IT基础",items:[
         {name:"网络通信",link:"/doc/internet/index"},
@@ -34,13 +34,12 @@ class FooterNav extends Component{
                                 <Col lg={6} key={obj.title}>
                                     <p><strong>{obj.title}</strong></p>
                                     {obj.items.map(item=>{
-                                        return(
-                                          
-                                            <a href={item.link} key={item.name}>
-                                                <p>{item.name}</p>
-                                            </a>
-                                
-                                            
+                                        return(   
+                                            <Link href={item.link} key={item.name}>
+                                                <a>
+                                                    <p>{item.name}</p>
+                                                </a>
+                                            </Link>
                                         );
                                     })}
                                 </Col>

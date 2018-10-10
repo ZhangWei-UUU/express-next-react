@@ -17,7 +17,6 @@ const getCategory = (nodes) =>{
 export  const getOption  = (data) =>{
     var graph = data;
     var categories = getCategory(data.nodes);
-    console.log(categories);
     graph.nodes.forEach(function (node) {
         node.itemStyle = null;
         node.symbolSize = 10;

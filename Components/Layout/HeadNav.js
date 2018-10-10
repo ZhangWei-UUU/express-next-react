@@ -68,7 +68,7 @@ class HeadNav extends Component{
                     style={{ lineHeight: "64px",width:"100%" }}
                 >
                     <Menu.Item key="0">
-                        <Link prefetch href="/">
+                        <Link href="/">
                             <a>
                                 <div className="logo">
                                     {themeStyle === "light"?
@@ -88,7 +88,7 @@ class HeadNav extends Component{
                             <a onClick={this.logout}>{loginUser} | 退出</a>
                     
                             :
-                            <Link prefetch href="/login">
+                            <Link href="/login">
                                 <a>未登录</a>
                             </Link>
                         }

@@ -4,6 +4,7 @@ import Head from "next/head";
 import {
     Layout, Row, Col,message
 } from "antd";
+import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import Highlight from "react-highlight";
 import PropTypes from "prop-types";
@@ -65,7 +66,11 @@ class Doc extends Component {
                                     <ul className="menu-main-children">
                                         {mainTab.children.map(child => (
                                             <li key={child.name}>
-                                                <a href={`/doc/${theme}/${child.url}`}>{child.name}</a>
+                                                <Link href={`/doc/${theme}/${child.url}`}>
+                                                    <a>
+                                                        {child.name}
+                                                    </a>
+                                                </Link >
                                             </li>
                                         ))}
                                     </ul>
@@ -74,9 +79,7 @@ class Doc extends Component {
                         </Col>
                         <Col lg={18} offset={1}>
                             <Highlight className='language-name-of-snippet'>
-                          
                                 <ReactMarkdown source={content} className="markdown-body" />
-                         
                             </Highlight>
                         </Col>
                     </Row> 

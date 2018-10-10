@@ -15,7 +15,6 @@ class Monitor extends Component{
     }
     componentDidMount(){
         fetch("/api/environment").then(res=>res.json()).then(data=>{
-            console.log(data);
             this.setState({
                 data
             });

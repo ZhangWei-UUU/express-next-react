@@ -61,7 +61,7 @@ class Login extends Component{
                             <Button htmlType="submit" className="login-form-button">
                             登录
                             </Button>
-                            <Link prefetch href="/register"><a>立即注册</a></Link>
+                            <Link href="/register"><a>立即注册</a></Link>
                         </FormItem>
                     </Form>
                     <div>

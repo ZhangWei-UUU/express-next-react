@@ -61,7 +61,7 @@ class Register extends Component{
                             <Button htmlType="submit" className="login-form-button">
                             注册 
                             </Button>
-                            <Link prefetch href="/login"><a>已有账户，立即登录</a></Link>
+                            <Link href="/login"><a>已有账户，立即登录</a></Link>
                         </FormItem>
                     </Form>
                     <div>

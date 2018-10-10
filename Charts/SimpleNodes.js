@@ -89,10 +89,9 @@ class SimpleNodes extends Component{
             var newx = x+ r*Math.sin(radians * i);
             var newy = y+ r*Math.cos(radians * i);
             result.push({x:newx,y:newy});
-            // console.log("xx",newx);
+
         }
-        // console.log(result);
-        // console.log(radians);
+       
         return(
             <ReactEcharts option={option}/>
         );
