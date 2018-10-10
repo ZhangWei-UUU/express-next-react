@@ -3,8 +3,7 @@ import { Layout,Row,Col } from "antd";
 import dynamic from "next/dynamic";
 import HeadNav from "../Components/Layout/HeadNav";
 import FooterNav from "../Components/Layout/FooterNav";
-import SimpleNodes from "../Charts/SimpleNodes";
-import LinkNodes from "../Charts/LinkNodes";
+
 import "../style.css";
 
 const { Content } = Layout;
@@ -18,7 +17,6 @@ const DynamicComB = dynamic(() => import("../Charts/LinkNodes"), {
 
 class EchartsPage extends Component{
     render(){
-        console.log("xx");
         return(
             <Layout>
                 <HeadNav themeStyle="light"/> 

@@ -1,7 +1,7 @@
 import React,{Component} from "react";
 import { Layout, Row, Col, Icon } from "antd";
 import dynamic from "next/dynamic";
-import Link from "next/link";
+
 import HeadNav from "../Components/Layout/HeadNav";
 import "../style.css";
 
@@ -29,11 +29,9 @@ class Home extends Component{
                                         </p>
                                              
                                         <div key="3">
-                                            <Link prefetch href="/admin/usercenter">
-                                                <a>
-                                                    <button>点击进入</button>
-                                                </a>
-                                            </Link>
+                                            <a href="/admin/usercenter">
+                                                <button>点击进入</button>
+                                            </a>
                                         </div>
                                           
                                     </Col>
@@ -48,9 +46,9 @@ class Home extends Component{
                             <center>
                                 <h1 key="a">数据可视化</h1>
                                 <p key="b">基于强大的蚂蚁金服Antd + 百度Echarts</p>
-                                <Link prefetch href="/echarts" key="c-1">
-                                    <a>了解更多 </a>
-                                </Link>  
+                                <a href="/echarts" key="c-1">
+                                    了解更多 
+                                </a>  
                             
                             </center>   
                         </div>

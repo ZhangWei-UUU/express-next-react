@@ -1,6 +1,5 @@
 import React from "react";
 import { Row, Col } from "antd";
-import Link from "next/link";
 
 const Mobile = () =>(
     <div className="tech-component">
@@ -9,7 +8,7 @@ const Mobile = () =>(
                 <div className="rn-txt">
                     <h1>移动端APP</h1>
                     <p>基于Facebook 框架 React Native 开发移动端</p>
-                    <Link prefetch href="/reactnative"><a>点击进入</a></Link>
+                    <a  href="/reactnative">点击进入</a>
                 </div>
             </Col>
             <Col lg={10}>

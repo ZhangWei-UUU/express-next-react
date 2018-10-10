@@ -29,4 +29,9 @@ const DynamicComponentWithCustomLoading = dynamic(() => import('../components/he
 
 > 避免使用到如Echarts这样的重型包，删除后可减少720kb.
 
-## 压缩next.js的main.js包
+## 压缩next.js的js包
+
+在使用<Link>情况下next.js会在首页加载所有其他相关页面的js, 如果内部页面是一些重型软件那么就会导致多个大型js会傻乎乎的加载进首页导致首屏渲染出现不必要的负担。
+
+比如在使用Echarts的时候，其压缩后的代码会有720kb,如果这样的包裹出现在首页显然是有很大的问题。所以尽可能避免使用<Link>标签
+
