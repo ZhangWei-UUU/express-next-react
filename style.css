@@ -90,7 +90,7 @@
 }
 
 .ant-menu-transparent .ant-menu-item > a{
-    color:#fff
+    color:#fff!important
 }
 
 .home-card {
@@ -127,17 +127,17 @@
 }
 
 .truck {
-    width: 800px;
+    width: 500px;
     position: absolute;
-    bottom: -25%;
-    right: 20%;
+    bottom: -12%;
+    right: 25%;
 }
 
 .ipad {
-    width: 700px;
+    width: 500px;
     position: absolute;
     bottom: 0%;
-    left: 8%;
+    left: 20%;
 }
 
 .tech-component {
@@ -439,3 +439,4 @@
     margin:20px auto;
     width:80%;
 }
+
