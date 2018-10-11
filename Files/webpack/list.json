@@ -1,0 +1,12 @@
+{
+    "menu":[
+        {"name":"Webpack基础","children":[
+            {"name":"开始","url":"index"},
+            {"name":"结构化编程","url":"structure"}
+        ]},
+        {"name":"CSS编译","children":[
+            {"name":"Less","url":"less"},
+            {"name":"结构化编程","url":"structure"}
+        ]}
+    ]
+}

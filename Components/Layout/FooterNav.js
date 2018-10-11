@@ -6,7 +6,8 @@ const array = [
         {name:"网络通信",link:"/doc/internet/index"},
         {name:"JavaScript",link:"/doc/javascript/index"},
         {name:"Github",link:"/doc/github/index"},
-        {name:"shell",link:"/doc/shell/index"}
+        {name:"shell",link:"/doc/shell/index"},
+        {name:"Webpack",link:"/doc/webpack/index"}
     ]},
     {title:"关于竹·纸",items:[
         {name:"作者简介",link:"/author"},
