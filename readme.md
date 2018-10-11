@@ -1,20 +1,21 @@
-## 技术栈
+## 竹纸 Bamboo Paper
 
-1. React
-2. Next.js
-3. Express
-4. Antd
-5. Webpack
-6. ESLint
-7. Mocha
-8. MongoDB
-9. Nodemon
+As a open resource project, Bamboo Paper combines many popular technologies,which include react, webpack, less, express, Docker, Jenkins ,next.js and so on. Our target is to create a simply used business web app for small companies and personal developers.
 
-## Webpack Hot Middleware
+## Local Development
 
-如果当前项目已有自定义服务器，这时就不需要使用webpack-dev-server, 这样Hot reloading就是项目开发中所需要解决的一个问题。 而webpack hot middleware则是解决这个问题的一个绝佳方案之一。
+```shell
+yarn && yarn dev
+```
 
+## Local Production
 
-```javascript
-var zhangwe = 1
+```shell
+yarn build
+```
+
+## Publish to Production Server
+
+```shell
+git push production master
 ```

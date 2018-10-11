@@ -9,6 +9,7 @@
         ]},
         {"name":"高级技术","children":[
             {"name":"加载优化","url":"js-optimize"},
+            {"name":"样式加载","url":"style-sheet"},
             {"name":"限制container资源","url":"limit-container-resources"},
             {"name":"Docker 日志","url":"docker-logs"},
             {"name":"Docker 网络管理","url":"docker-logs"}
