@@ -15,6 +15,7 @@ const array = [
         {name:"后台展示",link:"/monitor"},
     ]},
     {title:"更多技术",items:[
+        {name:"less",link:"/doc/less/index"},
         {name:"Code Mirror",link:"/tech/codemirror"},
         {name:"Jenkins",link:"/tech/jenkins"},
         {name:"Git CI",link:"/tech/gitci"},

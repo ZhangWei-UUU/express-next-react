@@ -50,34 +50,8 @@ app.prepare().then(()=>{
         return app.render(req, res, "/author",req.query);
     });
 
-    server.get("/library",(req,res)=>{
-        setTimeout(()=>{
-            return app.render(req, res, "/library",req.query);
-        },4000);
-    });
-
-    server.get("/svg",(req,res)=>{
-        return app.render(req, res, "/svg",req.query);
-    });
-
-    server.get("/artical/:id",(req,res)=>{
-        return app.render(req, res, "/artical",req.query);
-    });
-
-    server.get("/web",(req,res)=>{
-        return app.render(req, res, "/web",req.query);
-    });
-
-    server.get("/wechat",(req,res)=>{
-        return app.render(req, res, "/wechat",req.query);
-    });
-
     server.get("/echarts",(req,res)=>{ 
         return app.render(req, res, "/echarts",req.query);
-    });
-
-    server.get("/reactnative",(req,res)=>{
-        return app.render(req, res, "/reactnative",req.query);
     });
 
     server.get("/login",(req,res)=>{
