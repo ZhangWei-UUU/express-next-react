@@ -13,12 +13,10 @@ const array = [
         {name:"作者简介",link:"/author"},
         {name:"设计文档",link:"/doc/architecture/index"},
         {name:"后台展示",link:"/monitor"},
+        {name:"NEXT7",link:"/doc/next7/index"},
     ]},
     {title:"更多技术",items:[
         {name:"less",link:"/doc/less/index"},
-        {name:"Code Mirror",link:"/tech/codemirror"},
-        {name:"Jenkins",link:"/tech/jenkins"},
-        {name:"Git CI",link:"/tech/gitci"},
         {name:"React Native Navigator",link:"/doc/react-native-navigator/Getting-started"},
     ]},
     {title:"联系我们",items:[

@@ -14,6 +14,13 @@ yarn && yarn dev
 yarn build
 ```
 
+## Add Your Production Remote Branch
+
+In your local repo
+```shell
+git remote add <remoteName> username@ipaddress:.gitpath 
+```
+
 ## Publish to Production Server
 
 ```shell

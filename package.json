@@ -1,14 +1,13 @@
 {
   "name": "express-next-react",
-  "author": "Zhang Wei Wu Shu",
+  "author": "Zhang Wei",
   "license": "GPL-3.0",
-  "version": "0.0.2",
+  "version": "2.0.1",
   "dependencies": {
     "antd": "3.8.3",
     "connect-mongo": "2.0.1",
     "connect-mongodb-session": "2.0.3",
     "cookie-parser": "1.4.3",
-    "css": "2.2.3",
     "echarts": "4.1.0",
     "echarts-for-react": "2.0.14",
     "express": "4.16.3",
@@ -18,7 +17,6 @@
     "ip": "1.1.5",
     "mongodb": "3.1.4",
     "next": "6.1.2",
-    "node-sass": "4.9.3",
     "react": "16.4.2",
     "react-dom": "16.4.2",
     "react-highlight": "0.12.0",
@@ -53,10 +51,7 @@
     "jest": "23.5.0",
     "mocha": "5.2.0",
     "nodemon": "1.18.3",
-    "postcss-loader": "3.0.0",
-    "raw-loader": "0.5.1",
-    "style-loader": "0.23.1",
-    "to-string-loader": "1.1.5"
+    "raw-loader": "0.5.1"
   },
   "scripts": {
     "dev": "export NODE_ENV=development && export DB_PORT=27017 && nodemon app.js",

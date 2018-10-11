@@ -1,0 +1,11 @@
+{
+    "menu":[
+        {"name":"Next7","children":[
+            {"name":"开始","url":"index"}
+        ]},
+        {"name":"高级配置","children":[
+            {"name":"Webpack4","url":"webpack4"},
+            {"name":"Babel7","url":"babel7"}
+        ]}
+    ]
+}
