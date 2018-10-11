@@ -2,6 +2,11 @@
 
 As a open resource project, Bamboo Paper combines many popular technologies,which include react, webpack, less, express, Docker, Jenkins ,next.js and so on. Our target is to create a simply used business web app for small companies and personal developers.
 
+
+## Upgrade Babel
+```
+npx babel-upgrade
+```
 ## Local Development
 
 ```shell
