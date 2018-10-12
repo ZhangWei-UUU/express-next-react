@@ -12,7 +12,7 @@ const Mobile = () =>(
                 </div>
             </Col>
             <Col lg={10}>
-                <img src="/static/images/pixel.jpg" className="pixel"/>
+                <img src="/static/images/pixel.webp" className="pixel"  alt="mobile"/>
             </Col>
         </Row>
     </div>

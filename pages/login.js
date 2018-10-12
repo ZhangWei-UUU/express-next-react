@@ -39,7 +39,7 @@ class Login extends Component{
             <div className="login">
                 <div className="login-form">
                     <div>
-                        <img src="/static/images/logo.png" className="login-icon"/>
+                        <img src="/static/images/logo.webp" className="login-icon"  alt="logo"/>
                         <h1>登录艾泽拉</h1>
                     </div>
                     <Form onSubmit={this.handleSubmit} className="login-form">

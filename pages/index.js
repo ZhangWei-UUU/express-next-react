@@ -1,5 +1,6 @@
 import React,{Component} from "react";
-import { Layout, Row, Col, Icon } from "antd";
+import { Layout, Row, Col} from "antd";
+import Head from "next/head";
 import "antd/lib/date-picker/style"; 
 import "antd/lib/row/style"; 
 import "antd/lib/col/style"; 
@@ -18,6 +19,9 @@ class Home extends Component{
     render(){
         return(
             <Layout>
+                <Head>
+                    <title>竹·纸</title>
+                </Head>
                 <HeadNav themeStyle="transparent"/> 
                 <Layout>
                     <Content >
@@ -32,14 +36,14 @@ class Home extends Component{
                                         </p>
                                              
                                         <div key="3">
-                                            <a href="/admin/usercenter">
+                                            <a href="/admin/usercenter" style={{color:"#fff"}}>
                                                 <button>点击进入</button>
                                             </a>
                                         </div>
                                           
                                     </Col>
                                     <Col lg={15}>
-                                        <img src="/static/images/house-arch.png" key="6"/>                          
+                                        <img src="/static/images/house-arch.webp" key="6"  alt="house"/>                          
                                     </Col>
                                 </Row>
                                 
