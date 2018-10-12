@@ -1,5 +1,7 @@
 import React,{Component} from "react";
 import { Row,Col } from "antd";
+import "antd/lib/row/style"; 
+import "antd/lib/col/style"; 
 import Link from "next/link";
 const array = [
     {title:"IT基础",items:[

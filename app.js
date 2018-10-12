@@ -5,7 +5,7 @@ var bodyParser = require("body-parser");
 var cookieParser = require("cookie-parser");
 var session = require("express-session");
 var MongoDBStore = require("connect-mongodb-session")(session);
-
+const compression = require("compression");
 var dev = process.env.NODE_ENV !== "production";
 var configure = require("./configure/index.js");
 var app = next({dev});
@@ -36,6 +36,7 @@ app.prepare().then(()=>{
         saveUninitialized: true
     }));
     server.use(cookieParser());
+    server.use(compression());
     server.use("/api",api);
     server.use("/api/doc",docapi);
     server.get("/",(req,res)=>{

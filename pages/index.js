@@ -1,5 +1,8 @@
 import React,{Component} from "react";
 import { Layout, Row, Col, Icon } from "antd";
+import "antd/lib/date-picker/style"; 
+import "antd/lib/row/style"; 
+import "antd/lib/col/style"; 
 import dynamic from "next/dynamic";
 
 import HeadNav from "../Components/Layout/HeadNav";
