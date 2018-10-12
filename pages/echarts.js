@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import HeadNav from "../Components/Layout/HeadNav";
 import FooterNav from "../Components/Layout/FooterNav";
 
-import "../style.css";
+import "../style.less";
 
 const { Content } = Layout;
 const DynamicComA = dynamic(() => import("../Charts/SimpleNodes"), {

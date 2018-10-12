@@ -3,7 +3,7 @@ import Link from "next/link";
 import Router from "next/router";
 
 import { Input,Icon, Button,Form ,message} from "antd";
-import "../style.css";
+import "../style.less";
 
 const FormItem = Form.Item;
 

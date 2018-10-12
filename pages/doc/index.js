@@ -12,7 +12,7 @@ import HeadNav from "../../Components/Layout/HeadNav";
 import FooterNav from "../../Components/Layout/FooterNav";
 import request from "../../Components/Fetch/request";
 
-import "../../doc.css";
+import "../../doc.less";
 
 class Doc extends Component {
     constructor(props) {

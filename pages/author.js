@@ -5,7 +5,7 @@ import FooterNav from "../Components/Layout/FooterNav";
 import Highlight from "react-highlight";
 import ReactMarkdown from "react-markdown";
 import request from "../Components/Fetch/request";
-import "../style.css";
+import "../style.less";
 const { Content } = Layout;
 
 class Author extends Component{

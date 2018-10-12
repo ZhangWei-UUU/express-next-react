@@ -1,13 +1,18 @@
 /* eslint-disable */
 const withCss = require('@zeit/next-css')
+const withLess = require('@zeit/next-less')
 const withTypescript = require('@zeit/next-typescript')
 
 //fix: prevents error when .css files are required by node
 if (typeof require !== 'undefined') {
-  require.extensions['.css'] = () => {}
+  require.extensions['.less'] = () => {}
 }
 
-module.exports = withTypescript(withCss({
+module.exports = withLess({
+    lessLoaderOptions: {
+        javascriptEnabled: true,
+    },
+    
     webpack(config,{}) {
       // Further custom configuration here
       config.module.rules.push({
@@ -19,4 +24,4 @@ module.exports = withTypescript(withCss({
        })
       return config
     }
-  }))
+  })

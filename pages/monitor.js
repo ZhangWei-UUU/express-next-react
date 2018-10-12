@@ -2,7 +2,7 @@ import React,{Component} from "react";
 import { Layout, Row, Col,Icon,Card } from "antd";
 import HeadNav from "../Components/Layout/HeadNav";
 import FooterNav from "../Components/Layout/FooterNav";
-import "../style.css";
+import "../style.less";
 const { Content } = Layout;
 
 

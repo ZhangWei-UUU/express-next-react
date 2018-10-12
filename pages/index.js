@@ -3,7 +3,7 @@ import { Layout, Row, Col, Icon } from "antd";
 import dynamic from "next/dynamic";
 
 import HeadNav from "../Components/Layout/HeadNav";
-import "../style.css";
+import "../style.less";
 
 const { Content } = Layout;
 
