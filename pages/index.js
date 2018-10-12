@@ -36,7 +36,7 @@ class Home extends Component{
                                         </p>
                                              
                                         <div key="3">
-                                            <a href="/admin/usercenter" style={{color:"#fff"}}>
+                                            <a href="/admin/usercenter">
                                                 <button>点击进入</button>
                                             </a>
                                         </div>

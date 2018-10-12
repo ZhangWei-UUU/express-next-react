@@ -31,3 +31,9 @@ git remote add <remoteName> username@ipaddress:.gitpath
 ```shell
 git push production master
 ```
+
+## 不足之处
+
+1. 在性能优化上css文件为render-block resouces
+2. 在资源加载通信协议上使用的是HTTP/1.1而非HTTP/2
+3. 没有涉及Progressive Web App技术

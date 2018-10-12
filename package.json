@@ -2,7 +2,7 @@
   "name": "express-next-react",
   "author": "Zhang Wei",
   "license": "GPL-3.0",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "dependencies": {
     "antd": "3.10.0",
     "compression": "1.7.3",
