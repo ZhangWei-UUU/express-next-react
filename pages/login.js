@@ -3,6 +3,12 @@ import Link from "next/link";
 import Router from "next/router";
 
 import { Input,Icon, Button,Form ,message} from "antd";
+import "antd/lib/input/style"; 
+import "antd/lib/icon/style"; 
+import "antd/lib/button/style"; 
+import "antd/lib/form/style"; 
+import "antd/lib/message/style"; 
+
 import "../style.less";
 
 const FormItem = Form.Item;
@@ -58,7 +64,8 @@ class Login extends Component{
                             )}
                         </FormItem>
                         <FormItem>
-                            <Button htmlType="submit" className="login-form-button">
+                            <Button htmlType="submit" 
+                                className="login-form-button">
                             登录
                             </Button>
                             <Link href="/register"><a>立即注册</a></Link>
