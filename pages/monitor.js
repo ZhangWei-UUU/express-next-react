@@ -1,12 +1,24 @@
 import React,{Component} from "react";
 import { Layout, Row, Col,Icon,Card } from "antd";
+import PropTypes from "prop-types";
+
 import HeadNav from "../Components/Layout/HeadNav";
 import FooterNav from "../Components/Layout/FooterNav";
+import CheckLogin from "../Components/CheckLogin";
+
 import "../style.less";
 const { Content } = Layout;
 
-
 class Monitor extends Component{
+    static getInitialProps(ctx){
+        let {req,res} = ctx;
+        var result = CheckLogin(req,res);
+        if(result){
+            return {loginUser:result.loginUser};
+        }else{
+            return {loginUser:null};
+        }
+    }
     constructor(props){
         super(props);
         this.state ={
@@ -22,6 +34,7 @@ class Monitor extends Component{
     }
     render(){
         let {data} = this.state;
+        let {loginUser} = this.props;
         var CARDS = [];
         if(data){
             CARDS = [
@@ -38,7 +51,7 @@ class Monitor extends Component{
 
         return(
             <Layout>
-                <HeadNav themeStyle="light"/> 
+                <HeadNav themeStyle="light" loginUser={loginUser}/> 
                 <Layout>
                     <Content >
                         <Row>
@@ -70,4 +83,7 @@ class Monitor extends Component{
     }
 }
 
+Monitor.propTypes = {
+    loginUser:PropTypes.string
+};
 export default  Monitor;

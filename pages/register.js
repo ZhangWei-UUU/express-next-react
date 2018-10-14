@@ -1,6 +1,7 @@
 import React,{Component} from "react";
 import Link from "next/link";
 import Router from "next/router";
+import PropTypes from "prop-types";
 
 import { Input,Icon, Button,Form ,message} from "antd";
 
@@ -41,21 +42,25 @@ class Register extends Component{
                 <div className="login-form">
                     <div>
                         <img src="/static/images/logo.webp" className="login-icon"  alt="logo"/>
-                        <h1>注册 艾泽拉</h1>
+                        <h1>注册 竹·纸</h1>
                     </div>
                     <Form onSubmit={this.handleSubmit} className="login-form">
                         <FormItem>
                             {getFieldDecorator("userName", {
                                 rules: [{ required: true, message: "请输入用户名!" }],
                             })(
-                                <Input prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />} placeholder="用户名" />
+                                <Input 
+                                    autoComplete="on"
+                                    prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />} placeholder="用户名" />
                             )}
                         </FormItem>
                         <FormItem>
                             {getFieldDecorator("password", {
                                 rules: [{ required: true, message: "请输入密码!" }],
                             })(
-                                <Input prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />} type="password" placeholder="密码" />
+                                <Input
+                                    autoComplete="on"
+                                    prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />} type="password" placeholder="密码" />
                             )}
                         </FormItem>
                         <FormItem>
@@ -73,5 +78,9 @@ class Register extends Component{
         );
     }
 }
+
+Register.propTypes = {
+    form:PropTypes.object
+};
 
 export default Form.create()(Register);

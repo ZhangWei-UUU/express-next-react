@@ -1,8 +1,10 @@
 import React,{Component} from "react";
-import { Layout, Row, Col,Menu,Icon } from "antd";
+import { Layout,Menu,Icon } from "antd";
 import HeadNav from "../../Components/Layout/HeadNav";
 import FooterNav from "../../Components/Layout/FooterNav";
 import MultiComponents from "../../Components/Center";
+import CheckLogin from "../../Components/CheckLogin";
+
 import PropTypes from "prop-types";
 import "../../style.less";
 const { Content, Sider } = Layout;
@@ -16,20 +18,26 @@ const ITEMS = [
 
 class UserCenter extends Component{
     static getInitialProps(ctx){
-        if(ctx.req.query.subitem){
-            return {subitem:ctx.req.query.subitem};
+        let {req,res} = ctx;
+        var result = CheckLogin(req,res);
+        if(result){
+            if(req.query.subitem){
+                return {subitem:req.query.subitem,loginUser:result.loginUser};
+            }else{
+                return {subitem:"mychannel",loginUser:result.loginUser};
+            }
         }else{
-            return {subitem:"mychannel"};
+            return {subitem:"mychannel",loginUser:"xx"};
         }
     }
 
    
     render(){
-        let {subitem} = this.props;
+        let {subitem,loginUser} = this.props;
         const DynamicComponent = MultiComponents[subitem];
         return(
             <Layout>
-                <HeadNav themeStyle="light"/> 
+                <HeadNav themeStyle="light" loginUser={loginUser}/> 
                 <Layout>
                     <Sider>
                         <Menu
@@ -61,6 +69,7 @@ class UserCenter extends Component{
 }
 
 UserCenter.propTypes = {
-    subitem: PropTypes.string
+    subitem: PropTypes.string,
+    loginUser:PropTypes.string
 };
 export default  UserCenter;

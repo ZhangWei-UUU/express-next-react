@@ -102,10 +102,10 @@ router.get("/environment",(req,res)=>{
             const collection1 = db1.collection("users");
             const collection2 = db1.collection("sessions");
             collection1.find({}).toArray(function(err, docs) {
-                console.log("users:",docs);
+           
             });
             collection2.find({}).toArray(function(err, docs) {
-                console.log("sessions:",docs);
+              
             });
         }
     });

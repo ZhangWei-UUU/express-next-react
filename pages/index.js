@@ -1,8 +1,9 @@
 import React,{Component} from "react";
 import { Layout, Row, Col} from "antd";
 import Head from "next/head";
- 
+import PropTypes from "prop-types";
 import dynamic from "next/dynamic";
+import CheckLogin from "../Components/CheckLogin";
 
 import HeadNav from "../Components/Layout/HeadNav";
 import "../style.less";
@@ -14,13 +15,23 @@ const DynamicMobile = dynamic(import("../Components/ShowBar/Mobile"),{ssr:false}
 const DynamicAI = dynamic(import("../Components/ShowBar/AI"),{ssr:false});
 const DynamicMap = dynamic(import("../Components/ShowBar/Map"),{ssr:false});
 class Home extends Component{
+    static getInitialProps(ctx){
+        let {req,res} = ctx;
+        var result = CheckLogin(req,res);
+        if(result){
+            return {loginUser:result.loginUser};
+        }else{
+            return {loginUser:null};
+        }
+    }
     render(){
+        let {loginUser} = this.props;
         return(
             <Layout>
                 <Head>
                     <title>竹·纸</title>
                 </Head>
-                <HeadNav themeStyle="transparent"/> 
+                <HeadNav themeStyle="transparent" loginUser={loginUser}/> 
                 <Layout>
                     <Content >
                         <div className="first-component">
@@ -68,4 +79,7 @@ class Home extends Component{
     }
 };
 
+Home.propTypes = {
+    loginUser:PropTypes.string
+};
 export default  Home;

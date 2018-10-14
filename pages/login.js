@@ -1,8 +1,7 @@
 import React,{Component} from "react";
 import Link from "next/link";
-import Router from "next/router";
-
 import { Input,Icon, Button,Form ,message} from "antd";
+import PropTypes from "prop-types";
 
 
 import "../style.less";
@@ -27,7 +26,7 @@ class Login extends Component{
                     }else{
                         message.success(data.success);
                         setTimeout(()=>{
-                            Router.push("/");
+                            window.location.href="/";
                         },1200);
                     }
                 });
@@ -42,21 +41,25 @@ class Login extends Component{
                 <div className="login-form">
                     <div>
                         <img src="/static/images/logo.webp" className="login-icon"  alt="logo"/>
-                        <h1>登录艾泽拉</h1>
+                        <h1>登录 竹·纸</h1>
                     </div>
                     <Form onSubmit={this.handleSubmit} className="login-form">
                         <FormItem>
                             {getFieldDecorator("userName", {
                                 rules: [{ required: true, message: "请输入用户名!" }],
                             })(
-                                <Input prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />} placeholder="用户名" />
+                                <Input 
+                                    autoComplete="on"
+                                    prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />} placeholder="用户名" />
                             )}
                         </FormItem>
                         <FormItem>
                             {getFieldDecorator("password", {
                                 rules: [{ required: true, message: "请输入密码!" }],
                             })(
-                                <Input prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />} type="password" placeholder="密码" />
+                                <Input
+                                    autoComplete="on"
+                                    prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />} type="password" placeholder="密码" />
                             )}
                         </FormItem>
                         <FormItem>
@@ -75,5 +78,9 @@ class Login extends Component{
         );
     }
 }
+
+Login.propTypes = {
+    form:PropTypes.object
+};
 
 export default Form.create()(Login);
