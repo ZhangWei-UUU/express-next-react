@@ -1,42 +1,28 @@
 import React, { Component } from "react";
-import ReactMarkdown from "react-markdown";
-import request from "../Fetch/request";
-import "../../style.less";
+import { Row, Col } from "antd";
+const FAKE = [
+    {key:0,name:"Channel1",url:"/channel/1"},
+    {key:1,name:"Channel2",url:"/channel/2"},
+    {key:2,name:"Channel3",url:"/channel/3"},
+    {key:3,name:"Channel4",url:"/channel/4"},
+    {key:4,name:"Channel4",url:"/channel/4"},
+    {key:5,name:"Channel4",url:"/channel/4"},
+    {key:6,name:"Channel4",url:"/channel/4"},
 
+];
 class Settings extends Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-            content:""
-        };
-    };
-    async componentDidMount() {
-        let data;
-        try{
-            data = await request("GET", "/api/staticfile/policy");  
-        }catch(error){
-            message.error(data);
-        }
-
-        if(typeof data === "number"){
-            message.error(data);
-        }
-        else{
-            if(data.error){
-                message.info(data.error);
-            }else{
-                this.setState({
-                    content:data.content
-                });
-            }    
-        }  
-    }
     render(){
         return(
-            <div className="staticfile">
-                <ReactMarkdown 
-                    source={this.state.content} 
-                    className="markdown-body" />
+            <div>
+                <Row>
+                    {
+                        FAKE.map(channel=>(
+                            <Col xl={6} lg={8} md={12} sm={12} key={channel.key} className="channel-wrap">
+                                <div className="channel">{channel.name}</div>
+                            </Col>
+                        ))
+                    }
+                </Row>
             </div>
         );
     }
