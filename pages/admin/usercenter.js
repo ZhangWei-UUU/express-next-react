@@ -5,7 +5,7 @@ import FooterNav from "../../Components/Layout/FooterNav";
 import MultiComponents from "../../Components/Center";
 import PropTypes from "prop-types";
 import "../../style.less";
-const { Content } = Layout;
+const { Content, Sider } = Layout;
 const ITEMS = [
     {name:"我的频道",icon:"user",url:"?subitem=mychannel",key:"mychannel"},
     {name:"消息",icon:"mail",url:"?subitem=message",key:"message"},
@@ -31,32 +31,28 @@ class UserCenter extends Component{
             <Layout>
                 <HeadNav themeStyle="light"/> 
                 <Layout>
+                    <Sider>
+                        <Menu
+                            style={{ width: "100%",height:"100%" }}
+                            defaultSelectedKeys={[subitem]}
+                            mode={"inline"}
+                            theme={"light"}
+                        >
+                            {ITEMS.map((item,key)=>{
+                                return(
+                                    <Menu.Item key={item.key}>     
+                                        <a href={item.url}> 
+                                            <Icon type={item.icon} />
+                                            {item.name}
+                                        </a>
+                                    </Menu.Item>
+                                );
+                            })}
+                        </Menu>
+                    </Sider>
                     <Content>
-                        <Row>
-                            <Col lg={6}>
-                                <Menu
-                                    style={{ width: "100%",height:"100%" }}
-                                    defaultSelectedKeys={[subitem]}
-                                    mode={"inline"}
-                                    theme={"light"}
-                                >
-                                    {ITEMS.map((item,key)=>{
-                                        return(
-                                            <Menu.Item key={item.key}>     
-                                                <a href={item.url}> 
-                                                    <Icon type={item.icon} />
-                                                    {item.name}
-                                                </a>
-                                            </Menu.Item>
-                                        );
-                                    })}
-                                </Menu>
-                            </Col>
-                            <Col lg={18}>
-                                <DynamicComponent/>
-                            </Col>
-                        </Row>
-                    </Content>
+                        <DynamicComponent/>
+                    </Content>  
                 </Layout>
                 <FooterNav /> 
             </Layout>

@@ -47,26 +47,6 @@ app.prepare().then(()=>{
         return app.render(req, res, "/doc",{theme:req.params.theme,charpt:req.params.charpt});
     });
 
-    server.get("/author",(req,res)=>{
-        return app.render(req, res, "/author",req.query);
-    });
-
-    server.get("/echarts",(req,res)=>{ 
-        return app.render(req, res, "/echarts",req.query);
-    });
-
-    server.get("/login",(req,res)=>{
-        return app.render(req, res, "/login", req.query);
-    });
-
-    server.get("/register",(req,res)=>{
-        return app.render(req, res, "/register", req.query);
-    });
-    
-    server.get("/monitor",(req,res)=>{
-        return app.render(req, res, "/monitor", req.query);
-    });
-
     server.get("*", (req, res) => {
         return handle(req, res);
     });

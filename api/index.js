@@ -84,10 +84,10 @@ router.post("/login",(req,res)=>{
     }); 
 });
 
-router.get("/author",(req,res)=>{
-    const exist = fs.existsSync("./Files/author.md");
+router.get("/staticfile/:filename",(req,res)=>{
+    const exist = fs.existsSync(`./Files/${req.params.filename}.md`);
     if(exist){
-        const content = fs.readFileSync("./Files/author.md","utf8");
+        const content = fs.readFileSync(`./Files/${req.params.filename}.md`,"utf8");
         res.send({content});
     }else{
         res.send({error:"无此文件"});

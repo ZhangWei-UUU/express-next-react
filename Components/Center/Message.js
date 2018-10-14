@@ -3,7 +3,7 @@ import ReactMarkdown from "react-markdown";
 import request from "../Fetch/request";
 import "../../style.less";
 
-class Help extends Component{
+class Messages extends Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -13,7 +13,7 @@ class Help extends Component{
     async componentDidMount() {
         let data;
         try{
-            data = await request("GET", "/api/staticfile/help");  
+            data = await request("GET", "/api/staticfile/policy");  
         }catch(error){
             message.error(data);
         }
@@ -33,7 +33,7 @@ class Help extends Component{
     }
     render(){
         return(
-            <div  className="staticfile">
+            <div className="staticfile">
                 <ReactMarkdown 
                     source={this.state.content} 
                     className="markdown-body" />
@@ -42,4 +42,4 @@ class Help extends Component{
     }
 }
 
-export default Help;
+export default Messages;

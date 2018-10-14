@@ -3,9 +3,9 @@ import dynamic from "next/dynamic";
 
 const MultiComponents = {
     mychannel:dynamic(import("./Mychannel")),
-    message:dynamic(import("./Mychannel")),
-    settings:dynamic(import("./Mychannel")),
-    policy:dynamic(import("./Mychannel")),
+    message:dynamic(import("./Message")),
+    settings:dynamic(import("./Settings")),
+    policy:dynamic(import("./Policy")),
     help:dynamic(import("./Help")),
 };
 

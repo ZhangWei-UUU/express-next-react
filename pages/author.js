@@ -3,7 +3,6 @@ import { Row, Col, Layout, message } from "antd";
 
 import HeadNav from "../Components/Layout/HeadNav";
 import FooterNav from "../Components/Layout/FooterNav";
-import Highlight from "react-highlight";
 import ReactMarkdown from "react-markdown";
 import request from "../Components/Fetch/request";
 import "../style.less";
@@ -20,7 +19,7 @@ class Author extends Component{
     async componentDidMount() {
         let data;
         try{
-            data = await request("GET", "/api/author");  
+            data = await request("GET", "/api/staticfile/author");  
         }catch(error){
             message.error(data);
         }
@@ -49,9 +48,7 @@ class Author extends Component{
                              
                             </Col>
                             <Col lg={18} offset={1}>
-                                <Highlight className='language-name-of-snippet'>
-                                    <ReactMarkdown source={this.state.content} className="markdown-body" />
-                                </Highlight>
+                                <ReactMarkdown source={this.state.content} className="markdown-body" />
                             </Col>
                         </Row> 
                     </Content>
