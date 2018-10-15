@@ -7,6 +7,7 @@ const MultiComponents = {
     settings:dynamic(import("./Settings")),
     policy:dynamic(import("./Policy")),
     help:dynamic(import("./Help")),
+    shop:dynamic(import("./Shop"))
 };
 
 export default MultiComponents;

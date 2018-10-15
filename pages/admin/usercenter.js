@@ -12,6 +12,7 @@ const ITEMS = [
     {name:"我的频道",icon:"user",url:"?subitem=mychannel",key:"mychannel"},
     {name:"消息",icon:"mail",url:"?subitem=message",key:"message"},
     {name:"设置",icon:"setting",url:"?subitem=settings",key:"settings"},
+    {name:"应用商店",icon:"shop",url:"?subitem=shop",key:"shop"},
     {name:"条款及隐私政策",icon:"file-done",url:"?subitem=policy",key:"policy"},
     {name:"帮助和反馈",icon:"customer-service",url:"?subitem=help",key:"help"}
 ];
