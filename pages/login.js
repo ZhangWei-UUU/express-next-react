@@ -26,7 +26,7 @@ class Login extends Component{
                     }else{
                         message.success(data.success);
                         setTimeout(()=>{
-                            window.location.href="/";
+                            window.location.href="/admin/usercenter";
                         },1200);
                     }
                 });

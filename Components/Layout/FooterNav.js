@@ -19,6 +19,7 @@ const array = [
     {title:"更多技术",items:[
         {name:"less",link:"/doc/less/index"},
         {name:"React 高级用法",link:"/doc/react/index"},
+        {name:"算法",link:"/doc/algorithm/index"},
         {name:"React Native Navigator",link:"/doc/react-native-navigator/Getting-started"},
     ]},
     {title:"联系我们",items:[

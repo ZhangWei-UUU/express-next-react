@@ -3,8 +3,7 @@ import { Layout,Menu,Icon } from "antd";
 import HeadNav from "../../Components/Layout/HeadNav";
 import FooterNav from "../../Components/Layout/FooterNav";
 import MultiComponents from "../../Components/Center";
-import CheckLogin from "../../Components/CheckLogin";
-import PrivatePage from "../../Components/Authentication";
+import withPrivate from "../../Components/Authentication";
 import PropTypes from "prop-types";
 import "../../style.less";
 const { Content, Sider } = Layout;
@@ -19,16 +18,11 @@ const ITEMS = [
 
 class UserCenter extends Component{
     static getInitialProps(ctx){
-        let {req,res} = ctx;
-        var result = CheckLogin(req,res);
-        if(result){
-            if(req.query.subitem){
-                return {subitem:req.query.subitem,loginUser:result.loginUser};
-            }else{
-                return {subitem:"mychannel",loginUser:result.loginUser};
-            }
+        let {req} = ctx;
+        if(req.query.subitem){
+            return {subitem:req.query.subitem,loginUser:req.session.loginUser};
         }else{
-            return {subitem:"mychannel",loginUser:"xx"};
+            return {subitem:"mychannel",loginUser:req.session.loginUser};
         }
     }
 
@@ -74,4 +68,4 @@ UserCenter.propTypes = {
     loginUser:PropTypes.string
 };
 
-export default PrivatePage(UserCenter);
+export default withPrivate(UserCenter,{redirect:false});

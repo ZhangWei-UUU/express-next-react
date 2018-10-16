@@ -1,12 +1,10 @@
 import React,{Component} from "react";
-import Layout from "antd/lib/layout";
-import Row from "antd/lib/row";
-import Col from "antd/lib/col";
+import {Layout,Row,Col} from "antd";
+
 import Head from "next/head";
 import PropTypes from "prop-types";
 import dynamic from "next/dynamic";
-import CheckLogin from "../Components/CheckLogin";
-
+import withPrivate from "../Components/Authentication";
 import HeadNav from "../Components/Layout/HeadNav";
 import "../style.less";
 
@@ -16,15 +14,11 @@ const DynamicFooter = dynamic(import("../Components/Layout/FooterNav"),{ssr:fals
 const DynamicMobile = dynamic(import("../Components/ShowBar/Mobile"),{ssr:false});
 const DynamicAI = dynamic(import("../Components/ShowBar/AI"),{ssr:false});
 const DynamicMap = dynamic(import("../Components/ShowBar/Map"),{ssr:false});
+
 class Home extends Component{
     static getInitialProps(ctx){
-        let {req,res} = ctx;
-        var result = CheckLogin(req,res);
-        if(result){
-            return {loginUser:result.loginUser};
-        }else{
-            return {loginUser:null};
-        }
+        let {req} = ctx;
+        return {loginUser:req.session.loginUser};
     }
     render(){
         let {loginUser} = this.props;
@@ -84,4 +78,5 @@ class Home extends Component{
 Home.propTypes = {
     loginUser:PropTypes.string
 };
-export default  Home;
+
+export default withPrivate(Home,{redirect:false});
