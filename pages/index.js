@@ -1,5 +1,7 @@
 import React,{Component} from "react";
-import { Layout, Row, Col} from "antd";
+import Layout from "antd/lib/layout";
+import Row from "antd/lib/row";
+import Col from "antd/lib/col";
 import Head from "next/head";
 import PropTypes from "prop-types";
 import dynamic from "next/dynamic";

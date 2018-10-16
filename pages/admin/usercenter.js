@@ -4,7 +4,7 @@ import HeadNav from "../../Components/Layout/HeadNav";
 import FooterNav from "../../Components/Layout/FooterNav";
 import MultiComponents from "../../Components/Center";
 import CheckLogin from "../../Components/CheckLogin";
-
+import PrivatePage from "../../Components/Authentication";
 import PropTypes from "prop-types";
 import "../../style.less";
 const { Content, Sider } = Layout;
@@ -73,4 +73,5 @@ UserCenter.propTypes = {
     subitem: PropTypes.string,
     loginUser:PropTypes.string
 };
-export default  UserCenter;
+
+export default PrivatePage(UserCenter);
