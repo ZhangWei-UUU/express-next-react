@@ -4,19 +4,18 @@ import PropTypes from "prop-types";
 
 import HeadNav from "../Components/Layout/HeadNav";
 import FooterNav from "../Components/Layout/FooterNav";
-import CheckLogin from "../Components/CheckLogin";
+import withPrivate from "../Components/Authentication";
 
 import "../style.less";
 const { Content } = Layout;
 
 class Monitor extends Component{
     static getInitialProps(ctx){
-        let {req,res} = ctx;
-        var result = CheckLogin(req,res);
-        if(result){
-            return {loginUser:result.loginUser};
+        let {req} = ctx;
+        if(req.query.subitem){
+            return {subitem:req.query.subitem,loginUser:req.session.loginUser};
         }else{
-            return {loginUser:null};
+            return {subitem:"mychannel",loginUser:req.session.loginUser};
         }
     }
     constructor(props){
@@ -86,4 +85,4 @@ class Monitor extends Component{
 Monitor.propTypes = {
     loginUser:PropTypes.string
 };
-export default  Monitor;
+export default  withPrivate(Monitor);
