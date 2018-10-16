@@ -15,6 +15,7 @@
     "express-session": "1.15.6",
     "external-ip": "2.0.3",
     "github-markdown-css": "2.10.0",
+    "hash.js": "1.1.5",
     "ip": "1.1.5",
     "mongodb": "3.1.4",
     "next": "7.0.1",

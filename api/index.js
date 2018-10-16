@@ -3,8 +3,9 @@ var router = express.Router();
 const getIP = require("external-ip")();
 const MongoClient = require("mongodb").MongoClient;
 const os = require("os");
-var ip = require("ip");
 var fs = require("fs");
+var hash = require("hash.js");
+
 const DB_CONFIG = require("../db");
 
 const insertDocument = (db,obj,callback) =>{
@@ -37,7 +38,9 @@ router.post("/register",(req,res)=>{
             res.send({err:"MongoDB在当前服务器中处于关闭状态"});
         }else{
             const db = client.db(DB_CONFIG.dbname);
-            insertDocument(db,req.body,(back)=>{
+            const hashPassword = hash.sha256().update(req.body.password).digest("hex");
+            let {userName} = req.body;
+            insertDocument(db,{userName,password:hashPassword},(back)=>{
                 if(back.result.ok === 1){
                     res.send({success:"注册成功"});
                 }else{
@@ -69,9 +72,10 @@ router.post("/login",(req,res)=>{
             res.send({err:"MongoDB在当前服务器中处于关闭状态"});
         }else{
             const db = client.db(DB_CONFIG.dbname);
-            findDocument(db,req.body,(back)=>{
+            const hashPassword = hash.sha256().update(req.body.password).digest("hex");
+            let {userName} = req.body;
+            findDocument(db,{userName,password:hashPassword},(back)=>{
                 if(back.length>0){
-                   
                     req.session.loginUser = req.body.userName;
                     res.send({success:"登录成功"});
                 
