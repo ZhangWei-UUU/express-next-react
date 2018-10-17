@@ -54,3 +54,105 @@ function isEven(arg){
    }
 }
 ```
+
+## 数组迭代
+
+> **迭代** 是一个数学概念，它的目的在于通过一次次运算不断逼近目标结果的一种运算方式，它的每一次运算结果都是上一次运算的初始值。
+> 在JavaScript的迭代运算方面。我们可以看到不同的运算方法。
+
+### Array.every()
+
+其特点在于每一次迭代的值为`true`才会进行下次运算，一旦为`false`运算即刻停止。
+
+```javascript
+var numbers = [2,4,7,8,10];
+function isEven(arg){
+   if(arg%2 === 0){
+       console.log(arg)
+       return true;
+   }else{
+        console.log(arg)
+       return false;
+   }
+}
+const result = numbers.every(isEven);
+console.log(result)
+```
+粘贴代码，[点击运行代码](http://javascript.cs.lmu.edu/runner/ "title" target="_blank")
+
+### Array.some()
+
+与Array.every()恰恰相反，Array.some() 的特点在于迭代到`true`时，运算立即停止。
+```javascript
+var numbers = [1,3,5,8,9,11];
+function isEven(arg){
+   if(arg%2 === 0){
+       console.log(arg)
+       return true;
+   }else{
+        console.log(arg)
+       return false;
+   }
+}
+const result = numbers.some(isEven);
+console.log(result)
+```
+
+粘贴代码，[点击运行代码](http://javascript.cs.lmu.edu/runner/ "title" target="_blank")
+
+> 综上所述，可以看出**every在于找出数组中为值为false的元素，而some则是找出值为true的元素**。
+
+### Array.map() 映射
+
+> 映射字面意思为一一对应的意思。而map的作用在于，将数据进行转化。在这个新数组中，原本数组中的元素一一被映射成一个它们的值。
+
+```javascript
+var numbers = [1,3,5,8,9,11];
+function isEven(arg){
+   if(arg%2 === 0){
+       return true;
+   }else{
+       return false;
+   }
+}
+const newArray = numbers.map(isEven);
+console.log(newArray)
+```
+
+粘贴代码，[点击运行代码](http://javascript.cs.lmu.edu/runner/ "title" target="_blank")
+
+### Array.filter() 过滤
+
+在实际编程过滤是最为常见的计算方式，在大量的数据中常常我们只希望获取自己想要的数据，filter()方法的作用在于只返回值为true的元素。
+
+```javascript
+var numbers = [1,3,5,8,9,11];
+function isEven(arg){
+   if(arg%2 === 0){
+       return true;
+   }else{
+       return false;
+   }
+}
+const newArray = numbers.filter(isEven);
+console.log(newArray)
+```
+粘贴代码，[点击运行代码](http://javascript.cs.lmu.edu/runner/ "title" target="_blank")
+
+### Array.reduce((previous,current,index)=>{}) 迭代累加
+
+在上面介绍的四个数组方法，它们的输出值要么是数组中单个元素的值，要么就是整个数组的值。而reduce()方法则完全不同，
+它的作用在于获取整个数组累加的总值。这在统计学运算中极为重要。reduce在英文中的意思为减小，似乎和其作用有歧义冲突。
+实际reduce的意思是指在数组一次次迭代运算中，不断累加从而缩短数组长度的意思，直至数组长度为0.
+
+比如：我们求取6天平均气温。
+
+```javascript
+var numbers = [16,18,20,24,21,21];
+const total = numbers.reduce((pre,current,index)=>{
+    return pre+current
+});
+console.log("气温总值："+total+"平均气温："+total/6);
+```
+粘贴代码，[点击运行代码](http://javascript.cs.lmu.edu/runner/ "title" target="_blank")
+
