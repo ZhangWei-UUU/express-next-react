@@ -68,4 +68,4 @@ UserCenter.propTypes = {
     loginUser:PropTypes.string
 };
 
-export default withPrivate(UserCenter,{redirect:false});
+export default withPrivate(UserCenter,{redirect:true});

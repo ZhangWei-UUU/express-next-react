@@ -1,5 +1,8 @@
 import React,{Component} from "react";
 import { Row, Col, Layout, message } from "antd";
+import PropTypes from "prop-types";
+
+import withPrivate from "../Components/Authentication";
 
 import HeadNav from "../Components/Layout/HeadNav";
 import FooterNav from "../Components/Layout/FooterNav";
@@ -38,9 +41,10 @@ class Author extends Component{
         }  
     }
     render(){
+        let {loginUser} = this.props;
         return(
             <Layout>
-                <HeadNav/> 
+                <HeadNav  loginUser={loginUser}/> 
                 <Layout  className="doc-container">
                     <Content>
                         <Row>
@@ -59,4 +63,7 @@ class Author extends Component{
     }
 }
 
-export default Author;
+Author.propTypes = {
+    loginUser:PropTypes.string
+};
+export default withPrivate(Author,{redirect:false});

@@ -38,11 +38,9 @@ class FooterNav extends Component{
                                     <p><strong>{obj.title}</strong></p>
                                     {obj.items.map(item=>{
                                         return(   
-                                            <Link href={item.link} key={item.name}>
-                                                <a>
-                                                    <p>{item.name}</p>
-                                                </a>
-                                            </Link>
+                                            <a href={item.link} key={item.name}>
+                                                <p>{item.name}</p>
+                                            </a>
                                         );
                                     })}
                                 </Col>

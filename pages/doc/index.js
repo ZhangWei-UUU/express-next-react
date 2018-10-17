@@ -7,6 +7,7 @@ import {
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import Highlight from "react-highlight";
+import withPrivate from "../../Components/Authentication";
 import PropTypes from "prop-types";
 import HeadNav from "../../Components/Layout/HeadNav";
 import FooterNav from "../../Components/Layout/FooterNav";
@@ -23,8 +24,8 @@ class Doc extends Component {
         };
     }
 
-    static getInitialProps({ query }) {
-        return {theme:query.theme,charpt:query.charpt};
+    static getInitialProps({ query,req }) {
+        return {theme:query.theme,charpt:query.charpt,loginUser:req.session.loginUser};
     }
 
     async componentDidMount() {
@@ -46,7 +47,7 @@ class Doc extends Component {
     }
 
     render() {
-        let { theme } = this.props;
+        let { theme,loginUser } = this.props;
         const { menu,content } = this.state;
         return (
             <Layout>
@@ -54,7 +55,7 @@ class Doc extends Component {
                     <title>竹·纸 | 文档</title>
                     <link rel="stylesheet" href="/static/highlight/styles/github-gist.css"></link>
                 </Head>
-                <HeadNav themeStyle="light" />
+                <HeadNav themeStyle="light"  loginUser={loginUser}/>
                 <Layout className="doc-container">
                     <Row>
                         <Col lg={5}>
@@ -91,7 +92,8 @@ class Doc extends Component {
 }
 
 Doc.propTypes = {
-    theme: PropTypes.string
+    theme: PropTypes.string,
+    loginUser:PropTypes.string
 };
 
-export default Doc;
+export default withPrivate(Doc,{redirect:false});

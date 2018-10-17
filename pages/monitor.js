@@ -85,4 +85,4 @@ class Monitor extends Component{
 Monitor.propTypes = {
     loginUser:PropTypes.string
 };
-export default  withPrivate(Monitor);
+export default  withPrivate(Monitor,{redirect:true});

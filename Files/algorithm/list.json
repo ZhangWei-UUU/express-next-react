@@ -1,10 +1,13 @@
 {
     "menu":[
-        {"name":"基础算法","children":[
-            {"name":"开始","url":"index"}
+        {"name":"数据结构","children":[
+            {"name":"开始","url":"index"},
+            {"name":"Array | 数组","url":"array"},
+            {"name":"Stack | 栈","url":"stack"},
+            {"name":"Queue | 队列","url":"queue"}
            
         ]},
-        {"name":"高级技术","children":[
+        {"name":"基础算法","children":[
             
         ]}
     ]
