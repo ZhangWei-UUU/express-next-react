@@ -45,3 +45,5 @@ const stack = new Stack();
 console.log(stack)
 
 ```
+粘贴代码，[点击运行代码](http://javascript.cs.lmu.edu/runner/ "title" target="_blank")
+

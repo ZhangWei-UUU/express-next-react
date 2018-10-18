@@ -5,6 +5,8 @@ import FooterNav from "../../Components/Layout/FooterNav";
 import MultiComponents from "../../Components/Center";
 import withPrivate from "../../Components/Authentication";
 import PropTypes from "prop-types";
+import request from "../../Components/Fetch/request";
+
 import "../../style.less";
 const { Content, Sider } = Layout;
 const ITEMS = [
@@ -26,7 +28,15 @@ class UserCenter extends Component{
         }
     }
 
-   
+    async componentDidMount() {
+        let data;
+        try{
+            data = await request("GET", "/api/currentUserInfo");  
+            console.log(data);
+        }catch(error){
+            message.error(data);
+        }
+    }
     render(){
         let {subitem,loginUser} = this.props;
         const DynamicComponent = MultiComponents[subitem];

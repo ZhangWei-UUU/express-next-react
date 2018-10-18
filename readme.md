@@ -37,3 +37,14 @@ git push production master
 1. 在性能优化上css文件为render-block resouces
 2. 在资源加载通信协议上使用的是HTTP/1.1而非HTTP/2
 3. 没有涉及Progressive Web App技术
+
+## Snapshort Testing 快照测试
+
+### 更新快照
+
+```
+yarn test --updateSnapshot
+yarn test -u 
+```
+
+上面两个命令均可以对快照进行更新。

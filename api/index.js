@@ -5,7 +5,7 @@ const MongoClient = require("mongodb").MongoClient;
 const os = require("os");
 var fs = require("fs");
 var hash = require("hash.js");
-
+var checkPrivated = require("./authentication");
 const DB_CONFIG = require("../db");
 
 const insertDocument = (db,obj,callback) =>{
@@ -51,15 +51,6 @@ router.post("/register",(req,res)=>{
     });
 });
 
-router.get("/checkSession",(req,res)=>{
-    const loginUser = req.session.loginUser;
-    if(loginUser){
-        res.send({loginUser});
-    }else{
-        res.send({success:false});
-    }
-});
-
 router.get("/logout",(req,res)=>{
     req.session.destroy((err)=>{
         res.send({success:true});
@@ -82,7 +73,6 @@ router.post("/login",(req,res)=>{
                 }else{
                     res.send({err:"用户名或密码错误"});
                 }
-                 
             });
         }
     }); 
@@ -96,6 +86,30 @@ router.get("/staticfile/:filename",(req,res)=>{
     }else{
         res.send({error:"无此文件"});
     }
+});
+
+// 获取当前登录用户信息
+router.get("/currentUserInfo",checkPrivated,(req,res)=>{
+    const {loginUser} = req.session;
+    MongoClient.connect(DB_CONFIG.url,(err,client)=>{
+        if(!err){
+            const db = client.db(DB_CONFIG.dbname);
+            const collection = db.collection("users");
+            collection.findOne({userName:loginUser},(err,back)=>{
+                if(err){
+                    res.send({success:false,message:"数据集合没有查到相关数据"});
+                }else{
+                    delete back.password;
+                    delete back._id;
+                    res.send({success:true,payload:back});
+                }
+            });
+          
+        }else{
+            res.send({success:false,message:"MongoDB数据库请求错误"});
+        }
+    });
+    
 });
 
 router.get("/environment",(req,res)=>{

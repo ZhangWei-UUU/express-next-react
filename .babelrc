@@ -1,7 +1,8 @@
 
 {
     "presets": [
-      ["next/babel"]
+      ["@babel/env", { "modules": "commonjs" }],
+      "next/babel","@babel/preset-react"
     ],
     "plugins": [
       ["import", {
