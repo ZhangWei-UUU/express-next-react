@@ -19,14 +19,34 @@ const get = async (url) =>{
     }
 };
 
+const post = async (url,body) =>{
+    var response = await fetch(url,
+        {
+            method:"POST",
+            credentials:"include",
+            headers: { "Content-Type": "application/json" },
+            body:JSON.stringify(body) 
+        }
+    );
+    if(response.success){
+        return response;
+    }else{
+        throw Error(response.message);
+    }
+};
+
 const request = (method,url,body) => {
     switch(method){
     case "GET":
         return get(url).then(data=>{
             return data;
         });
+    case "POST":
+        return post(url,body).then(data=>{
+            return data;
+        });
     default:
-        return "HTTP 网络请求方法错误ss";
+        throw Error("网络请求方法错误");
     }
 };
 

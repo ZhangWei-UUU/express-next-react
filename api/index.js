@@ -6,7 +6,9 @@ const os = require("os");
 var fs = require("fs");
 var hash = require("hash.js");
 var checkPrivated = require("./authentication");
+var checkRegister = require("./checkRegister");
 const DB_CONFIG = require("../db");
+const User = require("../Class/User");
 
 const insertDocument = (db,obj,callback) =>{
     const collection = db.collection("users");
@@ -32,20 +34,21 @@ const findDocument = (db,obj,callback) =>{
     });
 };
 
-router.post("/register",(req,res)=>{
+router.post("/register",checkRegister,(req,res)=>{
     MongoClient.connect(DB_CONFIG.url, function(err, client) {
         if(err){
-            res.send({err:"MongoDB在当前服务器中处于关闭状态"});
+            res.send(DB_CONFIG.dbError);
         }else{
             const db = client.db(DB_CONFIG.dbname);
             const hashPassword = hash.sha256().update(req.body.password).digest("hex");
-            let {userName} = req.body;
-            insertDocument(db,{userName,password:hashPassword},(back)=>{
-                if(back.result.ok === 1){
-                    res.send({success:"注册成功"});
+            const collection = db.collection("users");
+            const user = new User(req.body.userName,hashPassword);
+            collection.insertOne(obj,(err,result)=>{
+                if(err){
+                    res.send(DB_CONFIG.collectionError);
                 }else{
-                    res.send({err:"注册失败"});
-                }   
+                    res.send({success:true,payload:back});
+                }
             });
         }
     });
@@ -60,7 +63,7 @@ router.get("/logout",(req,res)=>{
 router.post("/login",(req,res)=>{
     MongoClient.connect(DB_CONFIG.url, function(err, client) {
         if(err){
-            res.send({err:"MongoDB在当前服务器中处于关闭状态"});
+            res.send(DB_CONFIG.dbError);
         }else{
             const db = client.db(DB_CONFIG.dbname);
             const hashPassword = hash.sha256().update(req.body.password).digest("hex");
@@ -68,10 +71,10 @@ router.post("/login",(req,res)=>{
             findDocument(db,{userName,password:hashPassword},(back)=>{
                 if(back.length>0){
                     req.session.loginUser = req.body.userName;
-                    res.send({success:"登录成功"});
+                    res.send({success:true,payload:back});
                 
                 }else{
-                    res.send({err:"用户名或密码错误"});
+                    res.send(DB_CONFIG.collectionError);
                 }
             });
         }
@@ -97,16 +100,16 @@ router.get("/currentUserInfo",checkPrivated,(req,res)=>{
             const collection = db.collection("users");
             collection.findOne({userName:loginUser},(err,back)=>{
                 if(err){
-                    res.send({success:false,message:"数据集合没有查到相关数据"});
+                    res.send(DB_CONFIG.collectionError);
                 }else{
                     delete back.password;
                     delete back._id;
                     res.send({success:true,payload:back});
                 }
             });
-          
         }else{
-            res.send({success:false,message:"MongoDB数据库请求错误"});
+            res.send(DB_CONFIG.dbError);
+           
         }
     });
     
