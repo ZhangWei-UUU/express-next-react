@@ -41,23 +41,6 @@ class Login extends Component{
                         loading:false
                     });
                 }
-
-                // fetch("/api/login",
-                //     {
-                //         method:"POST",
-                //         credentials:"include",
-                //         headers: { "Content-Type": "application/json" },
-                //         body:JSON.stringify(values) 
-                //     }).then(res=>res.json()).then(data=>{
-                //     if(data.err){
-                //         message.error(data.err);
-                //     }else{
-                //         message.success(data.success);
-                //         setTimeout(()=>{
-                //             window.location.href="/admin/usercenter";
-                //         },1200);
-                //     }
-                // });
             }
         });
     }

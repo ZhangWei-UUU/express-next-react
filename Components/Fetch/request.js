@@ -20,19 +20,21 @@ const get = async (url) =>{
 };
 
 const post = async (url,body) =>{
-    var response = await fetch(url,
-        {
-            method:"POST",
-            credentials:"include",
-            headers: { "Content-Type": "application/json" },
-            body:JSON.stringify(body) 
-        }
-    );
-    if(response.success){
-        return response;
-    }else{
-        throw Error(response.message);
+    var response;
+    try{
+        response = await fetch(url,
+            {
+                method:"POST",
+                credentials:"include",
+                headers: { "Content-Type": "application/json" },
+                body:JSON.stringify(body) 
+            }
+        );
+        return response.json();
+    }catch(e){
+        throw Error("请求URL错误");
     }
+    
 };
 
 const request = (method,url,body) => {

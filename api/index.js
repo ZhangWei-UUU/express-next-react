@@ -43,11 +43,11 @@ router.post("/register",checkRegister,(req,res)=>{
             const hashPassword = hash.sha256().update(req.body.password).digest("hex");
             const collection = db.collection("users");
             const user = new User(req.body.userName,hashPassword);
-            collection.insertOne(obj,(err,result)=>{
+            collection.insertOne(user,(err,result)=>{
                 if(err){
                     res.send(DB_CONFIG.collectionError);
                 }else{
-                    res.send({success:true,payload:back});
+                    res.send({success:true,message:"注册成功"});
                 }
             });
         }

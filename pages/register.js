@@ -26,12 +26,19 @@ class Register extends Component{
                 });
                 try{
                     const data =  await request("POST","/api/register",values);
-                    message.success(data.success);
-                    setTimeout(()=>{
-                        Router.push("/login");
-                    },1200);
+                    if(data.success){
+                        console.log(data.payload);
+                        message.success(data.message);
+                        setTimeout(()=>{
+                            Router.push("/login");
+                        },1800);
+                    }else{
+                        
+                        this.setState({
+                            alert:data.message
+                        });
+                    }
                 }catch(e){
-                    console.log(e.message);
                     this.setState({
                         alert:e.message
                     });
@@ -54,8 +61,7 @@ class Register extends Component{
                         <img src="/static/images/logo.webp" className="login-icon"  alt="logo"/>
                         <h1>注册 竹·纸</h1>
                     </div>
-                    {alert?<Alert message="Error"
-                        description={alert}
+                    {alert?<Alert message={alert}
                         type="error"
                         showIcon/>:null}
                     <Form onSubmit={this.handleSubmit} className="login-form">
