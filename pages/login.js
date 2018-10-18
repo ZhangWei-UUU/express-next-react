@@ -27,10 +27,16 @@ class Login extends Component{
                 });
                 try{
                     const data =  await request("POST","/api/login",values);
-                    message.success(data.success);
-                    setTimeout(()=>{
-                        window.location.href="/admin/usercenter";
-                    },1200);
+                    if(data.success){
+                        message.success(data.message);
+                        setTimeout(()=>{
+                            window.location.href="/admin/usercenter";
+                        },1200);
+                    }else{
+                        this.setState({
+                            alert:data.message
+                        });
+                    }
                 }catch(e){
                     console.log(e.message);
                     this.setState({
@@ -55,8 +61,7 @@ class Login extends Component{
                         <img src="/static/images/logo.webp" className="login-icon"  alt="logo"/>
                         <h1>登录 竹·纸</h1>
                     </div>
-                    {alert?<Alert message="Error"
-                        description={alert}
+                    {alert?<Alert message={alert}
                         type="error"
                         showIcon/>:null}
                     <Form onSubmit={this.handleSubmit} className="login-form">

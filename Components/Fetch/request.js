@@ -8,14 +8,12 @@
  */
 
 const get = async (url) =>{
-    var response = await fetch(url);
-    switch(response.status){
-    case 200:
-        return await response.json();
-    case 404:
-        return 404;
-    default:
-        return "系统出现未知错误";
+    var response;
+    try{
+        response = await fetch(url);
+        return response.json();
+    }catch(e){
+        throw Error("请求URL错误");
     }
 };
 

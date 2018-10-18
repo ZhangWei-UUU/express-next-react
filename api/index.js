@@ -5,34 +5,12 @@ const MongoClient = require("mongodb").MongoClient;
 const os = require("os");
 var fs = require("fs");
 var hash = require("hash.js");
-var checkPrivated = require("./authentication");
-var checkRegister = require("./checkRegister");
+var checkPrivated = require("./Middleware/authentication");
+var checkRegister = require("./Middleware/checkRegister");
+var checkBlacklist = require("./Middleware/checkBlacklist");
 const DB_CONFIG = require("../db");
 const User = require("../Class/User");
-
-const insertDocument = (db,obj,callback) =>{
-    const collection = db.collection("users");
-    collection.insertMany([
-        obj
-    ],(err,result)=>{
-        if(err){
-            callback(err);
-        }else{
-            callback(result);
-        }
-    });
-};
-
-const findDocument = (db,obj,callback) =>{
-    const collection = db.collection("users");
-    collection.find(obj).toArray(function(err, docs) {
-        if(err){
-            callback(err);
-        }else{
-            callback(docs);
-        }
-    });
-};
+const errorRecorder = require("./Tools/errorRecorder");
 
 router.post("/register",checkRegister,(req,res)=>{
     MongoClient.connect(DB_CONFIG.url, function(err, client) {
@@ -43,7 +21,7 @@ router.post("/register",checkRegister,(req,res)=>{
             const hashPassword = hash.sha256().update(req.body.password).digest("hex");
             const collection = db.collection("users");
             const user = new User(req.body.userName,hashPassword);
-            collection.insertOne(user,(err,result)=>{
+            collection.insertOne(user,(err)=>{
                 if(err){
                     res.send(DB_CONFIG.collectionError);
                 }else{
@@ -54,31 +32,36 @@ router.post("/register",checkRegister,(req,res)=>{
     });
 });
 
-router.get("/logout",(req,res)=>{
-    req.session.destroy((err)=>{
-        res.send({success:true});
-    });
-});
-
-router.post("/login",(req,res)=>{
+router.post("/login",checkBlacklist,(req,res)=>{
     MongoClient.connect(DB_CONFIG.url, function(err, client) {
         if(err){
             res.send(DB_CONFIG.dbError);
         }else{
             const db = client.db(DB_CONFIG.dbname);
-            const hashPassword = hash.sha256().update(req.body.password).digest("hex");
+            const collection = db.collection("users");
+            const password = hash.sha256().update(req.body.password).digest("hex");
             let {userName} = req.body;
-            findDocument(db,{userName,password:hashPassword},(back)=>{
-                if(back.length>0){
-                    req.session.loginUser = req.body.userName;
-                    res.send({success:true,payload:back});
-                
-                }else{
+            collection.findOne({userName,password},(err,data)=>{
+                if(err){
                     res.send(DB_CONFIG.collectionError);
+                }else{
+                    if(data){
+                        req.session.loginUser = userName;
+                        res.send({success:true,message:`${data.userName}登录成功`});
+                    }else{
+                        errorRecorder(req,userName);
+                        res.send({success:false,message:"用户名或密码错误,输入错误超过三次以上账户将会被冻结1小时"});
+                    } 
                 }
             });
         }
     }); 
+});
+
+router.get("/logout",(req,res)=>{
+    req.session.destroy((err)=>{
+        res.send({success:true});
+    });
 });
 
 router.get("/staticfile/:filename",(req,res)=>{
