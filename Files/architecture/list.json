@@ -12,7 +12,8 @@
             {"name":"样式加载","url":"style-sheet"},
             {"name":"限制container资源","url":"limit-container-resources"},
             {"name":"Docker 日志","url":"docker-logs"},
-            {"name":"Docker 网络管理","url":"docker-logs"}
+            {"name":"Docker 网络管理","url":"docker-logs"},
+            {"name":"数据TTL管理","url":"ttl"}
         ]}
     ]
 }
