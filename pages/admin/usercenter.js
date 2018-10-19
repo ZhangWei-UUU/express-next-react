@@ -1,13 +1,17 @@
 import React,{Component} from "react";
 import { Layout,Menu,Icon } from "antd";
+import { observer } from "mobx-react";
+import { observable, toJS } from "mobx";
+import PropTypes from "prop-types";
+
 import HeadNav from "../../Components/Layout/HeadNav";
 import FooterNav from "../../Components/Layout/FooterNav";
 import MultiComponents from "../../Components/Center";
 import withPrivate from "../../Components/Authentication";
-import PropTypes from "prop-types";
 import request from "../../Components/Fetch/request";
 
 import "../../style.less";
+
 const { Content, Sider } = Layout;
 const ITEMS = [
     {name:"我的频道",icon:"user",url:"?subitem=mychannel",key:"mychannel"},
@@ -18,7 +22,8 @@ const ITEMS = [
     {name:"帮助和反馈",icon:"customer-service",url:"?subitem=help",key:"help"}
 ];
 
-class UserCenter extends Component{
+@observer class UserCenter extends Component{
+    @observable courses = [];
     static getInitialProps(ctx){
         let {req} = ctx;
         if(req.query.subitem){
@@ -32,14 +37,16 @@ class UserCenter extends Component{
         let data;
         try{
             data = await request("GET", "/api/currentUserInfo");  
-            console.log(data);
         }catch(error){
-            message.error(data);
+            message.error(error);
         }
+
+        this.courses = data.payload.course;
     }
     render(){
         let {subitem,loginUser} = this.props;
         const DynamicComponent = MultiComponents[subitem];
+        console.log(toJS(this.courses));
         return(
             <Layout>
                 <HeadNav themeStyle="light" loginUser={loginUser}/> 

@@ -11,11 +11,13 @@ const FAKE = [
 
 ];
 class Mychannel extends Component{
-
     trigger = (key) =>{
         console.log(key);
     }
-
+    
+    componentDidMount(){
+        console.log(window.__SESSION__);
+    }
     render(){
         return(
             <div>

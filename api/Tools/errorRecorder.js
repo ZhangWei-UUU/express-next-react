@@ -16,7 +16,7 @@ const errorRecorder = (req,account) =>{
                     if(err){
                         res.send(DB_CONFIG.collectionError);
                     }else{
-                        res.send({success:false,message:`${userName}1小时内不能登录`});
+                        res.send({success:false,message:`${account}1小时内不能登录`});
                     }
                 });
             }});
