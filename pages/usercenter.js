@@ -43,9 +43,20 @@ const ITEMS = [
         }catch(error){
             message.error(error);
         }
-
         this.userInfo = data.payload;
     }
+
+    update = async ()=>{
+        
+        let data;
+        try{
+            data = await request("GET", "/api/currentUserInfo");  
+        }catch(error){
+            message.error(error);
+        }
+        this.userInfo = data.payload;
+    }
+
     render(){
         let {subitem,loginUser} = this.props;
         const DynamicComponent = MultiComponents[subitem];
@@ -75,7 +86,7 @@ const ITEMS = [
                         </Menu>
                     </Sider>
                     <Content>
-                        <DynamicComponent userInfo={toJS(this.userInfo)}/>
+                        <DynamicComponent userInfo={toJS(this.userInfo)} update={this.update}/>
                     </Content>  
                 </Layout>
                 <FooterNav /> 

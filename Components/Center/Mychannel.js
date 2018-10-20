@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col,Button } from "antd";
+import { Row, Col,Button,message } from "antd";
 import { observer } from "mobx-react";
 import { observable} from "mobx";
 import PropTypes from "prop-types";
@@ -11,22 +11,23 @@ import request from "../Fetch/request";
         let data;
         try{
             data = await request("DELETE", `/api/shop/order/${value}`);  
-            message.success("成功");
         }catch(error){
             message.error(data);
         }
-    }
-    
-    componentDidMount(){
-        this.myCourses = this.props.userInfo.course;
+        if(data.success){
+            this.props.update();
+        }else{
+            message.warn("失败");
+        }
     }
 
     render(){
+        let myCourses = this.props.userInfo.course || [];
         return(
             <div>
                 <Row>
                     {
-                        this.myCourses.map(channel=>(
+                        myCourses.map(channel=>(
                             <Col xl={6} lg={8} md={12} sm={12} key={channel} className="channel-wrap">
                                 <div className="channel">
                                     <div className="channel-body">
@@ -53,6 +54,7 @@ import request from "../Fetch/request";
 
 Mychannel.propTypes = {
     userInfo: PropTypes.object,
+    update: PropTypes.func
 };
 
 export default Mychannel;

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col,Button } from "antd";
+import { Row, Col,Button,message } from "antd";
 import PropTypes from "prop-types";
 
 import request from "../Fetch/request";
@@ -13,10 +13,15 @@ class Shop extends Component{
         }catch(error){
             message.error(data);
         }
+        if(data.success){
+            this.props.update();
+        }else{
+            message.warn("失败");
+        }
     }
     
     checkOrder = (currentCourse) => {
-        let {course} = this.props.userInfo;
+        let {course} = this.props.userInfo || [];
         const array = course.filter(name=>{
             if(name === currentCourse){
                 return name;
@@ -74,5 +79,6 @@ class Shop extends Component{
 
 Shop.propTypes = {
     userInfo: PropTypes.object,
+    update: PropTypes.func
 };
 export default Shop;

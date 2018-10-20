@@ -25,9 +25,9 @@ router.get("/order/:course",(req,res)=>{
                     { $push: { course } }
                     ,(err,doc)=>{
                         if(err){
-                            return err;
+                            res.send(DB_CONFIG.collectionError);
                         }else{
-                            return doc;
+                            res.send({success:true});
                         }
                     }
                 );
@@ -53,9 +53,9 @@ router.delete("/order/:course",(req,res)=>{
                     { $pull: { course:course } }
                     ,(err,doc)=>{
                         if(err){
-                            return err;
+                            res.send(DB_CONFIG.collectionError);
                         }else{
-                            return doc;
+                            res.send({success:true});
                         }
                     }
                 );
