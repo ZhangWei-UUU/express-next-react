@@ -1,6 +1,7 @@
 import React,{Component} from "react";
 import { Menu } from "antd";
 import PropTypes from "prop-types";
+import Link from "next/link";
 
 class HeadNav extends Component{
     logout = () =>{
@@ -37,7 +38,9 @@ class HeadNav extends Component{
                     <Menu.Item key="right" style={{float:"right"}}>
                         {loginUser?
                             <div>
-                                <a href="/admin/usercenter">{loginUser}</a> 
+                                <Link href="/usercenter">
+                                    <a>{loginUser}</a> 
+                                </Link>
                                 <a onClick={this.logout}> | 退出</a>
                             </div>
                             :

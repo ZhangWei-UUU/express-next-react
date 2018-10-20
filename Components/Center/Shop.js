@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { Row, Col,Button } from "antd";
+import PropTypes from "prop-types";
+
 import request from "../Fetch/request";
-const FAKE = [
-    {key:"internet",name:"计算机网络",pic:"/static/shop/internet.jpg"},
-    {key:"hyperledger",name:"Hyperledger区块链",pic:"/static/shop/hyperledger.jpg"},
-    {key:"net-secret",name:"网络加密",pic:"/static/shop/net-secret.jpg"},
-];
+import COURSES from "../Constant/courses";
+
 class Shop extends Component{
     trigger = async (value) =>{
         let data;
@@ -15,15 +14,30 @@ class Shop extends Component{
             message.error(data);
         }
     }
-
+    
+    checkOrder = (currentCourse) => {
+        let {course} = this.props.userInfo;
+        const array = course.filter(name=>{
+            if(name === currentCourse){
+                return name;
+            }else{
+                return;
+            }
+        });
+        if(array.length>0){
+            return true;
+        }else{
+            return false;
+        }
+    }
     render(){
+
         return(
             <div>
                 <Row>
                     {
-                        FAKE.map(channel=>(
+                        COURSES.map(channel=>(
                             <Col xl={6} lg={8} md={12} sm={12} key={channel.key} className="channel-wrap">
-                               
                                 <div className="channel">
                                     <div className="channel-body">
                                         <img src={channel.pic} alt={channel.name}/>
@@ -32,10 +46,20 @@ class Shop extends Component{
                                         <p>
                                             {channel.name}
                                         </p>
-                                        <Button 
-                                            type="primary" 
-                                            onClick={()=>this.trigger(channel.key)}>
-                                        订阅</Button>
+                                
+                                      
+                                        {
+                                            this.checkOrder(channel.key)?  
+                                                <Button 
+                                                    disabled={true}
+                                                >
+                                                已购买</Button>:
+                                                <Button 
+                                                    type="primary" 
+                                                    onClick={()=>this.trigger(channel.key)}>
+                                               获取</Button>
+                                        }
+                                        
                                     </div>
                                 </div>
                                
@@ -48,4 +72,7 @@ class Shop extends Component{
     }
 }
 
+Shop.propTypes = {
+    userInfo: PropTypes.object,
+};
 export default Shop;

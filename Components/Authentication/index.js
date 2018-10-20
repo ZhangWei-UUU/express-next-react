@@ -5,22 +5,24 @@ import Router from "next/router";
 export default (InputComp,custom) =>(
     class withPrivate extends NextDocument {
         static getInitialProps(ctx) {
-            let {req,res} = ctx;
-            if(custom.redirect && !req.session.loginUser){
-                if (res) {
-                    res.writeHead(302, {
-                        Location: "/login"
-                    });
-                    res.end();
-                } else {
+            if(process.browser){
+                let {loginUser} = window.LOGIN_DATA;
+                if(!loginUser){
                     Router.push("/login");
-                } 
+                }
+                return InputComp.getInitialProps({...ctx,loginUser});
             }else{
-                return InputComp.getInitialProps(ctx);
-            }  
+                let {loginUser} = ctx.req.session;
+                if(!loginUser && custom.redirect){
+                    let {res} = ctx;
+                    res.redirect("/login");
+                }
+                return InputComp.getInitialProps({...ctx,loginUser});
+            }   
         }
-        
+       
         render(){
+            
             return <InputComp {...this.props}/>;
         }
     }

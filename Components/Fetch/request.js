@@ -17,6 +17,19 @@ const get = async (url) =>{
     }
 };
 
+const remove = async (url) =>{
+    var response;
+    try{
+        response = await fetch(url,{
+            method:"DELETE",
+            credentials:"include"
+        });
+        return response.json();
+    }catch(e){
+        throw Error("请求URL错误");
+    }
+};
+
 const post = async (url,body) =>{
     var response;
     try{
@@ -43,6 +56,10 @@ const request = (method,url,body) => {
         });
     case "POST":
         return post(url,body).then(data=>{
+            return data;
+        });
+    case "DELETE":
+        return remove(url).then(data=>{
             return data;
         });
     default:

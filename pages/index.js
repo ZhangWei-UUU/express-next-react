@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import {Layout,Row,Col} from "antd";
-
+import Link from "next/link";
 import Head from "next/head";
 import PropTypes from "prop-types";
 import dynamic from "next/dynamic";
@@ -41,9 +41,11 @@ class Home extends Component{
                                         </p>
                                              
                                         <div key="3">
-                                            <a href="/admin/usercenter">
-                                                <button>点击进入</button>
-                                            </a>
+                                            <Link href="/usercenter">
+                                                <a>
+                                                    <button>点击进入</button>
+                                                </a>
+                                            </Link>
                                         </div>
                                           
                                     </Col>

@@ -30,7 +30,8 @@ class Login extends Component{
                     if(data.success){
                         message.success(data.message);
                         setTimeout(()=>{
-                            window.location.href="/admin/usercenter";
+                            window.location.href="/usercenter";
+                           
                         },1200);
                     }else{
                         this.setState({
@@ -38,7 +39,6 @@ class Login extends Component{
                         });
                     }
                 }catch(e){
-                    console.log(e.message);
                     this.setState({
                         alert:e.message
                     });

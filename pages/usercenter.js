@@ -3,14 +3,14 @@ import { Layout,Menu,Icon } from "antd";
 import { observer } from "mobx-react";
 import { observable, toJS } from "mobx";
 import PropTypes from "prop-types";
+import Link from "next/link";
+import HeadNav from "../Components/Layout/HeadNav";
+import FooterNav from "../Components/Layout/FooterNav";
+import MultiComponents from "../Components/Center";
+import withPrivate from "../Components/Authentication";
+import request from "../Components/Fetch/request";
 
-import HeadNav from "../../Components/Layout/HeadNav";
-import FooterNav from "../../Components/Layout/FooterNav";
-import MultiComponents from "../../Components/Center";
-import withPrivate from "../../Components/Authentication";
-import request from "../../Components/Fetch/request";
-
-import "../../style.less";
+import "../style.less";
 
 const { Content, Sider } = Layout;
 const ITEMS = [
@@ -23,13 +23,16 @@ const ITEMS = [
 ];
 
 @observer class UserCenter extends Component{
-    @observable courses = [];
+    @observable userInfo = {};
     static getInitialProps(ctx){
-        let {req} = ctx;
-        if(req.query.subitem){
-            return {subitem:req.query.subitem,loginUser:req.session.loginUser};
+        if(process.browser){
+            return {subitem:ctx.query.subitem,loginUser:window.LOGIN_DATA.loginUser};
         }else{
-            return {subitem:"mychannel",loginUser:req.session.loginUser};
+            if(ctx.req.query.subitem){
+                return {subitem:ctx.req.query.subitem,loginUser:ctx.req.session.loginUser};
+            }else{
+                return {subitem:"shop",loginUser:ctx.req.session.loginUser};
+            }     
         }
     }
 
@@ -41,12 +44,11 @@ const ITEMS = [
             message.error(error);
         }
 
-        this.courses = data.payload.course;
+        this.userInfo = data.payload;
     }
     render(){
         let {subitem,loginUser} = this.props;
         const DynamicComponent = MultiComponents[subitem];
-        console.log(toJS(this.courses));
         return(
             <Layout>
                 <HeadNav themeStyle="light" loginUser={loginUser}/> 
@@ -60,18 +62,20 @@ const ITEMS = [
                         >
                             {ITEMS.map((item,key)=>{
                                 return(
-                                    <Menu.Item key={item.key}>     
-                                        <a href={item.url}> 
-                                            <Icon type={item.icon} />
-                                            {item.name}
-                                        </a>
+                                    <Menu.Item key={item.key}>  
+                                        <Link href={item.url}>
+                                            <a > 
+                                                <Icon type={item.icon} />
+                                                {item.name}
+                                            </a>
+                                        </Link>   
                                     </Menu.Item>
                                 );
                             })}
                         </Menu>
                     </Sider>
                     <Content>
-                        <DynamicComponent/>
+                        <DynamicComponent userInfo={toJS(this.userInfo)}/>
                     </Content>  
                 </Layout>
                 <FooterNav /> 
