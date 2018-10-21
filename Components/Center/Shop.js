@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Row, Col,Button,message,Drawer,Icon } from "antd";
 import PropTypes from "prop-types";
 import { observer } from "mobx-react";
-import { observable} from "mobx";
+import { observable,toJS} from "mobx";
 import request from "../Fetch/request";
 import COURSES from "../Constant/courses";
 import ApplicationView from "./ApplicationView";
@@ -50,24 +50,33 @@ import ApplicationView from "./ApplicationView";
     closeDrawer = () => {
         this.isDrawer = false;
     }
+
     popUp = (channel) => {
         this.isDrawer = true;
-        this.currentCourse = channel.name;
+        this.currentCourse = channel;
     }
+
     render(){
 
         return(
             <div>
                 <Drawer
-                    width={"100%"}
-                    height={"100%"}
-                    title={<div><Icon type="left" theme="outlined" onClick={this.closeDrawer} />{this.currentCourse}</div>}
+                    height="100%"
+                    className="application-drawer"
+                    title={<Icon type="down" theme="outlined" onClick={this.closeDrawer} />}
                     placement="bottom"
                     closable={false}
                     onClose={this.closeDrawer}
                     visible={this.isDrawer}
                 >
-                    <ApplicationView/>
+                  
+                
+                    <ApplicationView 
+                        app={toJS(this.currentCourse)}  
+                        closeDrawer={this.closeDrawer}/>
+    
+                  
+                   
                 </Drawer>
                 <Row>
                     {
