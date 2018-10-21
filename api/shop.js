@@ -22,7 +22,7 @@ router.get("/order/:course",(req,res)=>{
             try{
                 users.findOneAndUpdate(
                     { userName: loginUser },
-                    { $push: { course } }
+                    { $push: { courses:course } }
                     ,(err,doc)=>{
                         if(err){
                             res.send(DB_CONFIG.collectionError);
@@ -50,7 +50,7 @@ router.delete("/order/:course",(req,res)=>{
             try{
                 users.findOneAndUpdate(
                     { userName: loginUser },
-                    { $pull: { course:course } }
+                    { $pull: { courses:course } }
                     ,(err,doc)=>{
                         if(err){
                             res.send(DB_CONFIG.collectionError);

@@ -47,7 +47,6 @@ const ITEMS = [
     }
 
     update = async ()=>{
-        
         let data;
         try{
             data = await request("GET", "/api/currentUserInfo");  

@@ -21,8 +21,8 @@ class Shop extends Component{
     }
     
     checkOrder = (currentCourse) => {
-        let {course} = this.props.userInfo || [];
-        const array = course.filter(name=>{
+        let {courses} = this.props.userInfo || [];
+        const array = courses.filter(name=>{
             if(name === currentCourse){
                 return name;
             }else{

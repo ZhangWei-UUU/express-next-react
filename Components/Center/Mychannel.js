@@ -22,7 +22,7 @@ import request from "../Fetch/request";
     }
 
     render(){
-        let myCourses = this.props.userInfo.course || [];
+        let myCourses = this.props.userInfo.courses || [];
         return(
             <div>
                 <Row>
