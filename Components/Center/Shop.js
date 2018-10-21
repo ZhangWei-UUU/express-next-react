@@ -1,12 +1,18 @@
 import React, { Component } from "react";
-import { Row, Col,Button,message } from "antd";
+import { Row, Col,Button,message,Drawer,Icon } from "antd";
 import PropTypes from "prop-types";
-
+import { observer } from "mobx-react";
+import { observable} from "mobx";
 import request from "../Fetch/request";
 import COURSES from "../Constant/courses";
+import ApplicationView from "./ApplicationView";
 
-class Shop extends Component{
-    trigger = async (value) =>{
+@observer class Shop extends Component{
+    @observable isDrawer = false;
+    @observable currentCourse= "";
+
+    trigger = async (e,value) =>{
+        e.stopPropagation();
         let data;
         try{
             data = await request("GET", `/api/shop/order/${value}`);  
@@ -21,29 +27,53 @@ class Shop extends Component{
     }
     
     checkOrder = (currentCourse) => {
-        let {courses} = this.props.userInfo || [];
-        const array = courses.filter(name=>{
-            if(name === currentCourse){
-                return name;
+        let {courses} = this.props.userInfo;
+        if(courses && courses.length>0){
+            const array = courses.filter(name=>{
+                if(name === currentCourse){
+                    return name;
+                }else{
+                    return;
+                }
+            });
+            if(array.length>0){
+                return true;
             }else{
-                return;
+                return false;
             }
-        });
-        if(array.length>0){
-            return true;
         }else{
             return false;
         }
+       
+    }
+    
+    closeDrawer = () => {
+        this.isDrawer = false;
+    }
+    popUp = (channel) => {
+        this.isDrawer = true;
+        this.currentCourse = channel.name;
     }
     render(){
 
         return(
             <div>
+                <Drawer
+                    width={"100%"}
+                    height={"100%"}
+                    title={<div><Icon type="left" theme="outlined" onClick={this.closeDrawer} />{this.currentCourse}</div>}
+                    placement="bottom"
+                    closable={false}
+                    onClose={this.closeDrawer}
+                    visible={this.isDrawer}
+                >
+                    <ApplicationView/>
+                </Drawer>
                 <Row>
                     {
                         COURSES.map(channel=>(
                             <Col xl={6} lg={8} md={12} sm={12} key={channel.key} className="channel-wrap">
-                                <div className="channel">
+                                <div className="channel" onClick={()=>this.popUp(channel)}>
                                     <div className="channel-body">
                                         <img src={channel.pic} alt={channel.name}/>
                                     </div>
@@ -61,7 +91,7 @@ class Shop extends Component{
                                                 已购买</Button>:
                                                 <Button 
                                                     type="primary" 
-                                                    onClick={()=>this.trigger(channel.key)}>
+                                                    onClick={(e)=>this.trigger(e,channel.key)}>
                                                获取</Button>
                                         }
                                         
@@ -72,6 +102,7 @@ class Shop extends Component{
                         ))
                     }
                 </Row>
+              
             </div>
         );
     }
