@@ -13,6 +13,7 @@ const DB_CONFIG = require("./db");
 var api = require("./api/index.js");
 var docapi = require("./api/doc.js");
 var shopapi = require("./api/shop.js");
+var npm = require("./api/npm/index.js");
 
 const handle = app.getRequestHandler();
 
@@ -41,6 +42,7 @@ app.prepare().then(()=>{
     server.use("/api",api);
     server.use("/api/doc",docapi);
     server.use("/api/shop",shopapi);
+    server.use("/api/npm",npm);
     server.get("/",(req,res)=>{
         return app.render(req, res, "/index",req.query);
     });

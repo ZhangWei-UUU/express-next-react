@@ -1,13 +1,18 @@
 import React, { Component } from "react";
-import { Row, Col,Button,message } from "antd";
+import { Row, Col,Button,message,Drawer,Icon,Skeleton } from "antd";
 import { observer } from "mobx-react";
-import { observable} from "mobx";
+import { observable,toJS} from "mobx";
 import PropTypes from "prop-types";
 import request from "../Fetch/request";
 
 @observer class Mychannel extends Component{
     @observable myCourses = [];
-    delete = async (value) =>{
+    @observable isDrawer = false;
+    @observable currentCourse= "";
+
+    delete = async (e,value) =>{
+        e.preventDefault();
+        e.stopPropagation();
         let data;
         try{
             data = await request("DELETE", `/api/shop/order/${value}`);  
@@ -20,7 +25,15 @@ import request from "../Fetch/request";
             message.warn("失败");
         }
     }
+    
+    closeDrawer = () => {
+        this.isDrawer = false;
+    }
 
+    popUp = (channel) => {
+        this.isDrawer = true;
+        this.currentCourse = channel;
+    }
     render(){
         let myCourses = this.props.userInfo.courses || [];
         return(
@@ -29,20 +42,22 @@ import request from "../Fetch/request";
                     {
                         myCourses.map(channel=>(
                             <Col xl={6} lg={8} md={12} sm={12} key={channel} className="channel-wrap">
-                                <div className="channel">
-                                    <div className="channel-body">
-                                        <img src={`/static/shop/${channel}.jpg`} alt={channel}/>
-                                    </div>
-                                    <div className="channel-footer">
-                                        <p>
-                                            {channel}
-                                        </p>
-                                        <Button 
-                                            type="error" 
-                                            onClick={()=>this.delete(channel)}>
+                                <a href={`/courses/${channel}`}>
+                                    <div className="channel">
+                                        <div className="channel-body">
+                                            <img src={`/static/shop/${channel}.jpg`} alt={channel}/>
+                                        </div>
+                                        <div className="channel-footer">
+                                            <p>
+                                                {channel}
+                                            </p>
+                                            <Button 
+                                                type="error" 
+                                                onClick={(e)=>this.delete(e,channel)}>
                                             删除</Button>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
                             </Col>
                         ))
                     }

@@ -10,7 +10,7 @@ const array = [
         {name:"shell",link:"/doc/shell/index"},
         {name:"Webpack",link:"/doc/webpack/index"}
     ]},
-    {title:"关于竹·纸",items:[
+    {title:"关于PICCOLO-WEB",items:[
         {name:"作者简介",link:"/author"},
         {name:"设计文档",link:"/doc/architecture/index"},
         {name:"后台展示",link:"/monitor"},
@@ -50,7 +50,7 @@ class FooterNav extends Component{
                    
                     </Row>
                     <center style={{marginTop:"50px"}}>
-                      竹·纸版权所有© 2018 备案号：沪ICP备18022274号-1
+                      PICCOLO-WEB版权所有© 2018 备案号：沪ICP备18022274号-1
                     </center>
                 </div>
             </div>

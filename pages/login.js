@@ -59,7 +59,7 @@ class Login extends Component{
                 <div className="login-form">
                     <div>
                         <img src="/static/images/logo.webp" className="login-icon"  alt="logo"/>
-                        <h1>登录 竹·纸</h1>
+                        <h1>登录 PICCOLO-WEB</h1>
                     </div>
                     {alert?<Alert message={alert}
                         type="error"

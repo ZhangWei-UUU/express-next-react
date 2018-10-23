@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import { observer } from "mobx-react";
-import { observable,toJS} from "mobx";
+import { observable } from "mobx";
 import PropTypes from "prop-types";
 import { Row,Col,message, Divider,Carousel,Icon } from "antd";
 import ReactMarkdown from "react-markdown";
@@ -9,13 +9,13 @@ import request from "../Fetch/request";
 
 @observer class ApplicationView extends Component{
     @observable application = null
+    @observable title = null
     async componentDidMount() {
         let {app} = this.props;
         this.title = app.key;
         let data;
         try{
-            // data = await request("GET", `/api/shop/details/${app.key}`);  
-            data = await request("GET", "/api/shop/details/Test");  
+            data = await request("GET", `/api/shop/details/${app.key}`);  
         }catch(error){
             console.log(error);
         }
@@ -25,6 +25,26 @@ import request from "../Fetch/request";
         }else{
             message.error(data.message);
             this.props.closeDrawer();
+        }
+    }
+
+    async componentDidUpdate(prevProps) {
+        if(prevProps.app.key !== this.props.app.key){
+            let {app} = this.props;
+            this.title = app.key;
+            let data;
+            try{
+                data = await request("GET", `/api/shop/details/${app.key}`);  
+            }catch(error){
+                console.log(error);
+            }
+        
+            if(data.success){
+                this.application = data.payload;
+            }else{
+                message.error(data.message);
+                this.props.closeDrawer();
+            }
         }
     }
     render(){
@@ -69,8 +89,8 @@ import request from "../Fetch/request";
                         <ReactMarkdown 
                             source={this.application.readme} 
                             className="markdown-body" />
-                    </div>
-                    :null
+                    </div>:null
+                   
                 }
             </div>
         );
@@ -78,6 +98,7 @@ import request from "../Fetch/request";
 }
 
 ApplicationView.propTypes = {
-    closeDrawer: PropTypes.func
+    closeDrawer: PropTypes.func,
+    app:PropTypes.object
 };
 export default ApplicationView;

@@ -25,7 +25,7 @@ class Home extends Component{
         return(
             <Layout>
                 <Head>
-                    <title>竹·纸</title>
+                    <title>PICCOLO-WEB</title>
                 </Head>
                 <HeadNav themeStyle="transparent" loginUser={loginUser}/> 
                 <Layout>
@@ -35,7 +35,7 @@ class Home extends Component{
                                 <Row>
                                     <Col lg={9}>
                                   
-                                        <h1 key="1">竹·纸</h1>
+                                        <h1 key="1">PICCOLO-WEB</h1>
                                         <p key="2">所有的技术都基于JavaScript进行编程，针对不同的应用总结出不同的解决方案，涵盖Web端、安卓移动端、及桌面应用。
                                                 在这个虚拟别墅中，我们将所有的可以运行的小案例放入其中进行实例化介绍。我们坚信但凡可以用JS进行编程的地方，终将会被JS所替代。
                                         </p>

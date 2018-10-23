@@ -31,7 +31,7 @@ class HeadNav extends Component{
                                 }
                                 <p style={themeStyle === "light"?
                                     {color:"#1890ff"}:null
-                                }>竹·纸</p>
+                                }>PICCOLO-WEB</p>
                             </div>
                         </a>
                     </Menu.Item>

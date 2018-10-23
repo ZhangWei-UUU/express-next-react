@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col,Button,message,Drawer,Icon } from "antd";
+import { Row, Col,Button,message,Drawer,Icon,Skeleton } from "antd";
 import PropTypes from "prop-types";
 import { observer } from "mobx-react";
 import { observable,toJS} from "mobx";
@@ -57,7 +57,6 @@ import ApplicationView from "./ApplicationView";
     }
 
     render(){
-
         return(
             <div>
                 <Drawer
@@ -68,15 +67,17 @@ import ApplicationView from "./ApplicationView";
                     closable={false}
                     onClose={this.closeDrawer}
                     visible={this.isDrawer}
-                >
-                  
-                
-                    <ApplicationView 
+                > 
+                    {this.currentCourse?   <ApplicationView 
                         app={toJS(this.currentCourse)}  
-                        closeDrawer={this.closeDrawer}/>
-    
-                  
-                   
+                        closeDrawer={this.closeDrawer}/>  :
+                        <div>
+                            <Skeleton />
+                            <Skeleton />
+                            <Skeleton />
+                        </div>
+                    }   
+                 
                 </Drawer>
                 <Row>
                     {
