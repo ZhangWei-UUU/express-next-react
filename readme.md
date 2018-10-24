@@ -51,4 +51,16 @@ yarn test -u
 
 ## 数学公式
 
-<img src="http://latex.codecogs.com/svg.latex?1+sin(x)" border="0"/>a
+### LaTex
+
+1. 将简单的代数公式转换成SVG图片：
+
+```html
+<img src="http://latex.codecogs.com/svg.latex?1+sin(x)" border="0"/>
+```
+
+<img src="http://latex.codecogs.com/svg.latex?1+sin(x)" border="0"/>
+
+2. 编写特点语法：
+
+$$   f(x)=w^{T^t}_{ij}x_{x∈X_i}+b_{ij} $$
