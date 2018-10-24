@@ -13,6 +13,7 @@ import request from "../Components/Fetch/request";
 import "../style.less";
 
 const { Content, Sider } = Layout;
+const { Item } = Menu;
 const ITEMS = [
   {name:"我的频道",icon:"user",url:"?subitem=mychannel",key:"mychannel"},
   {name:"消息",icon:"mail",url:"?subitem=message",key:"message"},
@@ -76,16 +77,16 @@ const ITEMS = [
                 mode={"inline"}
                 theme={"light"}
               >
-                {ITEMS.map((item)=>{
+                {ITEMS.map((i,menukey)=>{
                   return(
-                    <Menu.Item key={item.key}>  
-                      <Link href={item.url}>
-                        <a > 
-                          <Icon type={item.icon} />
-                          {item.name}
+                    <Item key={`${menukey}`}>  
+                      <Link href={i.url}>
+                        <a> 
+                          <Icon type={i.icon}/>
+                          <span>{i.name}</span>
                         </a>
                       </Link>   
-                    </Menu.Item>
+                    </Item>
                   );
                 })}
               </Menu>

@@ -11,94 +11,94 @@ import request from "../Fetch/request";
     @observable application = null
     @observable title = null
     async componentDidMount() {
+      let {app} = this.props;
+      this.title = app.key;
+      let data;
+      try{
+        data = await request("GET", `/api/shop/details/${app.key}`);  
+      }catch(error){
+        throw Error(error);
+      }
+        
+      if(data.success){
+        this.application = data.payload;
+      }else{
+        message.error(data.message);
+        this.props.closeDrawer();
+      }
+    }
+
+    async componentDidUpdate(prevProps) {
+      if(prevProps.app.key !== this.props.app.key){
         let {app} = this.props;
         this.title = app.key;
         let data;
         try{
-            data = await request("GET", `/api/shop/details/${app.key}`);  
+          data = await request("GET", `/api/shop/details/${app.key}`);  
         }catch(error){
-            console.log(error);
+          console.log(error);
         }
         
         if(data.success){
-            this.application = data.payload;
+          this.application = data.payload;
         }else{
-            message.error(data.message);
-            this.props.closeDrawer();
+          message.error(data.message);
+          this.props.closeDrawer();
         }
-    }
-
-    async componentDidUpdate(prevProps) {
-        if(prevProps.app.key !== this.props.app.key){
-            let {app} = this.props;
-            this.title = app.key;
-            let data;
-            try{
-                data = await request("GET", `/api/shop/details/${app.key}`);  
-            }catch(error){
-                console.log(error);
-            }
-        
-            if(data.success){
-                this.application = data.payload;
-            }else{
-                message.error(data.message);
-                this.props.closeDrawer();
-            }
-        }
+      }
     }
     render(){
-        return(
-            <div className="app-details">
-                {this.application?
-                    <div>
-                        <div>
-                            <Row>
-                                <Col xl={6}>
-                                    <img 
-                                        className="icon"
-                                        src={`data:image/png;base64,${this.application.icon}`} alt="icon"/>
-                                </Col>
-                                <Col  xl={18}>
-                                    <h1>{this.application.name}</h1>
-                                    <p>方案提供方：{this.application.provider}</p>
-                                    <Divider/>
-                                    <p>行业：{this.application.industry} | 
+      return(
+        <div className="app-details">
+          {this.application?
+            <div>
+              <div>
+                <Row>
+                  <Col xl={6}>
+                    <img 
+                      className="icon"
+                      src={`data:image/png;base64,${this.application.icon}`} alt="icon"/>
+                  </Col>
+                  <Col  xl={18}>
+                    <h1>{this.application.name}</h1>
+                    <p>方案提供方：{this.application.provider}</p>
+                    <Divider/>
+                    <p>行业：{this.application.industry} | 
                                     评分：
-                                    {[1,2,3,4,5].map(st=>{
-                                        return(
-                                            <Icon type="star" theme="outlined" key={st}/>
-                                        );
-                                    })}
-                                    </p>
-                                </Col>
-                            </Row>
-                        </div>
-                        <Carousel autoplay className="carousel-pics">
-                            {this.application.images.map((image,key)=>{
-                                return(
-                                    <div key={key}>
-                                        <img 
-                                            className="image"
-                                            src={`data:image/jpeg;base64,${image}`} alt="image"/>
-                                    </div>
-                                );
+                    {[1,2,3,4,5].map(st=>{
+                      return(
+                        <Icon type="star" theme="outlined" key={st}/>
+                      );
+                    })}
+                    </p>
+                  </Col>
+                </Row>
+              </div>
+              <Carousel autoplay className="carousel-pics">
+                {this.application.images.map((image,key)=>{
+                  return(
+                    <div key={key}>
+                      <img 
+                        className="image"
+                        src={`data:image/jpeg;base64,${image}`} alt="image"/>
+                    </div>
+                  );
                           
-                            })}
-                        </Carousel>
-                        <ReactMarkdown 
-                            source={this.application.readme} 
-                            className="markdown-body" />
-                    </div>:null
+                })}
+              </Carousel>
+              <ReactMarkdown 
+                source={this.application.readme} 
+                className="markdown-body" />
+            </div>:null
                    
-                }
-            </div>
-        );
+          }
+        </div>
+      );
     }
 }
 
 ApplicationView.propTypes = {
-    closeDrawer: PropTypes.func,
-    app:PropTypes.object
+  closeDrawer: PropTypes.func,
+  app:PropTypes.object
 };
 export default ApplicationView;
