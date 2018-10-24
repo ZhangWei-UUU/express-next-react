@@ -61,6 +61,6 @@ yarn test -u
 
 <img src="http://latex.codecogs.com/svg.latex?1+sin(x)" border="0"/>
 
-2. 编写特点语法：
+2. [KATEX](https://katex.org/) [React-Katex](https://www.npmjs.com/package/react-katex)
 
-$$   f(x)=w^{T^t}_{ij}x_{x∈X_i}+b_{ij} $$
+

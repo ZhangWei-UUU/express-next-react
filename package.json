@@ -26,6 +26,7 @@
     "react": "16.4.2",
     "react-dom": "16.4.2",
     "react-highlight": "0.12.0",
+    "react-katex": "2.0.2",
     "react-markdown": "3.5.0",
     "warning": "4.0.2"
   },
@@ -57,6 +58,7 @@
     "isomorphic-fetch": "2.2.1",
     "jest": "23.5.0",
     "less": "3.8.1",
+    "lodash": "4.17.11",
     "mocha": "5.2.0",
     "nodemon": "1.18.3",
     "raw-loader": "0.5.1",

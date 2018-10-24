@@ -14,89 +14,95 @@ import "../style.less";
 
 const { Content, Sider } = Layout;
 const ITEMS = [
-    {name:"我的频道",icon:"user",url:"?subitem=mychannel",key:"mychannel"},
-    {name:"消息",icon:"mail",url:"?subitem=message",key:"message"},
-    {name:"设置",icon:"setting",url:"?subitem=settings",key:"settings"},
-    {name:"应用商店",icon:"shop",url:"?subitem=shop",key:"shop"},
-    {name:"条款及隐私政策",icon:"file-done",url:"?subitem=policy",key:"policy"},
-    {name:"帮助和反馈",icon:"customer-service",url:"?subitem=help",key:"help"}
+  {name:"我的频道",icon:"user",url:"?subitem=mychannel",key:"mychannel"},
+  {name:"消息",icon:"mail",url:"?subitem=message",key:"message"},
+  {name:"设置",icon:"setting",url:"?subitem=settings",key:"settings"},
+  {name:"应用商店",icon:"shop",url:"?subitem=shop",key:"shop"},
+  {name:"条款及隐私政策",icon:"file-done",url:"?subitem=policy",key:"policy"},
+  {name:"帮助和反馈",icon:"customer-service",url:"?subitem=help",key:"help"}
 ];
 
 @observer class UserCenter extends Component{
-    @observable userInfo = {};
+    @observable userInfo = null;
     static getInitialProps(ctx){
-        if(process.browser){
-            return {subitem:ctx.query.subitem,loginUser:window.LOGIN_DATA.loginUser};
+      if(process.browser){
+        if(ctx.query.subitem){
+          return {subitem:ctx.query.subitem,loginUser:ctx.loginUser}; 
         }else{
-            if(ctx.req.query.subitem){
-                return {subitem:ctx.req.query.subitem,loginUser:ctx.req.session.loginUser};
-            }else{
-                return {subitem:"shop",loginUser:ctx.req.session.loginUser};
-            }     
+          return {subitem:"shop",loginUser:ctx.loginUser}; 
         }
+     
+      }else{
+        if(ctx.req.query.subitem){
+          return {subitem:ctx.req.query.subitem,loginUser:ctx.req.session.loginUser};
+        }else{
+          return {subitem:"shop",loginUser:ctx.req.session.loginUser};
+        }     
+      }
     }
 
     async componentDidMount() {
-        let data;
-        try{
-            data = await request("GET", "/api/currentUserInfo");  
-        }catch(error){
-            message.error(error);
-        }
-        this.userInfo = data.payload;
+      let data;
+      try{
+        data = await request("GET", "/api/currentUserInfo");  
+      }catch(error){
+        message.error(error);
+      }
+      this.userInfo = data.payload;
     }
 
     update = async ()=>{
-        let data;
-        try{
-            data = await request("GET", "/api/currentUserInfo");  
-        }catch(error){
-            message.error(error);
-        }
-        this.userInfo = data.payload;
+      let data;
+      try{
+        data = await request("GET", "/api/currentUserInfo");  
+      }catch(error){
+        message.error(error);
+      }
+      this.userInfo = data.payload;
     }
 
     render(){
-        let {subitem,loginUser} = this.props;
-        const DynamicComponent = MultiComponents[subitem];
-        return(
-            <Layout>
-                <HeadNav themeStyle="light" loginUser={loginUser}/> 
-                <Layout>
-                    <Sider>
-                        <Menu
-                            style={{ width: "100%",height:"100%" ,minHeight:"900px"}}
-                            defaultSelectedKeys={[subitem]}
-                            mode={"inline"}
-                            theme={"light"}
-                        >
-                            {ITEMS.map((item,key)=>{
-                                return(
-                                    <Menu.Item key={item.key}>  
-                                        <Link href={item.url}>
-                                            <a > 
-                                                <Icon type={item.icon} />
-                                                {item.name}
-                                            </a>
-                                        </Link>   
-                                    </Menu.Item>
-                                );
-                            })}
-                        </Menu>
-                    </Sider>
-                    <Content>
-                        <DynamicComponent userInfo={toJS(this.userInfo)} update={this.update}/>
-                    </Content>  
-                </Layout>
-                <FooterNav /> 
-            </Layout>
-        );
+      let {subitem,loginUser} = this.props;
+      let DynamicComponent =MultiComponents[subitem];
+     
+      return(
+        <Layout>
+          <HeadNav themeStyle="light" loginUser={loginUser}/> 
+          <Layout>
+            <Sider>
+              <Menu
+                style={{ width: "100%",height:"100%" ,minHeight:"900px"}}
+                defaultSelectedKeys={[subitem]}
+                mode={"inline"}
+                theme={"light"}
+              >
+                {ITEMS.map((item)=>{
+                  return(
+                    <Menu.Item key={item.key}>  
+                      <Link href={item.url}>
+                        <a > 
+                          <Icon type={item.icon} />
+                          {item.name}
+                        </a>
+                      </Link>   
+                    </Menu.Item>
+                  );
+                })}
+              </Menu>
+            </Sider>
+            <Content>
+              <DynamicComponent userInfo={toJS(this.userInfo)} update={this.update}/>
+            </Content>  
+          </Layout>
+          <FooterNav /> 
+        </Layout>
+      );
     }
 }
 
 UserCenter.propTypes = {
-    subitem: PropTypes.string,
-    loginUser:PropTypes.string
+  subitem: PropTypes.string,
+  loginUser:PropTypes.string
 };
 
 export default withPrivate(UserCenter,{redirect:true});

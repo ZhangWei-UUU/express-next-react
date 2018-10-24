@@ -43,9 +43,6 @@ app.prepare().then(()=>{
   server.use("/api/doc",docapi);
   server.use("/api/shop",shopapi);
   server.use("/api/npm",npm);
-  server.get("/",(req,res)=>{
-    return app.render(req, res, "/index",req.query);
-  });
      
   server.get("/doc/:theme/:charpt",(req,res)=>{
     return app.render(req, res, "/doc",{theme:req.params.theme,charpt:req.params.charpt});
