@@ -8,7 +8,7 @@ import "../../style.less";
 
 const TCP_IP = [
   {key:0,name:"应用层",protocol:[
-    {key:"SSH",name:"SSH"},
+    {key:"turning-machine",name:"图灵机"},
     {key:"DNS",name:"DNS"},
   ]},
   {key:1,name:"传输层",protocol:[
@@ -27,7 +27,7 @@ const TCP_IP = [
        
   ]}
 ];
-class Internet extends Component{
+class Computer extends Component{
   static getInitialProps(ctx){
     if(process.browser){
       return {loginUser:window.LOGIN_DATA.loginUser};
@@ -50,7 +50,7 @@ class Internet extends Component{
                   {layer.protocol.map(prot=>{
                     return(
                       <Col key={prot.key} xl={2}>
-                        <a href={`/doc/internet/${prot.key}`} >
+                        <a href={`/doc/computer/${prot.key}`} >
                           <p>{prot.name}</p>
                         </a>
                       </Col>
@@ -68,7 +68,7 @@ class Internet extends Component{
 }
 
 
-Internet.propTypes = {
+Computer.propTypes = {
   loginUser:PropTypes.string
 };
-export default withPrivate(Internet);
+export default withPrivate(Computer);

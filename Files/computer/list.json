@@ -1,0 +1,8 @@
+{
+    "menu":[
+        {"name":"基础知识","children":[
+            {"name":"Getting started","url":"index"},
+            {"name":"图灵机","url":"turning-machine"}
+        ]}
+    ]
+}
