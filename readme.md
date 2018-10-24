@@ -51,4 +51,4 @@ yarn test -u
 
 ## 数学公式
 
-\alpha
+<img src="http://latex.codecogs.com/svg.latex?1+sin(x)" border="0"/>a
