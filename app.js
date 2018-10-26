@@ -11,6 +11,7 @@ var configure = require("./configure/index.js");
 var app = next({dev});
 const DB_CONFIG = require("./db");
 var api = require("./api/index.js");
+var course = require("./api/course.js");
 var docapi = require("./api/doc.js");
 var shopapi = require("./api/shop.js");
 var npm = require("./api/npm/index.js");
@@ -41,6 +42,7 @@ app.prepare().then(()=>{
   server.use(compression());
   server.use("/api",api);
   server.use("/api/doc",docapi);
+  server.use("/api/course",course);
   server.use("/api/shop",shopapi);
   server.use("/api/npm",npm);
      

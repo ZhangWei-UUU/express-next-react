@@ -2,6 +2,9 @@ import React,{Component} from "react";
 import { Menu } from "antd";
 import PropTypes from "prop-types";
 import Link from "next/link";
+import "../../style.less";
+
+const { Item } = Menu;
 
 class HeadNav extends Component{
     logout = () =>{
@@ -22,7 +25,7 @@ class HeadNav extends Component{
             defaultSelectedKeys={["2"]}
             style={{ lineHeight: "64px",width:"100%" }}
           >
-            <Menu.Item key="0">
+            <Item key="logo">
               <a href="/">
                 <div className="logo">
                   {themeStyle === "light"?
@@ -34,8 +37,8 @@ class HeadNav extends Component{
                   }>PICCOLO-WEB</p>
                 </div>
               </a>
-            </Menu.Item>
-            <Menu.Item key="right" style={{float:"right"}}>
+            </Item>
+            <Item key="right" style={{float:"right"}}>
               {loginUser?
                 <div>
                   <Link href="/usercenter">
@@ -47,7 +50,7 @@ class HeadNav extends Component{
                 <a  href="/login">未登录</a>
              
               }
-            </Menu.Item>
+            </Item>
           </Menu>
         </div>
       );

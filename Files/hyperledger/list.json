@@ -1,7 +1,9 @@
 {
     "menu":[
         {"name":"基础知识","children":[
-            {"name":"Simple Fabric","url":"index"}
+            {"name":"Simple Fabric","url":"index"},
+            {"name":"编写第一个应用","url":"WFA"},
+            {"name":"源码分析","url":"analysis"}
         ]}
     ]
 }

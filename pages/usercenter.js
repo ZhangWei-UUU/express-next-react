@@ -4,6 +4,7 @@ import { observer } from "mobx-react";
 import { observable, toJS } from "mobx";
 import PropTypes from "prop-types";
 import Link from "next/link";
+
 import HeadNav from "../Components/Layout/HeadNav";
 import FooterNav from "../Components/Layout/FooterNav";
 import MultiComponents from "../Components/Center";
@@ -77,9 +78,9 @@ const ITEMS = [
                 mode={"inline"}
                 theme={"light"}
               >
-                {ITEMS.map((i,menukey)=>{
+                {ITEMS.map((i)=>{
                   return(
-                    <Item key={`${menukey}`}>  
+                    <Item key={`${i.key}`}>  
                       <Link href={i.url}>
                         <a> 
                           <Icon type={i.icon}/>
