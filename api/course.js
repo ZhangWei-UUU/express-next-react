@@ -9,7 +9,7 @@ router.get("/:name",(req,res)=>{
   const exist = fs.existsSync(url);
   if(exist){
     const config =  fs.readFileSync(url,"utf8");
-    res.send({content:JSON.parse(config)});
+    res.send({success:true,content:JSON.parse(config)});
   }else{
     res.send({error:"无此文件"});
   }

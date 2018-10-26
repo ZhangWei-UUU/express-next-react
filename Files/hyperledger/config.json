@@ -1,9 +1,12 @@
 {
     "name":"Hyperledger Fabric",
     "version":"0.0.1",
-    "author":"zhangwei",
+    "author":"张伟",
     "parents":[
-
+      "区块链"
+    ],
+    "relatives":[
+       {"key":0,"title":"Docker Compose","url":"https://docs.docker.com/compose/"}
     ],
     "steps":[
        {"key":0,"title":"初级","description":"xx"},
