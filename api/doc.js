@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var fs = require("fs");
 
-router.get("/:name",(req,res)=>{
+router.get("/:theme/:charpt",(req,res)=>{
   /**
     * 根据文章主题和章节进行查找当前内容是否存在，存在则去读取列表和内容
     */

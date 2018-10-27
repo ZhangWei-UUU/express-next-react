@@ -9,17 +9,30 @@
        {"key":0,"title":"Docker Compose","url":"https://docs.docker.com/compose/"}
     ],
     "steps":[
-       {"key":0,"title":"初级","description":"xx"},
-       {"key":1,"title":"中级","description":"xx"},
-       {"key":2,"title":"高级","description":"xx"}
+       {"key":0,"title":"基础知识","description":""},
+       {"key":1,"title":"开发应用","description":""},
+       {"key":2,"title":"基础教程","description":""}
     ],
     "notes":"",
     "current":0,
     "menu":[
         {"name":"基础知识","children":[
-            {"name":"Simple Fabric","url":"index"},
-            {"name":"编写第一个应用","url":"WFA"},
-            {"name":"源码分析","url":"analysis"}
+            {"name":"源码分析","url":"originCode","finish":false}
+        ]},
+        {"name":"开发应用","children":[
+            {"name":"脚本 Scenario","url":"Scenario","finish":false},
+            {"name":"分析 Analysis","url":"Analysis","finish":false},
+            {"name":"智能合约 Smart Congtract","url":"SmartContract","finish":false},
+            {"name":"应用 Application","url":"Application","finish":false},
+            {"name":"架构 Architecture","url":"Architecture","finish":false}
+        ]},
+        {"name":"基础教程","children":[
+            {"name":"编写基础应用","url":"index","finish":false},
+            {"name":"构建基础网络","url":"WFA","finish":false},
+            {"name":"在Channel中添加组织","url":"analysis","finish":false},
+            {"name":"更新网络组件","url":"analysis","finish":false},
+            {"name":"使用私有数据","url":"analysis","finish":false},
+            {"name":"ChainCode","url":"ChainCode","finish":false}
         ]}
     ]
 }

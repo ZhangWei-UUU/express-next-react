@@ -23,12 +23,6 @@ const TCP_IP = [
 
 const Step = Steps.Step;
 
-const CourseSteps = [
-  {key:0,title:"初级课程",description:"xxx"},
-  {key:1,title:"源码课程",description:"xxx"},
-  {key:2,title:"中级课程",description:"xxx"},
-  {key:3,title:"高级课程",description:"xxx"}
-];
 @observer class Course extends Component{
     @observable status = null;
     @observable content = null
@@ -69,8 +63,7 @@ const CourseSteps = [
     }
 
     render(){
-      let {loginUser} = this.props;
-      console.log(toJS(this.content));
+      let {loginUser,name} = this.props;
       return(
         <Layout>
           <HeadNav themeStyle="light" loginUser={loginUser}/> 
@@ -87,7 +80,7 @@ const CourseSteps = [
                     <Link href="/usercenter?subitem=mychannel"><a>我的课程</a></Link>
                   </Breadcrumb.Item>
                   <Breadcrumb.Item>
-              当前课程
+                     当前课程
                   </Breadcrumb.Item>
                 </Breadcrumb>
                 <Row>
@@ -102,14 +95,14 @@ const CourseSteps = [
                   </Col>
                   <Col xl={8}>
                     <p>备注：{this.content.notes}</p>
-                    <p>上级门类：{
+                    上级门类：{
                       this.content.parents.map(parent=>{
                         return(
                           <Tag color="volcano" 
                             key={parent}>{parent}</Tag>
                         );
                       })
-                    }</p>
+                    }
                   </Col>
                 </Row>
               </div>
@@ -151,7 +144,19 @@ const CourseSteps = [
                         <TreeNode title={it.name} key={it.name}>
                           {it.children.map(child=>{
                             return(
-                              <TreeNode title={child.name} key={child.name} isLeaf />
+                              <TreeNode title={
+                                <span>
+                                  <Link href={`/doc/${name}/${child.url}`}>
+                                    <a>{child.name}</a>
+                                  </Link>
+                                  {child.finish?
+                                    <Icon type="check-circle" className="checked"/>:null
+                                  }
+                                 
+                                </span>
+                              }  isLeaf  key={child.name}>
+                              </TreeNode>
+                              
                             );
                           })}
                         </TreeNode>
