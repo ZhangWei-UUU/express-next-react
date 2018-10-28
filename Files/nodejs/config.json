@@ -17,7 +17,8 @@
     "current":0,
     "menu":[
         {"name":"基础知识","children":[
-            {"name":"二进制","url":"buffers","finish":false}
+            {"name":"Buffer的数据处理","url":"buffers","finish":true},
+            {"name":"各种网络通信","url":"nets","finish":false}
         ]}
     ]
 }
