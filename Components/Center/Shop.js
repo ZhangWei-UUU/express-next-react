@@ -12,114 +12,114 @@ import ApplicationView from "./ApplicationView";
     @observable currentCourse= "";
 
     trigger = async (e,value) =>{
-        e.stopPropagation();
-        let data;
-        try{
-            data = await request("GET", `/api/shop/order/${value}`);  
-        }catch(error){
-            message.error(data);
-        }
-        if(data.success){
-            this.props.update();
-        }else{
-            message.warn("失败");
-        }
+      e.stopPropagation();
+      let data;
+      try{
+        data = await request("GET", `/api/shop/order/${value}`);  
+      }catch(error){
+        message.error(data);
+      }
+      if(data.success){
+        this.props.update();
+      }else{
+        message.warn("失败");
+      }
     }
     
     checkOrder = (currentCourse) => {
-        let {courses} = this.props.userInfo;
-        if(courses && courses.length>0){
-            const array = courses.filter(name=>{
-                if(name === currentCourse){
-                    return name;
-                }else{
-                    return;
-                }
-            });
-            if(array.length>0){
-                return true;
-            }else{
-                return false;
-            }
+      let {courses} = this.props.userInfo;
+      if(courses && courses.length>0){
+        const array = courses.filter(name=>{
+          if(name === currentCourse){
+            return name;
+          }else{
+            return;
+          }
+        });
+        if(array.length>0){
+          return true;
         }else{
-            return false;
+          return false;
         }
+      }else{
+        return false;
+      }
        
     }
     
     closeDrawer = () => {
-        this.isDrawer = false;
+      this.isDrawer = false;
     }
 
     popUp = (channel) => {
-        this.isDrawer = true;
-        this.currentCourse = channel;
+      this.isDrawer = true;
+      this.currentCourse = channel;
     }
 
     render(){
-        return(
-            <div>
-                <Drawer
-                    height="100%"
-                    className="application-drawer"
-                    title={<Icon type="down" theme="outlined" onClick={this.closeDrawer} />}
-                    placement="bottom"
-                    closable={false}
-                    onClose={this.closeDrawer}
-                    visible={this.isDrawer}
-                > 
-                    {this.currentCourse?   <ApplicationView 
-                        app={toJS(this.currentCourse)}  
-                        closeDrawer={this.closeDrawer}/>  :
-                        <div>
-                            <Skeleton />
-                            <Skeleton />
-                            <Skeleton />
-                        </div>
-                    }   
+      return(
+        <div>
+          <Drawer
+            height="100%"
+            className="application-drawer"
+            title={<Icon type="down" theme="outlined" onClick={this.closeDrawer} />}
+            placement="bottom"
+            closable={false}
+            onClose={this.closeDrawer}
+            visible={this.isDrawer}
+          > 
+            {this.currentCourse?   <ApplicationView 
+              app={toJS(this.currentCourse)}  
+              closeDrawer={this.closeDrawer}/>  :
+              <div>
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+              </div>
+            }   
                  
-                </Drawer>
-                <Row>
-                    {
-                        COURSES.map(channel=>(
-                            <Col xl={6} lg={8} md={12} sm={12} key={channel.key} className="channel-wrap">
-                                <div className="channel" onClick={()=>this.popUp(channel)}>
-                                    <div className="channel-body">
-                                        <img src={channel.pic} alt={channel.name}/>
-                                    </div>
-                                    <div className="channel-footer">
-                                        <p>
-                                            {channel.name}
-                                        </p>
+          </Drawer>
+          <Row>
+            {
+              COURSES.map(channel=>(
+                <Col xl={6} lg={8} md={12} sm={12} key={channel.key} className="channel-wrap">
+                  <div className="channel" onClick={()=>this.popUp(channel)}>
+                    <div className="channel-body">
+                      <img src={channel.pic} alt={channel.name}/>
+                    </div>
+                    <div className="channel-footer">
+                      <p>
+                        {channel.name}
+                      </p>
                                 
                                       
-                                        {
-                                            this.checkOrder(channel.key)?  
-                                                <Button 
-                                                    disabled={true}
-                                                >
+                      {
+                        this.checkOrder(channel.key)?  
+                          <Button 
+                            disabled={true}
+                          >
                                                 已购买</Button>:
-                                                <Button 
-                                                    type="primary" 
-                                                    onClick={(e)=>this.trigger(e,channel.key)}>
+                          <Button 
+                            type="primary" 
+                            onClick={(e)=>this.trigger(e,channel.key)}>
                                                获取</Button>
-                                        }
+                      }
                                         
-                                    </div>
-                                </div>
+                    </div>
+                  </div>
                                
-                            </Col>
-                        ))
-                    }
-                </Row>
+                </Col>
+              ))
+            }
+          </Row>
               
-            </div>
-        );
+        </div>
+      );
     }
 }
 
 Shop.propTypes = {
-    userInfo: PropTypes.object,
-    update: PropTypes.func
+  userInfo: PropTypes.object,
+  update: PropTypes.func
 };
 export default Shop;

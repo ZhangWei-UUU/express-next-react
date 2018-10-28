@@ -1,5 +1,5 @@
 import React,{Component} from "react";
-import { Layout,Menu,Icon } from "antd";
+import { Layout,Menu,Icon,Skeleton } from "antd";
 import { observer } from "mobx-react";
 import { observable, toJS } from "mobx";
 import PropTypes from "prop-types";
@@ -31,14 +31,14 @@ const ITEMS = [
         if(ctx.query.subitem){
           return {subitem:ctx.query.subitem,loginUser:ctx.loginUser}; 
         }else{
-          return {subitem:"shop",loginUser:ctx.loginUser}; 
+          return {subitem:"mychannel",loginUser:ctx.loginUser}; 
         }
      
       }else{
         if(ctx.req.query.subitem){
           return {subitem:ctx.req.query.subitem,loginUser:ctx.req.session.loginUser};
         }else{
-          return {subitem:"shop",loginUser:ctx.req.session.loginUser};
+          return {subitem:"mychannel",loginUser:ctx.req.session.loginUser};
         }     
       }
     }
@@ -93,7 +93,10 @@ const ITEMS = [
               </Menu>
             </Sider>
             <Content>
-              <DynamicComponent userInfo={toJS(this.userInfo)} update={this.update}/>
+              {this.userInfo? <DynamicComponent userInfo={toJS(this.userInfo)} update={this.update}/>:
+                <Skeleton active/>
+              }
+             
             </Content>  
           </Layout>
           <FooterNav /> 

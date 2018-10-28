@@ -1,7 +1,7 @@
 {
     "menu":[
         {"name":"基础知识","children":[
-            {"name":"源码分析","url":"originCode","finish":false}
+            {"name":"二进制","url":"buffers","finish":false}
         ]},
         {"name":"开发应用","children":[
             {"name":"脚本 Scenario","url":"Scenario","finish":false},

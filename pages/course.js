@@ -80,12 +80,12 @@ const Step = Steps.Step;
                     <Link href="/usercenter?subitem=mychannel"><a>我的课程</a></Link>
                   </Breadcrumb.Item>
                   <Breadcrumb.Item>
-                     当前课程
+                    {name}
                   </Breadcrumb.Item>
                 </Breadcrumb>
                 <Row>
                   <Col xl={8}>
-                    <h2>课程名称：</h2>
+                    <h2>课程名称： {name}</h2>
                   </Col>
                 </Row>
                 <Row>

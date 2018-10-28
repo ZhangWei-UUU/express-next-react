@@ -1,0 +1,23 @@
+{
+    "name":"Hyperledger Fabric",
+    "version":"0.0.1",
+    "author":"张伟",
+    "parents":[
+      "区块链"
+    ],
+    "relatives":[
+       {"key":0,"title":"Docker Compose","url":"https://docs.docker.com/compose/"}
+    ],
+    "steps":[
+       {"key":0,"title":"基础知识","description":""},
+       {"key":1,"title":"开发应用","description":""},
+       {"key":2,"title":"基础教程","description":""}
+    ],
+    "notes":"",
+    "current":0,
+    "menu":[
+        {"name":"基础知识","children":[
+            {"name":"二进制","url":"buffers","finish":false}
+        ]}
+    ]
+}
