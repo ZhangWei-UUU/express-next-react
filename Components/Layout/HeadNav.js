@@ -41,10 +41,10 @@ class HeadNav extends Component{
             <Item key="right" style={{float:"right"}}>
               {loginUser?
                 <div>
-                  <Link href="/usercenter">
-                    <a>{loginUser}</a> 
-                  </Link>
-                  <a onClick={this.logout}> | 退出</a>
+               
+                  <a  href="/usercenter">{loginUser}</a> 
+                  | 
+                  <a onClick={this.logout}> 退出</a>
                 </div>
                 :
                 <a  href="/login">未登录</a>
