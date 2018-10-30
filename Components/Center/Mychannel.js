@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col,Button,message,Drawer,Icon,Skeleton } from "antd";
+import { Row, Col,Button } from "antd";
 import { observer } from "mobx-react";
 import { observable,toJS} from "mobx";
 import PropTypes from "prop-types";
@@ -10,6 +10,17 @@ import request from "../Fetch/request";
     @observable isDrawer = false;
     @observable currentCourse= "";
 
+    
+    
+    closeDrawer = () => {
+      this.isDrawer = false;
+    }
+
+    popUp = (channel) => {
+      this.isDrawer = true;
+      this.currentCourse = channel;
+    }
+    
     delete = async (e,value) =>{
       e.preventDefault();
       e.stopPropagation();
@@ -25,17 +36,8 @@ import request from "../Fetch/request";
         message.warn("失败");
       }
     }
-    
-    closeDrawer = () => {
-      this.isDrawer = false;
-    }
-
-    popUp = (channel) => {
-      this.isDrawer = true;
-      this.currentCourse = channel;
-    }
     render(){
-      let myCourses = this.props.userInfo.courses || [];
+      let myCourses = this.props.userInfo.courses;
       return(
         <div>
           <Row>
@@ -51,10 +53,7 @@ import request from "../Fetch/request";
                         <p>
                           {channel}
                         </p>
-                        <Button 
-                          type="error" 
-                          onClick={(e)=>this.delete(e,channel)}>
-                                            删除</Button>
+                        <Button type="primary" onClick={(e)=>this.delete(e,channel)}>删除</Button>
                       </div>
                     </div>
                   </a>

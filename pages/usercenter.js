@@ -66,7 +66,7 @@ const ITEMS = [
     render(){
       let {subitem,loginUser} = this.props;
       let DynamicComponent =MultiComponents[subitem];
-     
+
       return(
         <Layout>
           <HeadNav themeStyle="light" loginUser={loginUser}/> 
@@ -93,10 +93,9 @@ const ITEMS = [
               </Menu>
             </Sider>
             <Content>
-              {this.userInfo? <DynamicComponent userInfo={toJS(this.userInfo)} update={this.update}/>:
-                <Skeleton active/>
-              }
-             
+
+              <DynamicComponent userInfo={toJS(this.userInfo)} update={this.update}/>
+              
             </Content>  
           </Layout>
           <FooterNav /> 
