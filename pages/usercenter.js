@@ -93,9 +93,7 @@ const ITEMS = [
               </Menu>
             </Sider>
             <Content>
-
-              <DynamicComponent userInfo={toJS(this.userInfo)} update={this.update}/>
-              
+              {this.userInfo?<DynamicComponent userInfo={toJS(this.userInfo)} update={this.update}/>:null}
             </Content>  
           </Layout>
           <FooterNav /> 

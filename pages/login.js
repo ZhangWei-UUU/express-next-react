@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Input,Icon, Button,Form ,Alert,message} from "antd";
 import PropTypes from "prop-types";
 import request from "../Components/Fetch/request";
-
+import Router from "next/router";
 
 import "../style.less";
 
@@ -30,8 +30,7 @@ class Login extends Component{
             if(data.success){
               message.success(data.message);
               setTimeout(()=>{
-                window.location.href="/usercenter";
-                           
+                Router.push({ pathname:"/usercenter"});       
               },1200);
             }else{
               this.setState({
