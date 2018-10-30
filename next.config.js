@@ -1,22 +1,40 @@
 /* eslint-disable */
-const withLess = require('@zeit/next-less')
+const webpack = require('webpack');
+const path = require('path')
 
+const withCSS = require('@zeit/next-css')
 //fix: prevents error when .css files are required by node
 if (typeof require !== 'undefined') {
-  require.extensions['.less'] = () => {}
+  require.extensions['.css'] = () => {}
 }
+module.exports = withCSS({
+        onDemandEntries: {
+            // Make sure entries are not getting disposed.
+            maxInactiveAge: 1000 * 60 * 60
+          },
+          serverRuntimeConfig: {
+            mySecret: 'secret'
+          },
+          publicRuntimeConfig: {
+            staticFolder: '/static'
+          },
+        webpack(config, {buildId}) {
+            const nextLocation = path.join(require.resolve('next/package.json'), '../')
+            const nextCssNodeModulesLocation = path.join(
+               require.resolve('@zeit/next-css'),
+             '../../../node_modules'
+         )
 
-module.exports = withLess({
-    lessLoaderOptions: {
-        javascriptEnabled: true,
-    },
-    
-    webpack(config,{}) {
-      // Further custom configuration here
-      config.module.rules.push({
-        test: /\.md$/,
-        use: 'raw-loader'
-      })
-      return config
+    if (nextCssNodeModulesLocation.indexOf(nextLocation) === -1) {
+      config.resolveLoader.modules.push(nextCssNodeModulesLocation)
     }
-  })
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        'process.env.CONFIG_BUILD_ID': JSON.stringify(buildId)
+      })
+    )
+    return config
+        }
+      })
+
+

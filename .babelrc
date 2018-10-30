@@ -1,16 +1,17 @@
 
 {
     "presets": [
-      ["@babel/env", { "modules": "commonjs" }],
-      "next/babel","@babel/preset-react"
+      ["@babel/env"],
+      "next/babel"
     ],
     "plugins": [
       ["@babel/plugin-proposal-decorators", { "legacy": true }],
       ["@babel/plugin-proposal-class-properties", { "loose": true }],
-
+ 
       ["import", {
         "libraryName": "antd",
-        "style": true
+        "libraryDirectory": "lib",
+        "style":"css"
       }]
     ]
   }

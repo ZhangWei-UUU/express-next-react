@@ -6,7 +6,7 @@ import HeadNav from "../Components/Layout/HeadNav";
 import FooterNav from "../Components/Layout/FooterNav";
 import withPrivate from "../Components/Authentication";
 
-import "../style.less";
+import "../style.css";
 const { Content } = Layout;
 
 class Monitor extends Component{

@@ -9,7 +9,7 @@ import HeadNav from "../Components/Layout/HeadNav";
 import withPrivate from "../Components/Authentication";
 import request from "../Components/Fetch/request";
 
-import "../Style/course.less";
+import "../Style/course.css";
 
 const DirectoryTree = Tree.DirectoryTree;
 const TreeNode = Tree.TreeNode;

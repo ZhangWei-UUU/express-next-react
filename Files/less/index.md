@@ -8,10 +8,10 @@ less全局命令称为`lessc`,通过`npm install less -g`进行安装。
 npm i less --save-dev
 ```
 
-将`.less`文件转换成`.css`文件：
+将`.css`文件转换成`.css`文件：
 
 ```
-lessc xxx.less xxx.css
+lessc xxx.css xxx.css
 ```
 
 ## Less 的特质
@@ -60,7 +60,7 @@ body {
 如果我们写了多个less文件，在使用的时候又希望引用则使用`@import`.
 
 ```less
-@import "./theme.less"
+@import "./theme.css"
 ```
 
 在一个元素有多个交互或者形态时，css的编写十分麻烦：

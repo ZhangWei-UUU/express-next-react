@@ -4,7 +4,7 @@ import Router from "next/router";
 import PropTypes from "prop-types";
 import { Input,Icon, Button,Form ,Alert,message} from "antd";
 import request from "../Components/Fetch/request";
-import "../style.less";
+import "../style.css";
 
 const FormItem = Form.Item;
 

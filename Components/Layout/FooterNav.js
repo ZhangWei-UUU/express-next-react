@@ -1,7 +1,7 @@
 import React,{Component} from "react";
 import { Row,Col } from "antd";
 
-import "../../style.less";
+import "../../style.css";
 
 const array = [
   {title:"IT基础",items:[

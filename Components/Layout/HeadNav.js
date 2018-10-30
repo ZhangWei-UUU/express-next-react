@@ -1,8 +1,10 @@
 import React,{Component} from "react";
 import { Menu } from "antd";
 import PropTypes from "prop-types";
+import Router from "next/router";
+
 import Link from "next/link";
-import "../../style.less";
+import "../../style.css";
 
 const { Item } = Menu;
 
@@ -10,7 +12,7 @@ class HeadNav extends Component{
     logout = () =>{
       fetch("/api/logout").then(res=>res.json()).then(data=>{
         if(data.success){
-          window.location.href="/login";
+          Router.push({ pathname:"/login"});  
         }
       });
     }
@@ -47,7 +49,8 @@ class HeadNav extends Component{
                   <a onClick={this.logout}> 退出</a>
                 </div>
                 :
-                <a  href="/login">未登录</a>
+  
+                <a href="/login">未登录</a>
              
               }
             </Item>

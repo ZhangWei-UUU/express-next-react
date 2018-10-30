@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import request from "../Components/Fetch/request";
 import Router from "next/router";
 
-import "../style.less";
+import "../style.css";
 
 const FormItem = Form.Item;
 
@@ -28,10 +28,8 @@ class Login extends Component{
           try{
             const data =  await request("POST","/api/login",values);
             if(data.success){
+              window.location.href="/usercenter";
               message.success(data.message);
-              setTimeout(()=>{
-                Router.push({ pathname:"/usercenter"});       
-              },1200);
             }else{
               this.setState({
                 alert:data.message

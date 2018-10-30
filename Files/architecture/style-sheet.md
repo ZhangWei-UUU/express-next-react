@@ -13,4 +13,4 @@ module.exports = withLess({
 })
 ```
 
-之后只要创建任何.less文件，便可正常使用。
+之后只要创建任何.css文件，便可正常使用。

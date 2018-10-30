@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import dynamic from "next/dynamic";
 import withPrivate from "../Components/Authentication";
 import HeadNav from "../Components/Layout/HeadNav";
-import "../style.less";
+import "../style.css";
 
 const { Content } = Layout;
 

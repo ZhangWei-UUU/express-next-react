@@ -22,30 +22,29 @@ var store = new MongoDBStore({
   uri: `${DB_CONFIG.url}/session`,
   collection: "sessions"
 });
+var server = express();
+server.set("trust proxy", 1); // trust first proxy
+server.set("port",configure.port);
+server.use(bodyParser.urlencoded({ extended: false }));
+server.use(bodyParser.json());
+server.use(require("express-session")({
+  secret: "This is a secret",
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
+  },
+  store: store,
+  resave: true,
+  saveUninitialized: true
+}));
+server.use(cookieParser());
+server.use(compression());
+server.use("/api",api);
+server.use("/api/doc",docapi);
+server.use("/api/course",course);
+server.use("/api/shop",shopapi);
+server.use("/api/npm",npm);
 
 app.prepare().then(()=>{
-  var server = express();
-  server.set("trust proxy", 1); // trust first proxy
-  server.set("port",configure.port);
-  server.use(bodyParser.urlencoded({ extended: false }));
-  server.use(bodyParser.json());
-  server.use(require("express-session")({
-    secret: "This is a secret",
-    cookie: {
-      maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
-    },
-    store: store,
-    resave: true,
-    saveUninitialized: true
-  }));
-  server.use(cookieParser());
-  server.use(compression());
-  server.use("/api",api);
-  server.use("/api/doc",docapi);
-  server.use("/api/course",course);
-  server.use("/api/shop",shopapi);
-  server.use("/api/npm",npm);
-     
   server.get("/doc/:theme/:charpt",(req,res)=>{
     return app.render(req, res, "/doc",{theme:req.params.theme,charpt:req.params.charpt});
   });
@@ -59,7 +58,6 @@ app.prepare().then(()=>{
     console.log("启动Express-next-react App,端口号："+configure.port);
   });
 });
-// app.get('*', (req, res) => nextApp.render(req, res, '/noFound', req.query));
 process.on("uncaughtException",(err)=>{
   console.log(err);
 });

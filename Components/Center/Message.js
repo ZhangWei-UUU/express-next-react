@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactMarkdown from "react-markdown";
 import request from "../Fetch/request";
-import "../../style.less";
+import "../../style.css";
 
 class Messages extends Component{
     constructor(props) {

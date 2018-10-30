@@ -5,7 +5,7 @@ import { observable,toJS} from "mobx";
 import PropTypes from "prop-types";
 import request from "../Fetch/request";
 
-import "../../Style/course.less";
+import "../../Style/course.css";
 const FormItem = Form.Item;
 
 const formItemLayout = {

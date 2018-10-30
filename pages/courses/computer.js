@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import FooterNav from "../../Components/Layout/FooterNav";
 import HeadNav from "../../Components/Layout/HeadNav";
 import withPrivate from "../../Components/Authentication";
-import "../../style.less";
+import "../../style.css";
 
 const TCP_IP = [
   {key:0,name:"应用层",protocol:[
