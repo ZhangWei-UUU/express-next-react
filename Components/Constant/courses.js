@@ -4,6 +4,7 @@ const COURSES = [
   {key:"net-secret",name:"网络加密",pic:"/static/shop/net-secret.jpg"},
   {key:"computer",name:"计算机基础",pic:"/static/shop/net-secret.jpg"},
   {key:"nodejs",name:"NodeJS",pic:"/static/shop/net-secret.jpg"},
+  {key:"npm",name:"NPM",pic:"/static/shop/net-secret.jpg"},
 ];
 
 export default COURSES;
