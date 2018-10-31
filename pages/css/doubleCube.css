@@ -1,0 +1,59 @@
+.spinner {
+    margin: 100px auto;
+    width: 40px;
+    height: 40px;
+    position: relative;
+  }
+  
+  .cube1, .cube2, .cube3, .cube4 {
+    background-color:greenyellow;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    -webkit-animation: sk-cubemove 2.4s infinite ease-in-out;
+    animation: sk-cubemove 2.4s infinite ease-in-out;
+  }
+  
+  .cube2 {
+    -webkit-animation-delay: -0.6s;
+    animation-delay: -0.6s;
+  }
+
+  .cube3 {
+    -webkit-animation-delay: -1.2s;
+    animation-delay: -1.2s;
+  }
+
+  .cube4 {
+    -webkit-animation-delay: -1.8s;
+    animation-delay:  -1.8s;
+  }
+
+  
+  @-webkit-keyframes sk-cubemove {
+    25% { -webkit-transform: translateX(42px) scale(0.5) }
+    50% { -webkit-transform: translateX(42px) translateY(42px);background-color:red }
+    75% { -webkit-transform: translateX(0px) translateY(42px) scale(0.5) }
+   
+  }
+  
+  @keyframes sk-cubemove {
+    25% { 
+      transform: translateX(42px) scale(0.5);
+      -webkit-transform: translateX(42px)  scale(0.5);
+    } 50% { 
+      transform: translateX(42px) translateY(42px) ;
+      -webkit-transform: translateX(42px) translateY(42px);
+      background-color:red
+    } 50.1% { 
+      transform: translateX(42px) translateY(42px) ;
+      -webkit-transform: translateX(42px) translateY(42px) ;
+      background-color:red
+    } 75% { 
+      transform: translateX(0px) translateY(42px)  scale(0.5);
+      -webkit-transform: translateX(0px) translateY(42px)  scale(0.5);
+    }
+  }

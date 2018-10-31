@@ -1,0 +1,23 @@
+{
+    "name":"CSS 奇淫巧技",
+    "version":"0.0.1",
+    "author":"张伟",
+    "parents":[
+      "CSS"
+    ],
+    "relatives":[
+      
+    ],
+    "steps":[
+       {"key":0,"title":"Loading动画","description":""},
+       {"key":1,"title":"Less预编译","description":""},
+       {"key":2,"title":"Sass预编译","description":""}
+    ],
+    "notes":"",
+    "current":0,
+    "menu":[
+        {"name":"Loading动画","children":[
+            {"name":"双CUBE动画","url":"doubleCube","finish":false}
+        ]}
+    ]
+}
