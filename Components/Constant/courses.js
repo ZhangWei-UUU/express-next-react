@@ -6,6 +6,9 @@ const COURSES = [
   {key:"nodejs",name:"NodeJS",pic:"/static/shop/nodejs.jpg"},
   {key:"npm",name:"NPM",pic:"/static/shop/npm.jpg"},
   {key:"css",name:"CSS奇淫巧技",pic:"/static/shop/css.jpg"},
+  {key:"react-native",name:"React Native",pic:"/static/shop/react-native.jpg"},
+  {key:"electron",name:"Electron",pic:"/static/shop/electron.jpg"},
+  {key:"appStore",name:"应用商店的注册",pic:"/static/shop/appStore.jpg"},
 ];
 
 export default COURSES;

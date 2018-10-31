@@ -1,0 +1,21 @@
+{
+    "name":"Electron 桌面应用",
+    "version":"0.0.1",
+    "author":"张伟",
+    "parents":[
+
+    ],
+    "relatives":[
+      
+    ],
+    "steps":[
+       {"key":0,"title":"基础","description":""}
+    ],
+    "notes":"",
+    "current":0,
+    "menu":[
+        {"name":"基础","children":[
+            {"name":"关于Electron","url":"about","finish":false}
+        ]}
+    ]
+}

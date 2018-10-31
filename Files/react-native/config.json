@@ -1,0 +1,23 @@
+{
+    "name":"React Native",
+    "version":"0.0.1",
+    "author":"张伟",
+    "parents":[
+      "JAVA","Android"
+    ],
+    "relatives":[
+      
+    ],
+    "steps":[
+       {"key":0,"title":"开始一个小程序","description":""},
+       {"key":1,"title":"2","description":""},
+       {"key":2,"title":"3","description":""}
+    ],
+    "notes":"",
+    "current":0,
+    "menu":[
+        {"name":"开始一个小程序","children":[
+            {"name":"双CUBE动画","url":"doubleCube","finish":false}
+        ]}
+    ]
+}

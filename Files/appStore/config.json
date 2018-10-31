@@ -1,0 +1,24 @@
+{
+    "name":"各大主流应用商店注册",
+    "version":"0.0.1",
+    "author":"张伟",
+    "parents":[
+      
+    ],
+    "relatives":[
+      
+    ],
+    "steps":[
+       {"key":0,"title":"小米","description":""},
+       {"key":1,"title":"应用宝","description":""},
+       {"key":2,"title":"Apple","description":""},
+       {"key":3,"title":"Google","description":""}
+    ],
+    "notes":"",
+    "current":0,
+    "menu":[
+        {"name":"小米","children":[
+            {"name":"注册账户","url":"xiaomiRegister","finish":false}
+        ]}
+    ]
+}

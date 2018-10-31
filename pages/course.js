@@ -3,7 +3,7 @@ import { Layout,Row,Col,Breadcrumb,Card,Steps,Icon,Alert,Skeleton,Tree,Tag } fro
 import Link from "next/link";
 import PropTypes from "prop-types";
 import { observer } from "mobx-react";
-import { observable, toJS } from "mobx";
+import { observable } from "mobx";
 import FooterNav from "../Components/Layout/FooterNav";
 import HeadNav from "../Components/Layout/HeadNav";
 import withPrivate from "../Components/Authentication";
@@ -131,46 +131,35 @@ const Step = Steps.Step;
             className="course-card"
           >
             {this.status === "success"?
-              <DirectoryTree
-                multiple
-                defaultExpandAll
-                onSelect={this.onSelect}
-                onExpand={this.onExpand}
-              >
-                {
-                  this.content.menu.map(it=>{
-                    if(it.children && it.children.length>0){
-                      return(
-                        <TreeNode title={it.name} key={it.name}>
-                          {it.children.map(child=>{
-                            return(
-                              <TreeNode title={
-                                <span>
-                                  <Link href={`/doc/${name}/${child.url}`}>
-                                    <a>{child.name}</a>
-                                  </Link>
-                                  {child.finish?
-                                    <Icon type="check-circle" className="checked"/>:null
-                                  }
-                                 
-                                </span>
-                              }  isLeaf  key={child.name}>
-                              </TreeNode>
-                              
-                            );
-                          })}
-                        </TreeNode>
-                      );
-                    }
-                    return(
-                      <TreeNode title={it.name} key={it.name}>
-                        ss
-                      </TreeNode>
-                    );
-                  })
+              this.content.menu.map(it=>{
+                if(it.children && it.children.length>0){
+                  return (
+                    <div>
+                      <h3>{it.name}</h3>
+                      {it.children.map((child,index)=>{
+                        return(
+                          <p key={child.name}>
+                            <span>{index+1}. </span>
+                            <Link href={`/doc/${name}/${child.url}`} >
+                              <a rel="noopener noreferrer" target="_blank">{child.name}</a>
+                            </Link>
+                            {child.finish?
+                              <Icon type="check-circle" className="checked"/>:null
+                            }
+                            
+                          </p>
+                        );
+                      })}
+                    </div>
+                  );
+                }else{
+                  return(
+                    <p>无</p>
+                  );
                 }
+              })
+
              
-              </DirectoryTree>
              
               :<Skeleton active />}     
           </Card>
@@ -180,6 +169,7 @@ const Step = Steps.Step;
             bordered={false} 
             className="course-card"
           >
+          
             {this.status === "success"?
               this.content.relatives.map(relative=>{
                 return(
