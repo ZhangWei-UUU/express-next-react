@@ -5,7 +5,7 @@ const COURSES = [
   {key:"computer",name:"计算机基础",pic:"/static/shop/net-secret.jpg"},
   {key:"nodejs",name:"NodeJS",pic:"/static/shop/nodejs.jpg"},
   {key:"npm",name:"NPM",pic:"/static/shop/npm.jpg"},
-  {key:"css",name:"CSS奇淫巧技",pic:"/static/shop/npm.jpg"},
+  {key:"css",name:"CSS奇淫巧技",pic:"/static/shop/css.jpg"},
 ];
 
 export default COURSES;
