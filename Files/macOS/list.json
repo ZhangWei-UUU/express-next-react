@@ -1,0 +1,7 @@
+{
+    "menu":[
+        {"name":"基础知识","children":[
+            {"name":"桌面.截图.录屏","url":"desktopSnapshort"}
+        ]}
+    ]
+}

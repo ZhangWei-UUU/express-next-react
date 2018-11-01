@@ -1,0 +1,26 @@
+{
+    "name":"NPM 机制学习",
+    "version":"0.0.1",
+    "author":"张伟",
+    "parents":[
+      "Apple"
+    ],
+    "relatives":[
+      
+    ],
+    "steps":[
+       {"key":0,"title":"基础知识","description":""},
+       {"key":1,"title":"自带应用","description":""},
+       {"key":2,"title":"基础教程","description":""}
+    ],
+    "notes":"",
+    "current":1,
+    "menu":[
+        {"name":"基础知识","children":[
+            {"name":"桌面.截图.录屏","url":"desktopSnapshort","finish":true}
+        ]},
+        {"name":"自带应用","children":[
+            {"name":"iMovie","url":"iMovie","finish":false}
+        ]}
+    ]
+}

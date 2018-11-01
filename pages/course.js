@@ -114,7 +114,7 @@ const Step = Steps.Step;
             className="course-card"
           >
             {this.status === "success"?
-              <Steps progressDot current={0}>
+              <Steps progressDot current={this.content.current}>
                 {this.content.steps.map(step=>{
                   return(
                     <Step title={step.title}

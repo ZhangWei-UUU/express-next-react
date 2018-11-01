@@ -9,6 +9,7 @@ const COURSES = [
   {key:"react-native",name:"React Native",pic:"/static/shop/react-native.jpg"},
   {key:"electron",name:"Electron",pic:"/static/shop/electron.jpg"},
   {key:"appStore",name:"应用商店的注册",pic:"/static/shop/appStore.jpg"},
+  {key:"macOS",name:"Mac OS的使用技巧",pic:"/static/shop/macOS.jpg"},
 ];
 
 export default COURSES;
