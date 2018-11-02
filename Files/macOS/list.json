@@ -1,7 +1,10 @@
 {
     "menu":[
         {"name":"基础知识","children":[
-            {"name":"桌面.截图.录屏","url":"desktopSnapshort"}
+            {"name":"桌面.截图.录屏","url":"desktopSnapshort","finish":true}
+        ]},
+        {"name":"自带应用","children":[
+            {"name":"iMovie","url":"iMovie","finish":false}
         ]}
     ]
 }

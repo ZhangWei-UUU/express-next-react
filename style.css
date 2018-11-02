@@ -420,7 +420,7 @@
 .menu-main-children {
     text-decoration: none;
     padding: 2px 0;
-    background: rgb(218, 217, 217);
+    background: rgb(236, 236, 236);
     margin-bottom:0;
 }
 
@@ -446,12 +446,15 @@
 
 .channel-wrap {
     padding: 10px;
+ 
 }
 
 .channel {
     background: #fff;
     height: 240px;
     width:100%;
+    border:1px solid #e8e8e8;
+    border-radius: 15px;
 }
 
 .channel-body {
@@ -467,6 +470,7 @@
 .channel-body img {
     width:100%;
     height: 100%;
+    border-radius: 15px 15px 0 0;
 }
 
 .app-details {
@@ -517,4 +521,9 @@
      min-height: 120px;
      margin-bottom: 1px;
      padding: 10px;
+ }
+
+ .doc-container {
+     background: #fff;
+     padding: 3%;
  }

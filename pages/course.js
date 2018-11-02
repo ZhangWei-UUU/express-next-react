@@ -134,7 +134,7 @@ const Step = Steps.Step;
               this.content.menu.map(it=>{
                 if(it.children && it.children.length>0){
                   return (
-                    <div>
+                    <div key={it.name}>
                       <h3>{it.name}</h3>
                       {it.children.map((child,index)=>{
                         return(
