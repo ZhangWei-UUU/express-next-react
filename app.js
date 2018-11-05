@@ -1,9 +1,12 @@
 
 var express = require("express");
 var next = require("next");
+var fs = require("fs");
+var path = require("path");
 var bodyParser = require("body-parser");
 var cookieParser = require("cookie-parser");
 var session = require("express-session");
+const https = require("https");
 var MongoDBStore = require("connect-mongodb-session")(session);
 const compression = require("compression");
 var dev = process.env.NODE_ENV !== "production";
@@ -45,6 +48,11 @@ server.use("/api/shop",shopapi);
 server.use("/api/npm",npm);
 
 app.prepare().then(()=>{
+  const httpsOptions = {
+    key: fs.readFileSync(path.join(__dirname,"SSL","2_www.funningcoin.cn.key")),
+    cert: fs.readFileSync(path.join(__dirname,"SSL","1_www.funningcoin.cn_bundle.crt"))
+  };
+
   server.get("/doc/:theme/:charpt",(req,res)=>{
     return app.render(req, res, "/doc",{theme:req.params.theme,charpt:req.params.charpt});
   });
@@ -52,12 +60,16 @@ app.prepare().then(()=>{
   server.get("*", (req, res) => {
     return handle(req, res);
   });
-   
-  server.listen(configure.port,(err)=>{
+  const SecurityServer = https.createServer(httpsOptions,server);
+
+  SecurityServer.listen(configure.port,(err)=>{
     if (err) throw err;
-    console.log("启动Express-next-react App,端口号："+configure.port);
+    console.log(`启动安全服务器,端口号：${configure.port}`);
   });
 });
+
+
+
 process.on("uncaughtException",(err)=>{
   console.log(err);
 });
