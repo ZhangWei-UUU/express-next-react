@@ -2,7 +2,11 @@
     "menu":[
         {"name":"基础知识","children":[
             {"name":"Buffer的数据处理","url":"buffers","finish":true},
-            {"name":"各种网络通信","url":"nets","finish":false}
+            {"name":"各种网络通信","url":"nets","finish":false},
+            {"name":"内置对象","url":"builtObject","finish":false},
+            {"name":"Work Threads多线程","url":"work-threads","finish":false},
+            {"name":"Util","url":"util","finish":false},
+            {"name":"Web Socket","url":"web-socket","finish":false}
         ]}
     ]
 }

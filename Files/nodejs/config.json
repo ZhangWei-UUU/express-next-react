@@ -3,22 +3,25 @@
     "version":"0.0.1",
     "author":"张伟",
     "parents":[
-      "区块链"
+      "Javascript"
     ],
     "relatives":[
        {"key":0,"title":"Docker Compose","url":"https://docs.docker.com/compose/"}
     ],
     "steps":[
        {"key":0,"title":"基础知识","description":""},
-       {"key":1,"title":"开发应用","description":""},
-       {"key":2,"title":"基础教程","description":""}
+       {"key":0,"title":"高级应用","description":""}
     ],
     "notes":"",
     "current":0,
     "menu":[
         {"name":"基础知识","children":[
             {"name":"Buffer的数据处理","url":"buffers","finish":true},
-            {"name":"各种网络通信","url":"nets","finish":false}
+            {"name":"各种网络通信","url":"nets","finish":false},
+            {"name":"内置对象","url":"builtObject","finish":false},
+            {"name":"Work Threads多线程","url":"work-threads","finish":false},
+            {"name":"Util","url":"util","finish":false},
+            {"name":"Web Socket","url":"web-socket","finish":false}
         ]}
     ]
 }

@@ -62,7 +62,7 @@ app.prepare().then(()=>{
   });
   const SecurityServer = https.createServer(httpsOptions,server);
 
-  SecurityServer.listen(configure.port,(err)=>{
+  server.listen(configure.port,(err)=>{
     if (err) throw err;
     console.log(`启动安全服务器,端口号：${configure.port}`);
   });

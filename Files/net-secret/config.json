@@ -1,0 +1,24 @@
+{
+    "name":"NPM 机制学习",
+    "version":"0.0.1",
+    "author":"张伟",
+    "parents":[
+      "JS"
+    ],
+    "relatives":[
+        {"key":0,"title":"Nginx","url":"https://www.nginx.com/"}
+     
+    ],
+    "steps":[
+       {"key":0,"title":"基础知识","description":""},
+       {"key":1,"title":"开发应用","description":""},
+       {"key":2,"title":"基础教程","description":""}
+    ],
+    "notes":"",
+    "current":0,
+    "menu":[
+        {"name":"基础知识","children":[
+            {"name":"Nginx的负载均衡和反向代理","url":"nginx","finish":false}
+        ]}
+    ]
+}
