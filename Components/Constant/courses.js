@@ -10,6 +10,7 @@ const COURSES = [
   {key:"electron",name:"Electron",pic:"/static/shop/electron.jpg"},
   {key:"appStore",name:"应用商店的注册",pic:"/static/shop/appStore.jpg"},
   {key:"macOS",name:"Mac OS的使用技巧",pic:"/static/shop/macOS.jpg"},
+  {key:"English",name:"English的语法分析",pic:"/static/shop/English.jpg"},
 ];
 
 export default COURSES;

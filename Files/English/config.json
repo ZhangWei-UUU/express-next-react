@@ -1,0 +1,24 @@
+{
+    "name":"English 语法自动化分析",
+    "version":"0.0.1",
+    "author":"张伟",
+    "parents":[
+      "基础学科"
+    ],
+    "relatives":[
+        {"key":0,"title":"数学","url":"/"},
+        {"key":1,"title":"物理","url":"/"}
+    ],
+    "steps":[
+       {"key":0,"title":"互联网辅助工具的使用","description":""},
+       {"key":1,"title":"基础语法","description":""},
+       {"key":2,"title":"长句子分析","description":""}
+    ],
+    "notes":"",
+    "current":0,
+    "menu":[
+        {"name":"互联网辅助工具的使用","children":[
+            {"name":"前言","url":"index","finish":false}
+        ]}
+    ]
+}

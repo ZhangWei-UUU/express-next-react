@@ -11,7 +11,7 @@ const array = [
     {name:"shell",link:"/doc/shell/index"},
     {name:"Webpack",link:"/doc/webpack/index"}
   ]},
-  {title:"关于PICCOLO-WEB",items:[
+  {title:"关于嘉竹文库",items:[
     {name:"作者简介",link:"/author"},
     {name:"设计文档",link:"/doc/architecture/index"},
     {name:"后台展示",link:"/monitor"},
@@ -51,7 +51,7 @@ class FooterNav extends Component{
                    
           </Row>
           <center style={{marginTop:"50px"}}>
-                      PICCOLO-WEB版权所有© 2018 备案号：沪ICP备18022274号-1
+                      嘉竹文库版权所有© 2018 备案号：沪ICP备18022274号-1
           </center>
         </div>
       </div>

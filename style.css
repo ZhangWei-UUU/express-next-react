@@ -5,7 +5,7 @@
     width: 100%;
     color:#fff;  
     font-weight: 350;
-    padding-top: 200px;
+    padding-top: 150px;
 }
 
 .first-component-wrapper {
@@ -288,6 +288,7 @@
     width: 600px;
     display: block;
     float: right;
+    margin-top: 100px;
 }
 
 .artical-header {

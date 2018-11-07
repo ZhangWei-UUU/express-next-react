@@ -57,7 +57,7 @@ class Doc extends Component {
     return (
       <Layout>
         <Head>
-          <title>PICCOLO-WEB | 文档</title>
+          <title>嘉竹文库 | 文档</title>
           <link rel="stylesheet" href="/static/highlight/styles/github-gist.css"></link>
         </Head>
         <HeadNav themeStyle="light"  loginUser={loginUser}/>

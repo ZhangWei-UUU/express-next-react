@@ -59,7 +59,7 @@ class Register extends Component{
                 <div className="login-form">
                     <div>
                         <img src="/static/images/logo.webp" className="login-icon"  alt="logo"/>
-                        <h1>注册 PICCOLO-WEB</h1>
+                        <h1>注册 嘉竹文库</h1>
                     </div>
                     {alert?<Alert message={alert}
                         type="error"

@@ -36,7 +36,7 @@ class HeadNav extends Component{
                   }
                   <p style={themeStyle === "light"?
                     {color:"#1890ff"}:null
-                  }>PICCOLO-WEB</p>
+                  }>嘉竹文库</p>
                 </div>
               </a>
             </Item>
