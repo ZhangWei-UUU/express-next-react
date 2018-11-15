@@ -1,12 +1,12 @@
 {
-    "name":"NPM 机制学习",
+    "name":"Echarts",
     "version":"0.0.1",
     "author":"张伟",
     "parents":[
       "JS"
     ],
     "relatives":[
-      
+     
     ],
     "steps":[
        {"key":0,"title":"基础知识","description":""},
@@ -14,15 +14,10 @@
        {"key":2,"title":"基础教程","description":""}
     ],
     "notes":"",
-    "current":1,
+    "current":0,
     "menu":[
         {"name":"基础知识","children":[
-            {"name":"创建Modules","url":"modules","finish":false},
-            {"name":"各种网络通信","url":"nets","finish":false}
-        ]},
-        {"name":"开发应用","children":[
-            {"name":"websocket包","url":"websocket","finish":false},
-            {"name":"各种网络通信","url":"nets","finish":false}
+            {"name":"拓扑结构","url":"topology","finish":false}
         ]}
     ]
 }

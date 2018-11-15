@@ -2,21 +2,21 @@ import React, { Component } from "react";
 import ReactEcharts from "echarts-for-react";
 
 const data =  [{
-    name: "节点1",
-    x: 2000,
-    y: 2000
+  name: "节点1",
+  x: 2000,
+  y: 2000
 }, {
-    name: "节点2",
-    x: 800,
-    y: 300
+  name: "节点2",
+  x: 800,
+  y: 300
 }, {
-    name: "节点3",
-    x: 550,
-    y: 100
+  name: "节点3",
+  x: 550,
+  y: 100
 }, {
-    name: "节点4",
-    x: 550,
-    y: 500
+  name: "节点4",
+  x: 550,
+  y: 500
 }];
 /**
  * @param { Object } option
@@ -27,75 +27,75 @@ const data =  [{
  * 只有两个属性：source和target，对两个节点进行简单的关系描述。
  */
 const option = {
-    title: {
-        text: "节点简单示例"
-    },
-    tooltip: {},
-    animationDurationUpdate: 1200, //更新时加载动画时间
-    animationEasingUpdate: "quinticInOut",//更新时加载动画类型
-    series : [
-        {
-            type: "graph",
-            layout: "none",
-            symbolSize: 50,
-            roam: true,
-            label: {
-                normal: {
-                    show: true
-                }
-            },
-            edgeSymbol: ["circle", "arrow"],
-            edgeSymbolSize: [4, 10],
-            edgeLabel: {
-                normal: {
-                    textStyle: {
-                        fontSize: 20
-                    }
-                }
-            },
-            data:data,
-            links: [  {
-                source: "节点1",
-                target: "节点3"
-            }, {
-                source: "节点2",
-                target: "节点3"
-            }, {
-                source: "节点2",
-                target: "节点4"
-            }, {
-                source: "节点1",
-                target: "节点4"
-            }],
-            lineStyle: {
-                normal: {
-                    opacity: 0.9,
-                    width: 2,
-                    curveness: 0
-                }
-            }
+  title: {
+    text: "节点简单示例"
+  },
+  tooltip: {},
+  animationDurationUpdate: 1200, //更新时加载动画时间
+  animationEasingUpdate: "quinticInOut",//更新时加载动画类型
+  series : [
+    {
+      type: "graph",
+      layout: "none",
+      symbolSize: 50,
+      roam: true,
+      label: {
+        normal: {
+          show: true
         }
-    ]
+      },
+      edgeSymbol: ["circle", "arrow"],
+      edgeSymbolSize: [4, 10],
+      edgeLabel: {
+        normal: {
+          textStyle: {
+            fontSize: 20
+          }
+        }
+      },
+      data:data,
+      links: [  {
+        source: "节点1",
+        target: "节点3"
+      }, {
+        source: "节点2",
+        target: "节点3"
+      }, {
+        source: "节点2",
+        target: "节点4"
+      }, {
+        source: "节点1",
+        target: "节点4"
+      }],
+      lineStyle: {
+        normal: {
+          opacity: 0.9,
+          width: 2,
+          curveness: 0
+        }
+      }
+    }
+  ]
 };
 class SimpleNodes extends Component{
-    render(){
-        var r = 100;
-        var count = 4;
-        var x = 100;
-        var y = 100;
-        var radians = (Math.PI /180 ) * Math.round(360/count);
-        var result = [];
-        for(let i = 0; i <count;i++){
-            var newx = x+ r*Math.sin(radians * i);
-            var newy = y+ r*Math.cos(radians * i);
-            result.push({x:newx,y:newy});
+  render(){
+    var r = 100;
+    var count = 4;
+    var x = 100;
+    var y = 100;
+    var radians = (Math.PI /180 ) * Math.round(360/count);
+    var result = [];
+    for(let i = 0; i <count;i++){
+      var newx = x+ r*Math.sin(radians * i);
+      var newy = y+ r*Math.cos(radians * i);
+      result.push({x:newx,y:newy});
 
-        }
-       
-        return(
-            <ReactEcharts option={option}/>
-        );
     }
+       
+    return(
+      <ReactEcharts option={option}/>
+    );
+  }
 }
 
 export default SimpleNodes;

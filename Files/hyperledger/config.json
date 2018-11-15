@@ -20,11 +20,10 @@
             {"name":"源码分析","url":"originCode","finish":false}
         ]},
         {"name":"开发应用","children":[
-            {"name":"脚本 Scenario","url":"Scenario","finish":false},
-            {"name":"分析 Analysis","url":"Analysis","finish":false},
+            {"name":"脚本 Scenario","url":"Scenario","finish":true},
+            {"name":"分析 Analysis","url":"Analysis","finish":true},
             {"name":"智能合约 Smart Congtract","url":"SmartContract","finish":false},
-            {"name":"应用 Application","url":"Application","finish":false},
-            {"name":"架构 Architecture","url":"Architecture","finish":false}
+            {"name":"应用 Application","url":"Application","finish":false}
         ]},
         {"name":"基础教程","children":[
             {"name":"编写基础应用","url":"index","finish":false},

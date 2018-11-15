@@ -29,14 +29,12 @@ class EchartsPage extends Component{
                 </div>
               </Col>
               <Col lg={8}>
-                <div className="echarts-txt">
-                           
+                <div className="echarts-txt">           
                 </div>
               </Col>
               <Col lg={16}>
                 <div className="echarts-card">
-                  <DynamicComB/>
-                                   
+                  <DynamicComB/>                     
                 </div>
               </Col>
               <Col lg={8}>
