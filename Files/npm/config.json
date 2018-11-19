@@ -18,7 +18,11 @@
     "menu":[
         {"name":"基础知识","children":[
             {"name":"创建Modules","url":"modules","finish":false},
-            {"name":"各种网络通信","url":"nets","finish":false}
+            {"name":"各种网络通信","url":"nets","finish":false},
+            {"name":"Header Fields","url":"header-fields","finish":false},
+            {"name":"Single sign-on","url":"single-sign-on","finish":false},
+            {"name":"JSON Web Token","url":"jwt","finish":false},
+            {"name":"Chrome V8","url":"v8","finish":false}
         ]},
         {"name":"开发应用","children":[
             {"name":"websocket包","url":"websocket","finish":false},

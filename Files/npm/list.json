@@ -1,7 +1,11 @@
 {
     "menu":[
         {"name":"基础知识","children":[
-            {"name":"创建Module","url":"modules"}
+            {"name":"创建Module","url":"modules"},
+            {"name":"Header Fields","url":"header-fields"},
+            {"name":"Single sign-on","url":"single-sign-on"},
+            {"name":"JSON Web Token","url":"jwt"},
+            {"name":"Chrome V8","url":"v8"}
         ]},
         {"name":"开发应用","children":[
             {"name":"websocket包","url":"websocket"}
