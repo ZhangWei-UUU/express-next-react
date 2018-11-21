@@ -5,6 +5,7 @@
             {"name":"数据管理","url":"data-managing"},
             {"name":"容器管理[应用Docker化]","url":"docker-container"},
             {"name":"持续化集成","url":"jenkins"},
+            {"name":"集群服务","url":"cluster"},
             {"name":"单元测试","url":"unit-test"}
         ]},
         {"name":"高级技术","children":[
