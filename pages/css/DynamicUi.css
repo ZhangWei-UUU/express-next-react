@@ -1,0 +1,209 @@
+#dynamic-ui-body {
+   display: grid;
+   grid-template-columns: 1fr 5fr;
+   position: absolute;
+   background:linear-gradient(135deg,#5b6f69,#46595c 76%,#46595c 0);
+   top:0;
+   bottom: 0;
+   left: 0;
+   right: 0; 
+}
+
+#dynamic-ui-siderbar {
+    float: left;
+    padding: 30px 10px;
+    width: 240px;
+    background:rgba(255, 255, 255, 0.2);
+    height: 100%;   
+    color:#fff;
+}
+
+#dynamic-ui-siderbar h2 {
+    margin-left: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+}
+
+#dynamic-ui-siderbar ul{
+    padding-left: 0;
+}
+.dynamic-ui-siderbar-item{
+    cursor: pointer;
+    padding:5px 10px;
+    margin:4px 8px;
+    list-style-type:none;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.dynamic-ui-siderbar-item .item-text {
+    margin-left: 5px;
+}
+
+.dynamic-ui-siderbar-item.active{
+    color:#fff;
+    background:rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.dynamic-ui-container {
+    float: left;
+    width: 100%;
+    position: relative;
+}
+
+.dynamic-ui-model {
+    margin:18% auto;
+    color:#fff;
+    width: 700px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.dynamic-ui-model h1 {
+    color:#fff;
+}
+
+.dynamic-ui-model img {
+    display: block;
+    margin:10px auto;
+    width: 280px;
+    height: 300px;
+}
+
+.dynamic-ui-model .ant-divider{
+    background: rgba(255, 255, 255, 0.2);
+}
+.animated.ult-speed {
+    -webkit-animation-duration: 100ms;
+    animation-duration: 100ms;
+}
+
+.animated.ult-speed-disappear {
+-webkit-animation-duration: 100ms;
+animation-duration: 100ms;
+display: none;
+}
+
+.intro-children-list {
+    color: rgba(255, 255, 255, 0.8);
+    margin:40px 0;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+.intro-children-list i {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 40px;
+}
+
+.dynamic-ui-btn {
+    background: #fff;
+    color: black;
+    border:none;
+    border-radius: 9px;
+    cursor: pointer;
+    outline: none;
+    padding: 4px 10px;
+}
+
+.dynamic-ui-btn.blue{
+    background: #28bcfb;
+    color: black
+}
+
+#lot-sum {
+    font-size: 60px;
+    color: #28bcfb;
+    font-weight: 400;
+}
+
+#block-icon {
+    z-index: 900;
+    position: fixed;
+    bottom: 5%;
+    right: 45%;
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+    background:linear-gradient(135deg,#727272,#353535 76%,#353535 0);
+}
+
+#block-icon-light {
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+    background:#59cdff;
+    margin:5px auto;
+    padding: 5px;
+    -webkit-animation: block-light 2.4s infinite ease-in-out;
+    animation: block-light 2.4s infinite ease-in-out;
+}
+
+@keyframes block-light {
+    25% { transform: none }
+    50% {   background-color:#9bdffc; }
+    75% {  background-color:#9bdffc; }
+    100% { transform: none }
+}
+
+@-webkit-keyframes block-light {
+    25% { -webkit-transform: none }
+    50% { background-color:#9bdffc; }
+    75% { background-color:#9bdffc; }
+    100% { -webkit-transform: none }
+  }
+
+
+#block-icon-btn {
+    cursor: pointer;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    background:linear-gradient(135deg,#727272,#353535 76%,#353535 0);
+    margin:0 auto;
+    padding-top: 10px;
+}
+
+.dynamic-ui-details-header {
+    display: grid;
+    grid-template-columns: 1fr 14fr 4fr;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+}
+
+.dynamic-ui-details-title {
+    text-align: center;
+}
+
+.dynamic-ui-container {
+    padding: 40px;
+}
+
+.dynamic-ui-container .ant-table-thead th {
+    background: none;
+    color: #fff;
+}
+
+ th.ant-table-column-sort{
+    background: none;
+    color: #fff;
+}
+.dynamic-ui-container .ant-table-thead > tr > th.ant-table-column-sort {
+    background: none;
+    color: #fff;
+}
+.dynamic-ui-container .ant-table-tbody > tr > td {
+    border-bottom: none;
+}
+
+.dynamic-ui-container .ant-table{
+    color:#fff;
+}
+
+.dynamic-ui-container .ant-table-tbody > tr:hover > td {
+    background: none;
+}

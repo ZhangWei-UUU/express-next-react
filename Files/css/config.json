@@ -17,7 +17,8 @@
     "current":0,
     "menu":[
         {"name":"Loading动画","children":[
-            {"name":"双CUBE动画","url":"doubleCube","finish":false}
+            {"name":"双CUBE动画","url":"doubleCube","finish":true},
+            {"name":"酷炫动态UI","url":"DynamicUI","finish":false}
         ]}
     ]
 }
