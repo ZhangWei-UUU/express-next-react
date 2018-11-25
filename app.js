@@ -60,7 +60,8 @@ app.prepare().then(()=>{
   server.ws("/ws",(ws,req)=>{
     console.log(ws);
   });
-
+  
+  
   server.get("*", (req, res) => {
     return handle(req, res);
   });

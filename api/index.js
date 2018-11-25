@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const getIP = require("external-ip")();
+const nodemailer = require("nodemailer");
 const MongoClient = require("mongodb").MongoClient;
 const os = require("os");
 var fs = require("fs");
@@ -97,6 +98,34 @@ router.get("/currentUserInfo",checkPrivated,(req,res)=>{
   });
     
 });
+
+router.get("/mail",(req,res)=>{
+  let transporter = nodemailer.createTransport({
+    host: "smtp.qq.com",
+    auth: {
+      user: "350095093@qq.com", // generated ethereal user
+      pass: "ldysztmohryebiea" // generated ethereal password
+    }
+  });
+
+  let mailOptions = {
+    from: "350095093@qq.com", // sender address
+    to: "kanseefoil@gmail.com", // list of receivers
+    subject: "Hello ✔", // Subject line
+    text: "Hello world?", // plain text body
+    html: "<b>Hello world?</b>" // html body
+  };
+
+  transporter.sendMail(mailOptions,(err,info)=>{
+    if(err){
+      console.error(err);
+    }else{
+      res.send(info);
+    }
+  });
+});
+
+
 
 router.get("/environment",(req,res)=>{
   MongoClient.connect(DB_CONFIG.url,(err,client)=>{
