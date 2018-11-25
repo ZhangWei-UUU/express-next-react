@@ -26,6 +26,7 @@ var store = new MongoDBStore({
   collection: "sessions"
 });
 var server = express();
+var serverWS = require("express-ws")(server);
 server.set("trust proxy", 1); // trust first proxy
 server.set("port",configure.port);
 server.use(bodyParser.urlencoded({ extended: false }));
@@ -46,21 +47,24 @@ server.use("/api/doc",docapi);
 server.use("/api/course",course);
 server.use("/api/shop",shopapi);
 server.use("/api/npm",npm);
+server.use(function (req, res, next) {
+  return next();
+});
 
 app.prepare().then(()=>{
-  const httpsOptions = {
-    key: fs.readFileSync(path.join(__dirname,"SSL","2_www.funningcoin.cn.key")),
-    cert: fs.readFileSync(path.join(__dirname,"SSL","1_www.funningcoin.cn_bundle.crt"))
-  };
 
   server.get("/doc/:theme/:charpt",(req,res)=>{
     return app.render(req, res, "/doc",{theme:req.params.theme,charpt:req.params.charpt});
+  });
+  
+  server.ws("/ws",(ws,req)=>{
+    console.log(ws);
   });
 
   server.get("*", (req, res) => {
     return handle(req, res);
   });
-  const SecurityServer = https.createServer(httpsOptions,server);
+
 
   server.listen(configure.port,(err)=>{
     if (err) throw err;
