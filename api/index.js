@@ -108,12 +108,12 @@ router.get("/mail",(req,res)=>{
     }
   });
 
-  let mailOptions = {
+  let mailOptions = {   
     from: "350095093@qq.com", // sender address
     to: "kanseefoil@gmail.com", // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "Hello world?", // plain text body
-    html: "<b>Hello world?</b>" // html body
+    subject: "嘉竹文库新版部署成功", // Subject line
+    text: "嘉竹文库新版部署成功", // plain text body
+    html: "<a href=\"http://funningcoin.cn\"><button>查看详情</button></a>" // html body
   };
 
   transporter.sendMail(mailOptions,(err,info)=>{

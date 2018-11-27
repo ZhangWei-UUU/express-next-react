@@ -4,7 +4,7 @@ import { observer } from "mobx-react";
 import { observable,toJS} from "mobx";
 import PropTypes from "prop-types";
 import request from "../Fetch/request";
-
+import "../../Style/course.css";
 @observer class Mychannel extends Component{
     @observable myCourses = [];
     @observable isDrawer = false;
