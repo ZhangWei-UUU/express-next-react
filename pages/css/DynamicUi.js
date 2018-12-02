@@ -18,6 +18,10 @@ const ITEMS = [
 
 
 @observer class DynamicUi extends Component{
+  componentDidMount(){
+    var test1 = window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
+    console.log(test1);
+  }
     @observable current = 10;
     selectItem = (key) => {
       this.current = key;
