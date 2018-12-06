@@ -1,0 +1,1 @@
+# [App 的基本面](https://developer.android.com/guide/components/fundamentals)

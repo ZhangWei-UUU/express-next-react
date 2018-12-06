@@ -1,5 +1,7 @@
 {
     "menu":[
-    
+        {"name":"Android Studio","children":[
+            {"name":"Android Studio 配置","url":"configIde"}
+        ]}
     ]
 }

@@ -9,15 +9,23 @@
       
     ],
     "steps":[
-       {"key":0,"title":"开始一个小程序","description":""},
+       {"key":0,"title":"Android Studio","description":""},
        {"key":1,"title":"2","description":""},
        {"key":2,"title":"3","description":""}
     ],
     "notes":"",
     "current":0,
     "menu":[
-        {"name":"开始一个小程序","children":[
-            {"name":"双CUBE动画","url":"doubleCube","finish":false}
+        {"name":"Android Studio","children":[
+            {"name":"Android Studio 配置","url":"configIde","finish":false}
+        ]},
+        {"name":"App 基础","children":[
+            {"name":"APP基本原理","url":"fundamentals","finish":false},
+            {"name":"APP manifest","url":"manifest","finish":false}
+        ]},
+        {"name":"原生代码练习","children":[
+            {"name":"APP基本原理","url":"fundamentals","finish":false},
+            {"name":"APP manifest","url":"manifest","finish":false}
         ]}
     ]
 }
