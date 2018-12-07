@@ -12,7 +12,6 @@ const { Content } = Layout;
 
 const DynamicFooter = dynamic(import("../Components/Layout/FooterNav"),{ssr:false});
 const DynamicMobile = dynamic(import("../Components/ShowBar/Mobile"),{ssr:false});
-const DynamicAI = dynamic(import("../Components/ShowBar/AI"),{ssr:false});
 const DynamicMap = dynamic(import("../Components/ShowBar/Map"),{ssr:false});
 
 class Home extends Component{
@@ -61,25 +60,16 @@ class Home extends Component{
                                           
                   </Col>
                   <Col lg={15}>
-                    <img src="/static/images/house-arch.webp" key="6"  alt="house"/>                          
+                    <img src="/static/images/library.svg" 
+                      
+                      key="6"  alt="house"/>                          
                   </Col>
                 </Row>
                                 
               </div>
             </div>
-            <div className="service-component">
-              <center>
-                <h1 key="a">数据可视化</h1>
-                <p key="b">基于强大的蚂蚁金服Antd + 百度Echarts</p>
-                <a href="/echarts" key="c-1">
-                                    了解更多 
-                </a>  
-                            
-              </center>   
-            </div>
-            <DynamicMap/>
             <DynamicMobile/>
-            <DynamicAI/>
+            <DynamicMap/>
           </Content>
         </Layout>
         <DynamicFooter /> 

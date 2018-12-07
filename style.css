@@ -6,6 +6,7 @@
     color:#fff;  
     font-weight: 350;
     padding-top: 150px;
+    font-size: 18px;
 }
 
 .first-component-wrapper {
@@ -285,10 +286,9 @@
 }
 
 .first-component img {
-    width: 600px;
+    width: 500px;
     display: block;
     float: right;
-    margin-top: 100px;
 }
 
 .artical-header {
