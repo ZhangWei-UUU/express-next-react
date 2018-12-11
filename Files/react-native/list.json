@@ -1,7 +1,31 @@
 {
     "menu":[
         {"name":"Android Studio","children":[
-            {"name":"Android Studio 配置","url":"configIde"}
+            {"name":"构建第一个Android应用","url":"firstAndroidApp","finish":false},
+            {"name":"Layout编辑器","url":"layoutEditor","finish":false},
+            {"name":"创建Android项目","url":"createAndroidApp","finish":false},
+            {"name":"运行Android项目","url":"runAndroidApp","finish":false},
+            {"name":"构建简单的UI","url":"simpleUI","finish":false},
+            {"name":"构建简单的操作","url":"simpleActivity","finish":false},
+            {"name":"Android Studio 配置","url":"configIde","finish":false},
+            {"name":"Android App 资源","url":"androidResources","finish":false},
+            {"name":"Android App 资源类型","url":"androidResTypes","finish":false},
+            {"name":"Android App 权限","url":"permissions","finish":false}
+        ]},
+        {"name":"App Platform","children":[
+            {"name":"android.app","url":"android.app","finish":false},
+            {"name":"android.content","url":"android.content","finish":false}
+        ]},
+        {"name":"App开发","children":[
+            {"name":"基本流程","url":"workflow","finish":false}
+        ]},
+        {"name":"App 基础","children":[
+            {"name":"APP基本原理","url":"fundamentals","finish":false},
+            {"name":"APP manifest","url":"manifest","finish":false}
+        ]},
+        {"name":"原生代码练习","children":[
+            {"name":"APP基本原理","url":"fundamentals","finish":false},
+            {"name":"APP manifest","url":"manifest","finish":false}
         ]}
     ]
 }
