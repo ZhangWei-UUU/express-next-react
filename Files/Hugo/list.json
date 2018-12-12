@@ -1,0 +1,14 @@
+{
+    "menu":[
+        {"name":"准备事项","children":[
+            {"name":"安装","url":"install","finish":false},
+            {"name":"Nginx容器化","url":"dockerize","finish":false}
+        ]},
+        {"name":"文档","children":[
+            {"name":"文档","url":"Scenario","finish":false}
+        ]},
+        {"name":"主题","children":[
+            {"name":"安装使用主题","url":"theme","finish":false}
+        ]}
+    ]
+}

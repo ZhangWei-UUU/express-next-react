@@ -1,0 +1,30 @@
+{
+    "name":"Hugo",
+    "version":"0.0.1",
+    "author":"张伟",
+    "parents":[
+      "静态网站"
+    ],
+    "relatives":[
+       {"key":0,"title":"Hugo","url":"https://gohugo.io/about/what-is-hugo/"}
+    ],
+    "steps":[
+       {"key":0,"title":"准备事项","description":""},
+       {"key":1,"title":"文档","description":""},
+       {"key":2,"title":"主题","description":""}
+    ],
+    "notes":"",
+    "current":0,
+    "menu":[
+        {"name":"准备事项","children":[
+            {"name":"安装","url":"install","finish":false},
+            {"name":"Nginx容器化","url":"dockerize","finish":false}
+        ]},
+        {"name":"文档","children":[
+            {"name":"文档","url":"Scenario","finish":false}
+        ]},
+        {"name":"主题","children":[
+            {"name":"安装使用主题","url":"theme","finish":false}
+        ]}
+    ]
+}
