@@ -21,20 +21,17 @@
 所谓`项目`就是指在当前的workspace下该应用素有的源代码、测试代码、打包配置文件和静态资源的集合。通过点击左侧`PROJECT`或`**View > Tool Windows > Project**`两种方式调出界面。
 
 ### 模块 Modules
-A module is a collection of source files and build settings that allow you to divide your project into discrete units of functionality. Your project can have one or many modules and one module may use another module as a dependency. Each module can be independently built, tested, and debugged.
 
-Additional modules are often useful when creating code libraries within your own project or when you want to create different sets of code and resources for different device types, such as phones and wearables, but keep all the files scoped within the same project and share some code.
+模块是源文件和构建配置的集合，它将项目按照功能分成不同的模块。一个可以由一个或多个模块所组成，同时一个模块也可以成为其他模块的依赖。 每一个模块可以独立构建、测试和debug.
 
-You can add a new module to your project by clicking File > New > New Module.
+增加模块的方式：`**File > New > New Module**`
 
 Android Studio offers a few distinct types of module:
 
+If your build variants use product flavors, Gradle also invokes tasks to build those product flavors. To view the list of all available build tasks, click View > Tool Windows > Gradle (or click Gradle  in the tool window bar).
 
-If your build variants use product flavors, Gradle also invokes tasks to build those product flavors. To view the list of all available build tasks, click View > Tool Windows > Gradle (or click Gradle   in the tool window bar).
+在构建的过程中一旦出现error，Gradle会弹出一些命令行选项来帮助处理相关问题。
 
-If an error occurs during the build process, Gradle may recommend some command-line options to help you resolve the issue, such as --stacktrace or --debug. To use command-line options with your build process:
-
-Open the Settings or Preferences dialog:
 On Windows or Linux, select File > Settings from the menu bar.
 On Mac OSX, select Android Studio > Preferences from the menu bar.
 Navigate to Build, Execution, Deployment > Compiler.
