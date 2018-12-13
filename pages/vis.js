@@ -1,8 +1,6 @@
 import React,{Component} from "react";
 import { Network, Node, Edge } from "@lifeomic/react-vis-network";
-
-
-
+// https://github.com/lifeomic/react-vis-network
 class Vis extends Component {
   componentDidMount(){
    
@@ -36,7 +34,7 @@ class Vis extends Component {
           <Edge id="2" from="Orderer" to="vader" />
           <Edge id="3" from="Orderer" to="Org1" />
           <Edge id="4" from="Org1" to="Org-peer1" />
-          <Edge id="5" from="Org1" to="Org-peer2" />
+          <Edge id="5   " from="Org1" to="Org-peer2" />
         </Network>
       </div>
     );
