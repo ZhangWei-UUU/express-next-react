@@ -1,6 +1,9 @@
 import React,{Component} from "react";
 import Graph from "vis-react";
 
+/**
+ * 参考资料https://appendto.com/2017/05/creating-network-diagrams-vis-js/
+ */
 var graph = {
   nodes: [
     {id: 1, shape:"circle",label: "第一节点",},
