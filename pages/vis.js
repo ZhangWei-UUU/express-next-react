@@ -5,11 +5,11 @@ var graph = {
   nodes: [
     {id: 1, shape:"circle",label: "第一节点",},
     {id: 2, label: "",shape:"image",
-      image: "https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/app_store-128.png",
+      image: "/static/images/internet-hub.png",
       color:{background:"red",border:"maroon"}},
     {id: 3, shape:"circle",label: "Node 3"},
     {id: 4, shape:"circle",label: "Node 4"},
-    {id: 5, label: "",shape:"image", image: "https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/app_store-128.png"},
+    {id: 5, label: "",shape:"image", image: "/static/images/internet-hub.png"},
     {id: 6, shape:"circle",label: "Node 6"},
     {id: 7, shape:"circle",label: "Node 7"}
   ],
@@ -29,6 +29,7 @@ var options = {
     arrows:{to:false}
   },
   nodes:{
+    size:25,
     color:{
       background:"#6cb7f0"
     },
