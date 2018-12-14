@@ -1,44 +1,67 @@
 import React,{Component} from "react";
-import { Network, Node, Edge } from "@lifeomic/react-vis-network";
-// https://github.com/lifeomic/react-vis-network
+import Graph from "vis-react";
+
+var graph = {
+  nodes: [
+    {id: 1, shape:"circle",label: "第一节点",},
+    {id: 2, label: "",shape:"image",
+      image: "https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/app_store-128.png",
+      color:{background:"red",border:"maroon"}},
+    {id: 3, shape:"circle",label: "Node 3"},
+    {id: 4, shape:"circle",label: "Node 4"},
+    {id: 5, label: "",shape:"image", image: "https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/app_store-128.png"},
+    {id: 6, shape:"circle",label: "Node 6"},
+    {id: 7, shape:"circle",label: "Node 7"}
+  ],
+  edges: [
+    {from: 1, to: 2},
+    {from: 3, to: 2},
+    {from: 4, to: 2},
+    {from: 2, to: 5},
+    {from: 5, to: 6},
+    {from: 5, to: 7}
+  ]
+};
+  
+var options = {
+  edges: {
+    color: "#000000",
+    arrows:{to:false}
+  },
+  nodes:{
+    color:{
+      background:"#6cb7f0"
+    },
+    font:{
+      color:"#fff"
+    },
+    icon:{
+      face:"FontAwesome",
+      code:"\uf007",
+      size: 50,
+      color:"#2B7CE9"
+    }
+  },
+  
+};
+  
+var events = {
+  select: function(event) {
+    var { nodes, edges } = event;
+  }
+};
 class Vis extends Component {
   componentDidMount(){
    
 
   }
+
   render(){
-    const CustomIcon = () => {
- 
-      return (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g>
-            <g>
-             
-            </g>
-          </g>
-        </svg>
-      );
-    };
     return(
-      <div>
-        <Network style={{height:"800px"}}>
-          <Node id="vader" label="vader"  icon={<div>xxx</div>} />
-          <Node id="Orderer" label="Orderer" component={CustomIcon}/>
-          <Node id="Org1" label="Org1" component={CustomIcon}/>
-          <Node id="Org-peer1" label="Org-peer1"/>
-          <Node id="Org-peer2" label="Org-peer2"/>
-          <Node id="leia" label="leia" />
-          <Edge id="1" from="Orderer" to="leia" />
-          <Edge id="2" from="Orderer" to="vader" />
-          <Edge id="3" from="Orderer" to="Org1" />
-          <Edge id="4" from="Org1" to="Org-peer1" />
-          <Edge id="5   " from="Org1" to="Org-peer2" />
-        </Network>
+      <div style={{height:"800px"}}>
+        <Graph graph={graph} options={options} events={events} />
       </div>
     );
-  }
+  };
 }
-
 export default Vis;

@@ -32,8 +32,10 @@
     "react-highlight": "0.12.0",
     "react-katex": "2.0.2",
     "react-markdown": "3.5.0",
+    "react-static": "6.0.2",
     "react-websocket": "2.0.0",
     "vis": "4.21.0",
+    "vis-react": "0.4.3",
     "warning": "4.0.2",
     "websocket": "1.0.28",
     "ws": "6.1.2"
