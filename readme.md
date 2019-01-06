@@ -1,7 +1,10 @@
-## 竹纸 Bamboo Paper
+## 嘉竹文库
 
 As a open resource project, Bamboo Paper combines many popular technologies,which include react, webpack, less, express, Docker, Jenkins ,next.js and so on. Our target is to create a simply used business web app for small companies and personal developers.
 
+## Address
+
+118.25.214.169:8080
 
 ## Upgrade Babel
 ```
